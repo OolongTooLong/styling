@@ -1,0 +1,18 @@
+@use '../_mixins/media-query' as *;
+
+// This is a low specificity place to add CSS that are easily overwritten by Utility classes
+@supports (display: grid) {
+  // Moved from grid to allow for overrides
+  .grid-row, .grid {
+    //grid-gap: var(--grid-gap);
+    //@include mq(medium) {
+    //  column-gap: calc(var(--grid-gap)/2);
+    //}
+    //@include mq(largeTablet) {
+    //  column-gap: calc(var(--grid-gap)/2.2);
+    //}
+    //@include mq(tablet) {
+    //  column-gap: calc(var(--grid-gap)/3);
+    //}
+  }
+}

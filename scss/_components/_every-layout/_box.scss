@@ -1,0 +1,38 @@
+.box {
+
+  /* ↓ Padding set to the first point on the modular scale */
+  //padding: var(--s2);
+  /* ↓ Assumes you have a --border-thin var */
+  border: var(--box-border) solid;
+  /* ↓ Always apply the transparent outline, for high contrast mode */
+  outline: var(--box-border) transparent;
+  outline-offset: calc(var(--box-border) * -1);
+  //color: var(--dark-main);
+  //background-color: var(--light-main);
+  border-radius: var(--box-border-radius);
+
+  //box-shadow: 6px 5px 13px 4px rgba(212,209,209,0.75);
+  //margin: var(--s1) 0;
+}
+
+.box > *:not(.button) {
+  /* ↓ Force colors to inherit from the parent
+  and honor inversion (below) */
+  //color: inherit;
+
+  &:nth-last-child(1):not(.button) {
+    margin-bottom: 0;
+  }
+}
+
+.box.base-light { }
+
+.box.base-dark { }
+
+.box.bg-primary-main { }
+
+.box.bg-secondary-main { }
+
+.box.tertiary-main { }
+
+.box.quaternary-main { }

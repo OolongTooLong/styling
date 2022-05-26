@@ -1,0 +1,11 @@
+	
+	// Add Vendor specific pre-fixes
+	@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+		@if $vendors {
+			@each $vendor in $vendors {
+				#{"-" + $vendor + "-" + $property}: #{$value};
+			}
+		}
+		#{$property}: #{$value};
+	}
+	//@include prefix({{ Instruction }}, {{ Value }}, {{ webkit moz ms }} );

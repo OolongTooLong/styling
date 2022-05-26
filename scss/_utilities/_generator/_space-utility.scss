@@ -1,0 +1,456 @@
+@use "../../_abstracts/space-scale";
+@use '../../_utilities/_mixins/media-query' as *;
+@use "../_mixins/media-query" as *;
+@use "../../_abstracts/breakpoints" as *;
+
+$size-scale: (
+        '000': var(--s0),
+        '100': var(--s1),
+        '200': var(--s2),
+        '300': var(--s3),
+        '400': var(--s4),
+        '500': var(--s5),
+        '600': var(--s6),
+        '700': var(--s7),
+);
+
+@each $size, $value in $size-scale {
+  /*----------------------------------------
+    #{$size} utility classes
+  ----------------------------------------*/
+  .pad-#{$size} {
+    padding-top: $value;
+    padding-bottom: $value;
+    padding-left: $value;
+    padding-right: $value;
+    @each $breakpointName, $breakpointValue in $breakpoints {
+      @include mq-min($breakpointName) {
+        &-#{$breakpointName} {
+          padding-top: $value;
+          padding-bottom: $value;
+          padding-left: $value;
+          padding-right: $value;
+        }
+      }
+    }
+  }
+  .pad-top-#{$size} {
+    &:nth-child(1n) {
+      padding-top: $value;
+
+      &:not(.hero-content) {
+        @each $breakpointName, $breakpointValue in $breakpoints {
+          @if $size == '700' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s6)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s5)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-top: var(--s3)
+              }
+            }
+          }
+          @if $size == '600' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s5)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s4)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-top: var(--s2)
+              }
+            }
+          }
+          @if $size == '500' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s4)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s3)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-top: var(--s2)
+              }
+            }
+          }
+          @if $size == '400' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s3)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-top: var(--s2)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-top: var(--s2)
+              }
+            }
+          }
+          @if $size == '300' {
+            @if $breakpointName == 'large-tablet' {
+            }
+            @if $breakpointName == 'tablet' {
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-top: var(--s2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .pad-bottom-#{$size} {
+    &:nth-child(1n) {
+      padding-bottom: $value;
+
+      &:not(.hero-content) {
+        @each $breakpointName, $breakpointValue in $breakpoints {
+          @if $size == '700' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s6)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s5)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s3)
+              }
+            }
+          }
+          @if $size == '600' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s5)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s4)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s2)
+              }
+            }
+          }
+          @if $size == '500' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s4)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s3)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s2)
+              }
+            }
+          }
+          @if $size == '400' {
+            @if $breakpointName == 'large-tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s3)
+              }
+            }
+            @if $breakpointName == 'tablet' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s2)
+              }
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s2)
+              }
+            }
+          }
+          @if $size == '300' {
+            @if $breakpointName == 'large-tablet' {
+            }
+            @if $breakpointName == 'tablet' {
+            }
+            @if $breakpointName == 'phablet' {
+            }
+            @if $breakpointName == 'mobile' {
+              @include mq($breakpointName) {
+                padding-bottom: var(--s2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .pad-left-#{$size} {
+    &:nth-child(1n) {
+      padding-left: $value;
+    }
+  }
+  .pad-right-#{$size} {
+    &:nth-child(1n) {
+      padding-right: $value;
+    }
+  }
+  .gap-top-#{$size} {
+    margin-top: $value;
+    @each $breakpointName, $breakpointValue in $breakpoints {
+      @if $size == '700' {
+        @if $breakpointName == 'large-tablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s6);
+          }
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s5);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+        }
+      }
+      @if $size == '600' {
+        @if $breakpointName == 'large-tablet' {
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s5);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s4);
+          }
+        }
+        @if $breakpointName == 'mobile' {
+        }
+      }
+      @if $size == '500' {
+        @if $breakpointName == 'large-tablet' {
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s4);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s3);
+          }
+        }
+        @if $breakpointName == 'mobile' {
+        }
+      }
+      @if $size == '400' {
+        @if $breakpointName == 'large-tablet' {
+        }
+        @if $breakpointName == 'tablet' {
+        }
+        @if $breakpointName == 'phablet' {
+          @include mq($breakpointName) {
+            margin-top: var(--s3);
+          }
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            margin-top: var(--s2);
+          }
+        }
+      }
+      @if $size == '300' {
+        @if $breakpointName == 'large-tablet' {
+        }
+        @if $breakpointName == 'tablet' {
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            margin-top: var(--s2);
+          }
+        }
+      }
+    }
+  }
+  .gap-bottom-#{$size} {
+    margin-bottom: $value;
+  }
+  .grid-gap-#{$size} {
+    grid-gap: $value;
+    @each $breakpointName, $breakpointValue in $breakpoints {
+      @if $size == '700' {
+        @if $breakpointName == 'large-tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s6);
+            grid-row-gap: var(--s6);
+          }
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s4);
+            grid-row-gap: var(--s6);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s2);
+            grid-row-gap: var(--s5);
+          }
+        }
+      }
+      @if $size == '600' {
+        @if $breakpointName == 'large-tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s5);
+            grid-row-gap: var(--s6);
+          }
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s4);
+            grid-row-gap: var(--s6);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s2);
+            grid-row-gap: var(--s5);
+          }
+        }
+      }
+      @if $size == '500' {
+        @if $breakpointName == 'large-tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s4);
+            grid-row-gap: var(--s5);
+          }
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s3);
+            grid-row-gap: var(--s4);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s1);
+            grid-row-gap: var(--s4);
+          }
+        }
+      }
+      @if $size == '400' {
+        @if $breakpointName == 'large-tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s3);
+            grid-row-gap: var(--s4);
+          }
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s2);
+            grid-row-gap: var(--s3);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s1);
+            grid-row-gap: var(--s3);
+          }
+        }
+      }
+      @if $size == '300' {
+        @if $breakpointName == 'large-tablet' {
+        }
+        @if $breakpointName == 'tablet' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s2);
+            grid-row-gap: var(--s3);
+          }
+        }
+        @if $breakpointName == 'phablet' {
+        }
+        @if $breakpointName == 'mobile' {
+          @include mq($breakpointName) {
+            grid-gap: var(--s1);
+            grid-row-gap: var(--s3);
+          }
+        }
+      }
+    }
+
+    &[id*="slider"] {
+      .slick-list {
+        margin-left: calc(calc(-1 * #{$value}) / 2);
+        margin-right: calc(calc(-1 * #{$value}) / 2);
+
+        .slick-slide {
+          margin-left: calc(#{$value} / 2);
+          margin-right: calc(#{$value} / 2);
+        }
+      }
+    }
+  }
+  .flex-gap-#{$size} {
+    gap: $value;
+  }
+}

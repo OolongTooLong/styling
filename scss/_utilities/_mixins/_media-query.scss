@@ -1,0 +1,17 @@
+/*----------------------------------------
+    # MEDIA QUERIES - /_utilities/_mixins/_media_query.scss
+----------------------------------------*/
+@use "../../_abstracts/breakpoints" as *;
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+@mixin mq-min($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

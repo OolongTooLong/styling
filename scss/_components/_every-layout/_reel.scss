@@ -1,0 +1,37 @@
+.reel > .sprig-component {
+  /* ↓ Custom properties for ease of adjustment */
+  --space: var(--size-500);
+  --reel-height: auto;
+  --item-width: calc(var(--measure)/2);
+  display: flex;
+  height: var(--reel-height);
+  /* ↓ Overflow */
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* ↓ For Firefox */
+  scrollbar-color: var(--color-light) var(--color-dark);
+  stack{
+    max-width: calc(var(--measure)/3);
+  }
+}
+.reel > .sprig-component  > * {
+  /*
+  ↓ Just a `width` wouldn’t work because
+  `flex-shrink: 1` (default) still applies
+  */
+  flex: 0 0 var(--item-width);
+}
+.reel > .sprig-component  > * + * {
+  margin-left: var(--space);
+}
+.reel > .sprig-component .overflowing {
+  /* ↓ Only apply if there is a scrollbar (see the JavaScript) */
+  padding-bottom: var(--space);
+}
+/* ↓ Hide scrollbar with `no-bar` class */
+.reel > .sprig-component .no-bar {
+  scrollbar-width: none;
+}
+.reel > .sprig-component .no-bar::-webkit-scrollbar {
+  display: none;
+}

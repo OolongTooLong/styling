@@ -1,0 +1,42 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+
+  & > * {
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+
+  & > * + * {
+    margin-top: var(--s1);
+  }
+  &:nth-last-child(1){
+    //& a.secondary{
+    //  margin-top: 0;
+    //}
+  }
+}
+
+//// The following two blocks set up alternative .stacks, with different margin values.
+//// While these are active the normal stack is overirdden
+//[class^='stack'] > * {
+//  margin-top: 0;
+//  margin-bottom: 0;
+//}
+
+.stack-tiny > * + * {
+  margin-top: 0.1em;
+}
+
+.stack-small > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-large > * + * {
+  margin-top: 1.2rem;
+}
+.stack-extra-large > * + * {
+  margin-top: 2rem;
+}

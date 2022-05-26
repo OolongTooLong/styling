@@ -1,0 +1,10 @@
+//Next up is flow.
+// This is a super tiny utility that adds margin to child sibling elements, using a lobotomised owl selector.
+// This means that we get tonnes of flexibility, because any element will be affected (unless they are display: inline) and we don’t have to add daft CSS that targets last children to remove spacing.
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+//We first look for a --flow-space Custom Property and if that’s defined,
+// it gets used. By default, using a fallback, we tell each child element to space itself 1rem from its sibling.
+// The great thing about using a Custom Property is that we can control spacing in context without touching this utility again.
+// Those Custom Properties are affected by the cascade too.

@@ -1,0 +1,36 @@
+/*----------------------------------------
+  # SIZE SCALE
+----------------------------------------*/
+/// This is a Major Third scale that powers all the utilities that
+/// it is relevant for (margin, padding). All items are
+/// calculated off the base size, so change that and cascade across
+/// your whole project.
+///
+
+:root{
+  --spacing-ratio: 1.3; // Adjust all other values
+
+  --s-5: calc(var(--s-4) / var(--spacing-ratio)); //Smallest Value
+  --s-4: calc(var(--s-3) / var(--spacing-ratio));
+  --s-3: calc(var(--s-2) / var(--spacing-ratio));
+  --s-2: calc(var(--s-1) / var(--spacing-ratio));
+  --s-1: calc(var(--s1) / var(--spacing-ratio));
+  --s0:0;
+  --s1: 1rem;
+  --s2: calc(var(--s1) * var(--spacing-ratio));
+  --s3: calc(var(--s2) * var(--spacing-ratio));
+  --s4: calc(var(--s3) * var(--spacing-ratio));
+  --s5: calc(var(--s4) * var(--spacing-ratio));
+  --s6: calc(var(--s5) * var(--spacing-ratio));
+  --s7: calc(var(--s6) * var(--spacing-ratio)); // Largest Value
+
+  --s-neg5: calc(-1 * var(--s5)); // Negative values
+  --s-neg4: calc(-1 * var(--s4));
+  --s-neg3: calc(-1 * var(--s3));
+  --s-neg2: calc(-1 * var(--s2));
+  --s-neg1: calc(-1 * var(--s1));
+
+  --measure: 90ch;
+  --grid-gap: var(--s2);
+  --base-button-border-weight:2px;
+}

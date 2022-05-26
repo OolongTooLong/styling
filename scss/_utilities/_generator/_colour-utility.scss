@@ -1,0 +1,149 @@
+/*----------------------------------------
+    # Colour Utility /_utilities/_generator/_colour-utility.scss
+----------------------------------------*/
+@use "../../_abstracts/colours";
+@use '../../_utilities/_mixins/media-query' as *;
+
+@each $color, $shades in colours.$colors {
+  /*----------------------------------------
+    #{$color} utility classes
+  ----------------------------------------*/
+  @each $shade, $value in $shades {
+    @if $shade == main {
+      // Color Classes
+      .color-#{$color}-#{$shade} {
+        color: var(--#{$color}-#{$shade});
+        & > *,a,p,h1,h2,h3,h4,h5,h6,hr  {
+          &:nth-child(1n){
+            color: var(--#{$color}-#{$shade});
+          }
+        }
+      }
+      // Styles for background colours
+      .bg-#{$color}-#{$shade} {
+        background-color: var(--#{$color}-#{$shade});
+        color: var(--#{$color}-invert);
+        > *,
+        .stack > *,
+        blockquote {
+          color: var(--#{$color}-invert);
+        }
+        a,p,h1,h2,h3,h4,h5,h6 {
+          color: var(--#{$color}-invert);
+        }
+        .button-wrap {
+          .button:not(.master) {
+            &.primary {
+              background-color: var(--#{$color}-highlight);
+              color: var(--#{$color}-invert);
+              border-color: var(--#{$color}-invert);
+
+              &:hover {
+                background-color: var(--#{$color}-main);
+                color: var(--#{$color}-highlight);
+                border-color: var(--#{$color}-highlight);
+              }
+            }
+            &.ghost {
+              color: var(--#{$color}-invert);
+
+              &:hover {
+                background-color: var(--#{$color}-invert);
+                color: var(--#{$color}-main);
+                border-color: var(--#{$color}-invert);
+              }
+            }
+            &.secondary {
+              color: var(--#{$color}-invert);
+            }
+          }
+        }
+        &.button:not(.master) {
+          &.primary {
+            background-color: var(--#{$color}-main) !important;
+            color: var(--#{$color}-invert) !important;
+            border-color: var(--#{$color}-main) !important;
+
+            &:hover {
+              background-color: var(--#{$color}-highlight) !important;
+              color: var(--#{$color}-main) !important;
+              border-color: var(--#{$color}-main) !important;
+            }
+          }
+
+          &.ghost {
+            &:nth-child(1n) {
+              color: var(--#{$color}-main);
+
+              &:hover {
+                background-color: var(--#{$color}-main);
+                color: var(--#{$color}-invert);
+                border-color: var(--#{$color}-main);
+              }
+            }
+          }
+        }
+        .fas, .fa {
+          &:before {
+            color: var(--#{$color}-invert);
+          }
+        }
+        #menu-icon {
+          span:before {
+            color: var(--#{$color}-invert);
+          }
+        }
+        .svgColour {
+          svg * {
+            fill: var(--#{$color}-invert);
+          }
+        }
+        &.overlay {
+          &:after {
+            background-color: var(--#{$color}-main);
+          }
+          &.radial {
+            &:after {
+              background: radial-gradient(circle, #ffffff 0%, var(--#{$color}-main) 100%);
+            }
+          }
+        }
+        &.cta {
+          .label:not(*[class*="bg-"]) {
+            background-color: var(--#{$color}-highlight);
+            color: var(--#{$color}-invert);
+          }
+        }
+
+        input[type="submit"]:not(.master) {
+          background-color: var(--#{$color}-invert);
+          color: var(--#{$color}-main);
+          border-color: var(--#{$color}-invert);
+
+          &:hover {
+            background-color: var(--#{$color}-highlight);
+            color: var(--#{$color}-invert);
+            border-color: var(--#{$color}-invert);
+          }
+        }
+      }
+      .border-#{$color}-#{$shade} {
+        border-top-color: var(--#{$color}-#{$shade});
+        border-bottom-color: var(--#{$color}-#{$shade});
+        border-left-color: var(--#{$color}-#{$shade});
+        border-right-color: var(--#{$color}-#{$shade});
+
+        i.fas, i.fa {
+          &:before {
+            color: var(--#{$color}-#{$shade});
+          }
+        }
+      }
+      .fill-#{$color}-#{$shade} {
+        * {
+          fill: var(--#{$color}-#{$shade})!important;
+        }
+      }
+    }
+  }
+}

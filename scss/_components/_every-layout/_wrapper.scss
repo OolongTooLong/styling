@@ -1,0 +1,7 @@
+// The wrapper gives us a consistent max-width container with a bit of gutter. This is destined to be a utility because remember: a utility does one job and does it well.
+.wrapper {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--size-500); // The get-size function comes from Gorko and allows us to grab a size ratio value based on the key.
+}

@@ -1,0 +1,29 @@
+/*----------------------------------------
+  #   FONT SIZES
+  This is a Major Third scale that powers all the utilities that it is
+  relevant for FONT SIZES All items are calculated off the base size,
+  so change that and cascade across your whole project.
+----------------------------------------*/
+
+:root{
+  --font-ratio: 1.2; // Adjust all other values
+  --f0: 1rem;
+  --f1: calc(var(--f0) * var(--font-ratio));
+  --f2: calc(var(--f1) * var(--font-ratio));
+  --f3: calc(var(--f2) * var(--font-ratio));
+  --f4: calc(var(--f3) * var(--font-ratio));
+  --f5: calc(var(--f4) * var(--font-ratio));
+  --f6: calc(var(--f5) * var(--font-ratio));
+  --f7: calc(var(--f6) * var(--font-ratio)); // Largest Value
+  --f8: calc(var(--f7) * var(--font-ratio)); // Largest Value
+
+  --heading-style: Sans-Serif;
+  --body-style: Sans-Serif;
+  --heading-font: 'Lato', var(--heading-style);
+  --body-font: 'Lato', var(--body-style);
+  --heading-weight: 800;
+  --body-weight: 300;
+  --body-line-height: 2;
+  --heading-line-height: 1.2;
+  --max-character-length: 15ch;
+}

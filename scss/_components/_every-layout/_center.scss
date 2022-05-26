@@ -1,0 +1,13 @@
+.center-l {
+  /* ↓ Remove padding from the width calculation */
+  box-sizing: content-box;
+  /* ↓ The maximum width is the maximum measure */
+  max-width: calc(var(--measure)*1);
+  /* ↓ Only affect horizontal margins */
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-large{
+  @extend .center-l;
+  max-width: calc(var(--measure)*1.5);
+}

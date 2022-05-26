@@ -1,0 +1,79 @@
+/*----------------------------------------
+    # Theme Colours -- /_abstracts/_colours.scss
+----------------------------------------*/
+$colors: (
+        primary:(
+                "main": hsl(190, 72%, 66%),
+                "highlight": hsl(190, 60%, 40%),
+                "invert": hsl(190, 100%, 100%),
+        ),
+        secondary:(
+                "main": hsl(177, 42%, 76%),
+                "highlight": hsl(177, 55%, 30%),
+                "invert": hsl(177, 42%, 100%),
+        ),
+        tertiary:(
+                "main":hsl(26, 89%, 57%),
+                "highlight": hsl(26, 80%, 30%),
+                "invert": hsl(26, 89%, 100%),
+        ),
+        quaternary:(
+                "main": hsl(70, 31%, 85%),
+                "highlight": hsl(70, 20%, 60%),
+                "invert": hsl(70, 31%, 10%),
+        ),
+        light:(
+                "main": hsl(5, 2%, 100%),
+                "highlight": hsl(5, 2%, 50%),
+                "invert": hsl(5, 2%, 0%),
+        ),
+        dark:(
+                "main": hsl(5, 2%, 0%),
+                "highlight": hsl(5, 2%, 50%),
+                "invert": hsl(5, 2%, 100%),
+        ),
+);
+:root{
+  @each $color, $shades in $colors{
+    @each $shade, $value in $shades{
+      --#{$color}-#{$shade}: #{$value}
+    }
+  }
+}
+/*----------------------------------------
+    # Base Colours -- /_abstracts/_colours.scss
+----------------------------------------*/
+$baseColors: (
+        base:(
+                "green": #30b130,
+                "orange": #f3af3a,
+                "red": #de2e2e,
+                "white": #ffffff,
+                "grey": #b0b0b0,
+                "black": #000000,
+                "purple": #3B3646,
+
+                // fonts Default Colour
+                "body": #2b2b2b,
+                "heading": #2b2b2b,
+                "background": #f3f3f3,
+
+                // Button Default Colour
+                "button-background": #223c6d,
+                "button-hover": #2e5ab0,
+                "button-text": #ffffff,
+                "button-hover-text": #a0bde0,
+                "button-border-color": #1a1a1a,
+                "button-hover-border-color": #1a1a1a,
+
+                "link-colour": #1a1a1a,
+        ),
+);
+
+:root{
+  @each $bColor, $bShades in $baseColors{
+    @each $shade, $value in $bShades{
+      --#{$bColor}-#{$shade}: #{$value}
+    }
+  }
+}

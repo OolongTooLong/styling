@@ -1,0 +1,31 @@
+/* ↓ No need for an additional, outer wrapping element */
+//.cluster {
+//  display: flex;
+//  flex-wrap: wrap;
+//  gap: 1rem;
+//  --space: 1rem;
+//}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  --space: 1rem;
+  overflow: hidden;
+
+  > img {
+    margin: 0;
+  }
+}
+
+.cluster > * {
+  display: flex;
+  flex-wrap: wrap;
+  /* ↓ multiply by -1 to negate the halved value */
+  margin: calc(var(--space) / 2 * -1);
+
+}
+
+.cluster > * > * {
+  /* ↓ half the value, because of the 'doubling up' */
+  margin: calc(var(--space) / 2);
+}

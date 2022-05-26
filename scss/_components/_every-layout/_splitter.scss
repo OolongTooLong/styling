@@ -1,0 +1,23 @@
+
+// This utility gives us our main responsive layout, which is two elements pushed away from each other at larger viewports.
+.splitter {
+  > :last-child {
+    margin-top: var(--size-500);
+  }
+
+  //@include media-query('md') {
+    display: flex;
+
+    > * {
+      flex-grow: 1;
+    }
+
+    > :last-child {
+      margin-top: 0;
+      margin-left: var(--size-500);
+      min-width: 22rem;
+    }
+  //}
+}
+// Being called splitter, this utility assumes it is dealing with two elements,
+// so it works that way. This is shown right at the start of the utility when the last child has margin added to it.
