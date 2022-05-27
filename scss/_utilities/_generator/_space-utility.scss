@@ -1,6 +1,6 @@
 @use "../../_abstracts/space-scale";
 @use '../../_utilities/_mixins/media-query' as *;
-@use "../_mixins/media-query" as *;
+//@use "../_mixins/media-query" as *;
 @use "../../_abstracts/breakpoints" as *;
 
 $size-scale: (
