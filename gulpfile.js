@@ -34,6 +34,10 @@ const sassPath = {
     src: `scss/global.scss`,
     dest: `css`
 }
+const sassPathLayouts = {
+    src: `scss/_layouts/*.scss`,
+    dest: `css`
+}
 const jsPath = {
     src: `js/_components/*.js`,
     dest: `js`
@@ -43,13 +47,13 @@ const jsPath = {
 function jsDeps(done) {
     const files = [
         "node_modules/jquery/dist/jquery.min.js",
-        "node_modules/slick-carousel/slick/slick.js",
+        // "node_modules/slick-carousel/slick/slick.js",
         "node_modules/gsap/dist/gsap.min.js",
         "node_modules/gsap/dist/ScrollTrigger.js",
         // "node_modules/barba.js/dist/barba.min.js",
-        "js/_vendor/jquery.ihavecookies.min.js",
-        "js/_vendor/jquery.magnific-popup.js",
-        "js/_vendor/plyr.js",
+        // "js/_vendor/jquery.ihavecookies.min.js",
+        // "js/_vendor/jquery.magnific-popup.js",
+        // "js/_vendor/plyr.js",
         "js/_vendor/jquery-ui.js",
     ]
     return (
@@ -98,8 +102,20 @@ function scssTask() {
         .pipe(sourcemaps.write('.'))
         .pipe(dest(sassPath.dest))
 }
-
 exports.scss = scssTask
+
+function layoutscssTask() {
+    return src(sassPathLayouts.src)
+        .pipe(plumber({errorHandler: onError}))
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([autoprefixer()]))
+        // .pipe(postcss([ autoprefixer(), cssnano() ]))
+        .pipe(rename('layouts.css'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(sassPath.dest))
+}
+exports.layoutscss = layoutscssTask
 
 function scssProd() {
     return src(sassPath.src)
@@ -113,11 +129,17 @@ function scssProd() {
 exports.scssProd = scssProd
 
 /******** Watch Tasks *********/
+function watchlayoutScssTask() {
+    watch('scss/**/*.scss',
+        series([layoutscssTask]));
+}
+exports.watchlayoutScss = watchlayoutScssTask
+
+/******** Watch Tasks *********/
 function watchStylesTask() {
     watch('scss/**/*.scss',
         series([scssTask]));
 }
-
 exports.watchStyles = watchStylesTask
 
 function watchScriptsTask() {

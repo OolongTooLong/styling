@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*----------------------------------------
+  #   FONT SIZES
+  This is a Major Third scale that powers all the utilities that it is
+  relevant for FONT SIZES All items are calculated off the base size,
+  so change that and cascade across your whole project.
+----------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 /* ------------------------------------
 	- This is the output of a collection of SCSS files,
 	- The structure utilises @use & @forward to organise the styles before compiling with Gulp
@@ -107,13 +114,6 @@
 /*----------------------------------------
   primary utility classes
 ----------------------------------------*/
-.color-primary-main {
-  color: var(--primary-main);
-}
-.color-primary-main > *:nth-child(1n), .color-primary-main a:nth-child(1n), .color-primary-main p:nth-child(1n), .color-primary-main h1:nth-child(1n), .color-primary-main h2:nth-child(1n), .color-primary-main h3:nth-child(1n), .color-primary-main h4:nth-child(1n), .color-primary-main h5:nth-child(1n), .color-primary-main h6:nth-child(1n), .color-primary-main hr:nth-child(1n) {
-  color: var(--primary-main);
-}
-
 .bg-primary-main {
   background-color: var(--primary-main);
   color: var(--primary-invert);
@@ -126,100 +126,10 @@
 .bg-primary-main a, .bg-primary-main p, .bg-primary-main h1, .bg-primary-main h2, .bg-primary-main h3, .bg-primary-main h4, .bg-primary-main h5, .bg-primary-main h6 {
   color: var(--primary-invert);
 }
-.bg-primary-main .button-wrap .button:not(.master).primary {
-  background-color: var(--primary-highlight);
-  color: var(--primary-invert);
-  border-color: var(--primary-invert);
-}
-.bg-primary-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--primary-main);
-  color: var(--primary-highlight);
-  border-color: var(--primary-highlight);
-}
-.bg-primary-main .button-wrap .button:not(.master).ghost {
-  color: var(--primary-invert);
-}
-.bg-primary-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--primary-invert);
-  color: var(--primary-main);
-  border-color: var(--primary-invert);
-}
-.bg-primary-main .button-wrap .button:not(.master).secondary {
-  color: var(--primary-invert);
-}
-.bg-primary-main.button:not(.master).primary {
-  background-color: var(--primary-main) !important;
-  color: var(--primary-invert) !important;
-  border-color: var(--primary-main) !important;
-}
-.bg-primary-main.button:not(.master).primary:hover {
-  background-color: var(--primary-highlight) !important;
-  color: var(--primary-main) !important;
-  border-color: var(--primary-main) !important;
-}
-.bg-primary-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--primary-main);
-}
-.bg-primary-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--primary-main);
-  color: var(--primary-invert);
-  border-color: var(--primary-main);
-}
-.bg-primary-main .fas:before, .bg-primary-main .fa:before {
-  color: var(--primary-invert);
-}
-.bg-primary-main #menu-icon span:before {
-  color: var(--primary-invert);
-}
-.bg-primary-main .svgColour svg * {
-  fill: var(--primary-invert);
-}
-.bg-primary-main.overlay:after {
-  background-color: var(--primary-main);
-}
-.bg-primary-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--primary-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--primary-main) 100%);
-}
-.bg-primary-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--primary-highlight);
-  color: var(--primary-invert);
-}
-.bg-primary-main input[type=submit]:not(.master) {
-  background-color: var(--primary-invert);
-  color: var(--primary-main);
-  border-color: var(--primary-invert);
-}
-.bg-primary-main input[type=submit]:not(.master):hover {
-  background-color: var(--primary-highlight);
-  color: var(--primary-invert);
-  border-color: var(--primary-invert);
-}
-
-.border-primary-main {
-  border-top-color: var(--primary-main);
-  border-bottom-color: var(--primary-main);
-  border-left-color: var(--primary-main);
-  border-right-color: var(--primary-main);
-}
-.border-primary-main i.fas:before, .border-primary-main i.fa:before {
-  color: var(--primary-main);
-}
-
-.fill-primary-main * {
-  fill: var(--primary-main) !important;
-}
 
 /*----------------------------------------
   secondary utility classes
 ----------------------------------------*/
-.color-secondary-main {
-  color: var(--secondary-main);
-}
-.color-secondary-main > *:nth-child(1n), .color-secondary-main a:nth-child(1n), .color-secondary-main p:nth-child(1n), .color-secondary-main h1:nth-child(1n), .color-secondary-main h2:nth-child(1n), .color-secondary-main h3:nth-child(1n), .color-secondary-main h4:nth-child(1n), .color-secondary-main h5:nth-child(1n), .color-secondary-main h6:nth-child(1n), .color-secondary-main hr:nth-child(1n) {
-  color: var(--secondary-main);
-}
-
 .bg-secondary-main {
   background-color: var(--secondary-main);
   color: var(--secondary-invert);
@@ -232,100 +142,10 @@
 .bg-secondary-main a, .bg-secondary-main p, .bg-secondary-main h1, .bg-secondary-main h2, .bg-secondary-main h3, .bg-secondary-main h4, .bg-secondary-main h5, .bg-secondary-main h6 {
   color: var(--secondary-invert);
 }
-.bg-secondary-main .button-wrap .button:not(.master).primary {
-  background-color: var(--secondary-highlight);
-  color: var(--secondary-invert);
-  border-color: var(--secondary-invert);
-}
-.bg-secondary-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--secondary-main);
-  color: var(--secondary-highlight);
-  border-color: var(--secondary-highlight);
-}
-.bg-secondary-main .button-wrap .button:not(.master).ghost {
-  color: var(--secondary-invert);
-}
-.bg-secondary-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--secondary-invert);
-  color: var(--secondary-main);
-  border-color: var(--secondary-invert);
-}
-.bg-secondary-main .button-wrap .button:not(.master).secondary {
-  color: var(--secondary-invert);
-}
-.bg-secondary-main.button:not(.master).primary {
-  background-color: var(--secondary-main) !important;
-  color: var(--secondary-invert) !important;
-  border-color: var(--secondary-main) !important;
-}
-.bg-secondary-main.button:not(.master).primary:hover {
-  background-color: var(--secondary-highlight) !important;
-  color: var(--secondary-main) !important;
-  border-color: var(--secondary-main) !important;
-}
-.bg-secondary-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--secondary-main);
-}
-.bg-secondary-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--secondary-main);
-  color: var(--secondary-invert);
-  border-color: var(--secondary-main);
-}
-.bg-secondary-main .fas:before, .bg-secondary-main .fa:before {
-  color: var(--secondary-invert);
-}
-.bg-secondary-main #menu-icon span:before {
-  color: var(--secondary-invert);
-}
-.bg-secondary-main .svgColour svg * {
-  fill: var(--secondary-invert);
-}
-.bg-secondary-main.overlay:after {
-  background-color: var(--secondary-main);
-}
-.bg-secondary-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--secondary-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--secondary-main) 100%);
-}
-.bg-secondary-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--secondary-highlight);
-  color: var(--secondary-invert);
-}
-.bg-secondary-main input[type=submit]:not(.master) {
-  background-color: var(--secondary-invert);
-  color: var(--secondary-main);
-  border-color: var(--secondary-invert);
-}
-.bg-secondary-main input[type=submit]:not(.master):hover {
-  background-color: var(--secondary-highlight);
-  color: var(--secondary-invert);
-  border-color: var(--secondary-invert);
-}
-
-.border-secondary-main {
-  border-top-color: var(--secondary-main);
-  border-bottom-color: var(--secondary-main);
-  border-left-color: var(--secondary-main);
-  border-right-color: var(--secondary-main);
-}
-.border-secondary-main i.fas:before, .border-secondary-main i.fa:before {
-  color: var(--secondary-main);
-}
-
-.fill-secondary-main * {
-  fill: var(--secondary-main) !important;
-}
 
 /*----------------------------------------
   tertiary utility classes
 ----------------------------------------*/
-.color-tertiary-main {
-  color: var(--tertiary-main);
-}
-.color-tertiary-main > *:nth-child(1n), .color-tertiary-main a:nth-child(1n), .color-tertiary-main p:nth-child(1n), .color-tertiary-main h1:nth-child(1n), .color-tertiary-main h2:nth-child(1n), .color-tertiary-main h3:nth-child(1n), .color-tertiary-main h4:nth-child(1n), .color-tertiary-main h5:nth-child(1n), .color-tertiary-main h6:nth-child(1n), .color-tertiary-main hr:nth-child(1n) {
-  color: var(--tertiary-main);
-}
-
 .bg-tertiary-main {
   background-color: var(--tertiary-main);
   color: var(--tertiary-invert);
@@ -338,100 +158,10 @@
 .bg-tertiary-main a, .bg-tertiary-main p, .bg-tertiary-main h1, .bg-tertiary-main h2, .bg-tertiary-main h3, .bg-tertiary-main h4, .bg-tertiary-main h5, .bg-tertiary-main h6 {
   color: var(--tertiary-invert);
 }
-.bg-tertiary-main .button-wrap .button:not(.master).primary {
-  background-color: var(--tertiary-highlight);
-  color: var(--tertiary-invert);
-  border-color: var(--tertiary-invert);
-}
-.bg-tertiary-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--tertiary-main);
-  color: var(--tertiary-highlight);
-  border-color: var(--tertiary-highlight);
-}
-.bg-tertiary-main .button-wrap .button:not(.master).ghost {
-  color: var(--tertiary-invert);
-}
-.bg-tertiary-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--tertiary-invert);
-  color: var(--tertiary-main);
-  border-color: var(--tertiary-invert);
-}
-.bg-tertiary-main .button-wrap .button:not(.master).secondary {
-  color: var(--tertiary-invert);
-}
-.bg-tertiary-main.button:not(.master).primary {
-  background-color: var(--tertiary-main) !important;
-  color: var(--tertiary-invert) !important;
-  border-color: var(--tertiary-main) !important;
-}
-.bg-tertiary-main.button:not(.master).primary:hover {
-  background-color: var(--tertiary-highlight) !important;
-  color: var(--tertiary-main) !important;
-  border-color: var(--tertiary-main) !important;
-}
-.bg-tertiary-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--tertiary-main);
-}
-.bg-tertiary-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--tertiary-main);
-  color: var(--tertiary-invert);
-  border-color: var(--tertiary-main);
-}
-.bg-tertiary-main .fas:before, .bg-tertiary-main .fa:before {
-  color: var(--tertiary-invert);
-}
-.bg-tertiary-main #menu-icon span:before {
-  color: var(--tertiary-invert);
-}
-.bg-tertiary-main .svgColour svg * {
-  fill: var(--tertiary-invert);
-}
-.bg-tertiary-main.overlay:after {
-  background-color: var(--tertiary-main);
-}
-.bg-tertiary-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--tertiary-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--tertiary-main) 100%);
-}
-.bg-tertiary-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--tertiary-highlight);
-  color: var(--tertiary-invert);
-}
-.bg-tertiary-main input[type=submit]:not(.master) {
-  background-color: var(--tertiary-invert);
-  color: var(--tertiary-main);
-  border-color: var(--tertiary-invert);
-}
-.bg-tertiary-main input[type=submit]:not(.master):hover {
-  background-color: var(--tertiary-highlight);
-  color: var(--tertiary-invert);
-  border-color: var(--tertiary-invert);
-}
-
-.border-tertiary-main {
-  border-top-color: var(--tertiary-main);
-  border-bottom-color: var(--tertiary-main);
-  border-left-color: var(--tertiary-main);
-  border-right-color: var(--tertiary-main);
-}
-.border-tertiary-main i.fas:before, .border-tertiary-main i.fa:before {
-  color: var(--tertiary-main);
-}
-
-.fill-tertiary-main * {
-  fill: var(--tertiary-main) !important;
-}
 
 /*----------------------------------------
   quaternary utility classes
 ----------------------------------------*/
-.color-quaternary-main {
-  color: var(--quaternary-main);
-}
-.color-quaternary-main > *:nth-child(1n), .color-quaternary-main a:nth-child(1n), .color-quaternary-main p:nth-child(1n), .color-quaternary-main h1:nth-child(1n), .color-quaternary-main h2:nth-child(1n), .color-quaternary-main h3:nth-child(1n), .color-quaternary-main h4:nth-child(1n), .color-quaternary-main h5:nth-child(1n), .color-quaternary-main h6:nth-child(1n), .color-quaternary-main hr:nth-child(1n) {
-  color: var(--quaternary-main);
-}
-
 .bg-quaternary-main {
   background-color: var(--quaternary-main);
   color: var(--quaternary-invert);
@@ -444,100 +174,10 @@
 .bg-quaternary-main a, .bg-quaternary-main p, .bg-quaternary-main h1, .bg-quaternary-main h2, .bg-quaternary-main h3, .bg-quaternary-main h4, .bg-quaternary-main h5, .bg-quaternary-main h6 {
   color: var(--quaternary-invert);
 }
-.bg-quaternary-main .button-wrap .button:not(.master).primary {
-  background-color: var(--quaternary-highlight);
-  color: var(--quaternary-invert);
-  border-color: var(--quaternary-invert);
-}
-.bg-quaternary-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--quaternary-main);
-  color: var(--quaternary-highlight);
-  border-color: var(--quaternary-highlight);
-}
-.bg-quaternary-main .button-wrap .button:not(.master).ghost {
-  color: var(--quaternary-invert);
-}
-.bg-quaternary-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--quaternary-invert);
-  color: var(--quaternary-main);
-  border-color: var(--quaternary-invert);
-}
-.bg-quaternary-main .button-wrap .button:not(.master).secondary {
-  color: var(--quaternary-invert);
-}
-.bg-quaternary-main.button:not(.master).primary {
-  background-color: var(--quaternary-main) !important;
-  color: var(--quaternary-invert) !important;
-  border-color: var(--quaternary-main) !important;
-}
-.bg-quaternary-main.button:not(.master).primary:hover {
-  background-color: var(--quaternary-highlight) !important;
-  color: var(--quaternary-main) !important;
-  border-color: var(--quaternary-main) !important;
-}
-.bg-quaternary-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--quaternary-main);
-}
-.bg-quaternary-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--quaternary-main);
-  color: var(--quaternary-invert);
-  border-color: var(--quaternary-main);
-}
-.bg-quaternary-main .fas:before, .bg-quaternary-main .fa:before {
-  color: var(--quaternary-invert);
-}
-.bg-quaternary-main #menu-icon span:before {
-  color: var(--quaternary-invert);
-}
-.bg-quaternary-main .svgColour svg * {
-  fill: var(--quaternary-invert);
-}
-.bg-quaternary-main.overlay:after {
-  background-color: var(--quaternary-main);
-}
-.bg-quaternary-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--quaternary-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--quaternary-main) 100%);
-}
-.bg-quaternary-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--quaternary-highlight);
-  color: var(--quaternary-invert);
-}
-.bg-quaternary-main input[type=submit]:not(.master) {
-  background-color: var(--quaternary-invert);
-  color: var(--quaternary-main);
-  border-color: var(--quaternary-invert);
-}
-.bg-quaternary-main input[type=submit]:not(.master):hover {
-  background-color: var(--quaternary-highlight);
-  color: var(--quaternary-invert);
-  border-color: var(--quaternary-invert);
-}
-
-.border-quaternary-main {
-  border-top-color: var(--quaternary-main);
-  border-bottom-color: var(--quaternary-main);
-  border-left-color: var(--quaternary-main);
-  border-right-color: var(--quaternary-main);
-}
-.border-quaternary-main i.fas:before, .border-quaternary-main i.fa:before {
-  color: var(--quaternary-main);
-}
-
-.fill-quaternary-main * {
-  fill: var(--quaternary-main) !important;
-}
 
 /*----------------------------------------
   light utility classes
 ----------------------------------------*/
-.color-light-main {
-  color: var(--light-main);
-}
-.color-light-main > *:nth-child(1n), .color-light-main a:nth-child(1n), .color-light-main p:nth-child(1n), .color-light-main h1:nth-child(1n), .color-light-main h2:nth-child(1n), .color-light-main h3:nth-child(1n), .color-light-main h4:nth-child(1n), .color-light-main h5:nth-child(1n), .color-light-main h6:nth-child(1n), .color-light-main hr:nth-child(1n) {
-  color: var(--light-main);
-}
-
 .bg-light-main {
   background-color: var(--light-main);
   color: var(--light-invert);
@@ -550,100 +190,10 @@
 .bg-light-main a, .bg-light-main p, .bg-light-main h1, .bg-light-main h2, .bg-light-main h3, .bg-light-main h4, .bg-light-main h5, .bg-light-main h6 {
   color: var(--light-invert);
 }
-.bg-light-main .button-wrap .button:not(.master).primary {
-  background-color: var(--light-highlight);
-  color: var(--light-invert);
-  border-color: var(--light-invert);
-}
-.bg-light-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--light-main);
-  color: var(--light-highlight);
-  border-color: var(--light-highlight);
-}
-.bg-light-main .button-wrap .button:not(.master).ghost {
-  color: var(--light-invert);
-}
-.bg-light-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--light-invert);
-  color: var(--light-main);
-  border-color: var(--light-invert);
-}
-.bg-light-main .button-wrap .button:not(.master).secondary {
-  color: var(--light-invert);
-}
-.bg-light-main.button:not(.master).primary {
-  background-color: var(--light-main) !important;
-  color: var(--light-invert) !important;
-  border-color: var(--light-main) !important;
-}
-.bg-light-main.button:not(.master).primary:hover {
-  background-color: var(--light-highlight) !important;
-  color: var(--light-main) !important;
-  border-color: var(--light-main) !important;
-}
-.bg-light-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--light-main);
-}
-.bg-light-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--light-main);
-  color: var(--light-invert);
-  border-color: var(--light-main);
-}
-.bg-light-main .fas:before, .bg-light-main .fa:before {
-  color: var(--light-invert);
-}
-.bg-light-main #menu-icon span:before {
-  color: var(--light-invert);
-}
-.bg-light-main .svgColour svg * {
-  fill: var(--light-invert);
-}
-.bg-light-main.overlay:after {
-  background-color: var(--light-main);
-}
-.bg-light-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--light-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--light-main) 100%);
-}
-.bg-light-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--light-highlight);
-  color: var(--light-invert);
-}
-.bg-light-main input[type=submit]:not(.master) {
-  background-color: var(--light-invert);
-  color: var(--light-main);
-  border-color: var(--light-invert);
-}
-.bg-light-main input[type=submit]:not(.master):hover {
-  background-color: var(--light-highlight);
-  color: var(--light-invert);
-  border-color: var(--light-invert);
-}
-
-.border-light-main {
-  border-top-color: var(--light-main);
-  border-bottom-color: var(--light-main);
-  border-left-color: var(--light-main);
-  border-right-color: var(--light-main);
-}
-.border-light-main i.fas:before, .border-light-main i.fa:before {
-  color: var(--light-main);
-}
-
-.fill-light-main * {
-  fill: var(--light-main) !important;
-}
 
 /*----------------------------------------
   dark utility classes
 ----------------------------------------*/
-.color-dark-main {
-  color: var(--dark-main);
-}
-.color-dark-main > *:nth-child(1n), .color-dark-main a:nth-child(1n), .color-dark-main p:nth-child(1n), .color-dark-main h1:nth-child(1n), .color-dark-main h2:nth-child(1n), .color-dark-main h3:nth-child(1n), .color-dark-main h4:nth-child(1n), .color-dark-main h5:nth-child(1n), .color-dark-main h6:nth-child(1n), .color-dark-main hr:nth-child(1n) {
-  color: var(--dark-main);
-}
-
 .bg-dark-main {
   background-color: var(--dark-main);
   color: var(--dark-invert);
@@ -656,88 +206,12 @@
 .bg-dark-main a, .bg-dark-main p, .bg-dark-main h1, .bg-dark-main h2, .bg-dark-main h3, .bg-dark-main h4, .bg-dark-main h5, .bg-dark-main h6 {
   color: var(--dark-invert);
 }
-.bg-dark-main .button-wrap .button:not(.master).primary {
-  background-color: var(--dark-highlight);
-  color: var(--dark-invert);
-  border-color: var(--dark-invert);
-}
-.bg-dark-main .button-wrap .button:not(.master).primary:hover {
-  background-color: var(--dark-main);
-  color: var(--dark-highlight);
-  border-color: var(--dark-highlight);
-}
-.bg-dark-main .button-wrap .button:not(.master).ghost {
-  color: var(--dark-invert);
-}
-.bg-dark-main .button-wrap .button:not(.master).ghost:hover {
-  background-color: var(--dark-invert);
-  color: var(--dark-main);
-  border-color: var(--dark-invert);
-}
-.bg-dark-main .button-wrap .button:not(.master).secondary {
-  color: var(--dark-invert);
-}
-.bg-dark-main.button:not(.master).primary {
-  background-color: var(--dark-main) !important;
-  color: var(--dark-invert) !important;
-  border-color: var(--dark-main) !important;
-}
-.bg-dark-main.button:not(.master).primary:hover {
-  background-color: var(--dark-highlight) !important;
-  color: var(--dark-main) !important;
-  border-color: var(--dark-main) !important;
-}
-.bg-dark-main.button:not(.master).ghost:nth-child(1n) {
-  color: var(--dark-main);
-}
-.bg-dark-main.button:not(.master).ghost:nth-child(1n):hover {
-  background-color: var(--dark-main);
-  color: var(--dark-invert);
-  border-color: var(--dark-main);
-}
-.bg-dark-main .fas:before, .bg-dark-main .fa:before {
-  color: var(--dark-invert);
-}
-.bg-dark-main #menu-icon span:before {
-  color: var(--dark-invert);
-}
-.bg-dark-main .svgColour svg * {
-  fill: var(--dark-invert);
-}
-.bg-dark-main.overlay:after {
-  background-color: var(--dark-main);
-}
-.bg-dark-main.overlay.radial:after {
-  background: -webkit-radial-gradient(circle, #ffffff 0%, var(--dark-main) 100%);
-  background: radial-gradient(circle, #ffffff 0%, var(--dark-main) 100%);
-}
-.bg-dark-main.cta .label:not(*[class*=bg-]) {
-  background-color: var(--dark-highlight);
-  color: var(--dark-invert);
-}
-.bg-dark-main input[type=submit]:not(.master) {
-  background-color: var(--dark-invert);
-  color: var(--dark-main);
-  border-color: var(--dark-invert);
-}
-.bg-dark-main input[type=submit]:not(.master):hover {
-  background-color: var(--dark-highlight);
-  color: var(--dark-invert);
-  border-color: var(--dark-invert);
-}
 
-.border-dark-main {
-  border-top-color: var(--dark-main);
-  border-bottom-color: var(--dark-main);
-  border-left-color: var(--dark-main);
-  border-right-color: var(--dark-main);
-}
-.border-dark-main i.fas:before, .border-dark-main i.fa:before {
-  color: var(--dark-main);
-}
-
-.fill-dark-main * {
-  fill: var(--dark-main) !important;
+body.dark-theme {
+  --base-heading: var(--base-white);
+  --base-body: var(--base-white);
+  --base-background: var(--base-black);
+  --body-weight:300;
 }
 
 /*----------------------------------------
@@ -856,6 +330,7 @@
 .pad-bottom-000:nth-child(1n) {
   padding-bottom: var(--s0);
 }
+
 .pad-left-000:nth-child(1n) {
   padding-left: var(--s0);
 }
@@ -874,14 +349,6 @@
 
 .grid-gap-000 {
   grid-gap: var(--s0);
-}
-.grid-gap-000[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s0)) / 2);
-  margin-right: calc((-1 * var(--s0)) / 2);
-}
-.grid-gap-000[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s0) / 2);
-  margin-right: calc(var(--s0) / 2);
 }
 
 .flex-gap-000 {
@@ -976,6 +443,7 @@
 .pad-bottom-100:nth-child(1n) {
   padding-bottom: var(--s1);
 }
+
 .pad-left-100:nth-child(1n) {
   padding-left: var(--s1);
 }
@@ -994,14 +462,6 @@
 
 .grid-gap-100 {
   grid-gap: var(--s1);
-}
-.grid-gap-100[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s1)) / 2);
-  margin-right: calc((-1 * var(--s1)) / 2);
-}
-.grid-gap-100[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s1) / 2);
-  margin-right: calc(var(--s1) / 2);
 }
 
 .flex-gap-100 {
@@ -1096,6 +556,7 @@
 .pad-bottom-200:nth-child(1n) {
   padding-bottom: var(--s2);
 }
+
 .pad-left-200:nth-child(1n) {
   padding-left: var(--s2);
 }
@@ -1114,14 +575,6 @@
 
 .grid-gap-200 {
   grid-gap: var(--s2);
-}
-.grid-gap-200[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s2)) / 2);
-  margin-right: calc((-1 * var(--s2)) / 2);
-}
-.grid-gap-200[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s2) / 2);
-  margin-right: calc(var(--s2) / 2);
 }
 
 .flex-gap-200 {
@@ -1223,7 +676,7 @@
   padding-bottom: var(--s3);
 }
 @media only screen and (max-width: 480px) {
-  .pad-bottom-300:nth-child(1n):not(.hero-content) {
+  .pad-bottom-300:nth-child(1n) {
     padding-bottom: var(--s2);
   }
 }
@@ -1263,14 +716,6 @@
     grid-gap: var(--s1);
     grid-row-gap: var(--s3);
   }
-}
-.grid-gap-300[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s3)) / 2);
-  margin-right: calc((-1 * var(--s3)) / 2);
-}
-.grid-gap-300[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s3) / 2);
-  margin-right: calc(var(--s3) / 2);
 }
 
 .flex-gap-300 {
@@ -1382,17 +827,17 @@
   padding-bottom: var(--s4);
 }
 @media only screen and (max-width: 920px) {
-  .pad-bottom-400:nth-child(1n):not(.hero-content) {
+  .pad-bottom-400:nth-child(1n) {
     padding-bottom: var(--s3);
   }
 }
 @media only screen and (max-width: 767px) {
-  .pad-bottom-400:nth-child(1n):not(.hero-content) {
+  .pad-bottom-400:nth-child(1n) {
     padding-bottom: var(--s2);
   }
 }
 @media only screen and (max-width: 480px) {
-  .pad-bottom-400:nth-child(1n):not(.hero-content) {
+  .pad-bottom-400:nth-child(1n) {
     padding-bottom: var(--s2);
   }
 }
@@ -1443,14 +888,6 @@
     grid-gap: var(--s1);
     grid-row-gap: var(--s3);
   }
-}
-.grid-gap-400[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s4)) / 2);
-  margin-right: calc((-1 * var(--s4)) / 2);
-}
-.grid-gap-400[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s4) / 2);
-  margin-right: calc(var(--s4) / 2);
 }
 
 .flex-gap-400 {
@@ -1562,17 +999,17 @@
   padding-bottom: var(--s5);
 }
 @media only screen and (max-width: 920px) {
-  .pad-bottom-500:nth-child(1n):not(.hero-content) {
+  .pad-bottom-500:nth-child(1n) {
     padding-bottom: var(--s4);
   }
 }
 @media only screen and (max-width: 767px) {
-  .pad-bottom-500:nth-child(1n):not(.hero-content) {
+  .pad-bottom-500:nth-child(1n) {
     padding-bottom: var(--s3);
   }
 }
 @media only screen and (max-width: 480px) {
-  .pad-bottom-500:nth-child(1n):not(.hero-content) {
+  .pad-bottom-500:nth-child(1n) {
     padding-bottom: var(--s2);
   }
 }
@@ -1623,14 +1060,6 @@
     grid-gap: var(--s1);
     grid-row-gap: var(--s4);
   }
-}
-.grid-gap-500[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s5)) / 2);
-  margin-right: calc((-1 * var(--s5)) / 2);
-}
-.grid-gap-500[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s5) / 2);
-  margin-right: calc(var(--s5) / 2);
 }
 
 .flex-gap-500 {
@@ -1742,17 +1171,17 @@
   padding-bottom: var(--s6);
 }
 @media only screen and (max-width: 920px) {
-  .pad-bottom-600:nth-child(1n):not(.hero-content) {
+  .pad-bottom-600:nth-child(1n) {
     padding-bottom: var(--s5);
   }
 }
 @media only screen and (max-width: 767px) {
-  .pad-bottom-600:nth-child(1n):not(.hero-content) {
+  .pad-bottom-600:nth-child(1n) {
     padding-bottom: var(--s4);
   }
 }
 @media only screen and (max-width: 480px) {
-  .pad-bottom-600:nth-child(1n):not(.hero-content) {
+  .pad-bottom-600:nth-child(1n) {
     padding-bottom: var(--s2);
   }
 }
@@ -1803,14 +1232,6 @@
     grid-gap: var(--s2);
     grid-row-gap: var(--s5);
   }
-}
-.grid-gap-600[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s6)) / 2);
-  margin-right: calc((-1 * var(--s6)) / 2);
-}
-.grid-gap-600[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s6) / 2);
-  margin-right: calc(var(--s6) / 2);
 }
 
 .flex-gap-600 {
@@ -1922,17 +1343,17 @@
   padding-bottom: var(--s7);
 }
 @media only screen and (max-width: 920px) {
-  .pad-bottom-700:nth-child(1n):not(.hero-content) {
+  .pad-bottom-700:nth-child(1n) {
     padding-bottom: var(--s6);
   }
 }
 @media only screen and (max-width: 767px) {
-  .pad-bottom-700:nth-child(1n):not(.hero-content) {
+  .pad-bottom-700:nth-child(1n) {
     padding-bottom: var(--s5);
   }
 }
 @media only screen and (max-width: 480px) {
-  .pad-bottom-700:nth-child(1n):not(.hero-content) {
+  .pad-bottom-700:nth-child(1n) {
     padding-bottom: var(--s3);
   }
 }
@@ -1984,14 +1405,6 @@
     grid-row-gap: var(--s5);
   }
 }
-.grid-gap-700[id*=slider] .slick-list {
-  margin-left: calc((-1 * var(--s7)) / 2);
-  margin-right: calc((-1 * var(--s7)) / 2);
-}
-.grid-gap-700[id*=slider] .slick-list .slick-slide {
-  margin-left: calc(var(--s7) / 2);
-  margin-right: calc(var(--s7) / 2);
-}
 
 .flex-gap-700 {
   gap: var(--s7);
@@ -2030,91 +1443,6 @@
 }
 
 /* CSS Overlay using pseudo elements. */
-/* Buzz Out */
-@-webkit-keyframes hvr-buzz-out {
-  10% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  20% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  30% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  40% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  50% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  60% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  70% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  80% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  90% {
-    -webkit-transform: translateX(1px) rotate(0);
-    transform: translateX(1px) rotate(0);
-  }
-  100% {
-    -webkit-transform: translateX(-1px) rotate(0);
-    transform: translateX(-1px) rotate(0);
-  }
-}
-@keyframes hvr-buzz-out {
-  10% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  20% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  30% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  40% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  50% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  60% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  70% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  80% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  90% {
-    -webkit-transform: translateX(1px) rotate(0);
-    transform: translateX(1px) rotate(0);
-  }
-  100% {
-    -webkit-transform: translateX(-1px) rotate(0);
-    transform: translateX(-1px) rotate(0);
-  }
-}
 .visually-hidden {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -2126,7 +1454,7 @@
   width: 1px;
 }
 
-html {
+body {
   background-color: var(--base-background);
 }
 
@@ -2223,7 +1551,7 @@ select {
     grid-auto-flow: dense;
     grid-auto-rows: minmax(-webkit-min-content, -webkit-max-content);
     grid-auto-rows: minmax(min-content, max-content);
-    grid-template-columns: [full-start] minmax(calc((100% - 1500px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc((100% - 1500px) / 2), 1fr) [full-end];
+    grid-template-columns: [full-start] minmax(calc((100% - 1650px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc((100% - 1650px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
     max-width: calc(var(--measure) * 5);
     position: relative;
@@ -3221,20 +2549,6 @@ figcaption {
   margin-right: auto;
 }
 
-main article > section {
-  margin-left: auto;
-  margin-right: auto;
-}
-main article > *:nth-child(1)[class*=bg] {
-  margin-top: 0 !important;
-}
-main article > *:nth-child(1) > .grid-row:nth-child(1) {
-  margin-top: 0 !important;
-}
-main article #hero + section[class*=bg] {
-  margin-top: 0 !important;
-}
-
 .object-cover img {
   width: 100%;
   height: 100%;
@@ -3454,110 +2768,6 @@ main article #hero + section[class*=bg] {
           flex-direction: column;
 }
 
-.gridRow .textBlock {
-  width: 100%;
-}
-.gridRow .textBlock .stack {
-  width: 100%;
-}
-@media only screen and (max-width: 767px) {
-  .gridRow .textBlock.mobileOne {
-    grid-row-start: 1 !important;
-  }
-  .gridRow .textBlock.mobileTwo {
-    grid-row-start: 2 !important;
-  }
-  .gridRow .textBlock.mobileThree {
-    grid-row-start: 3 !important;
-  }
-  .gridRow .textBlock.mobileFour {
-    grid-row-start: 4 !important;
-  }
-  .gridRow .textBlock.mobileFive {
-    grid-row-start: 5 !important;
-  }
-  .gridRow .textBlock.mobileLast {
-    grid-row-start: end !important;
-  }
-}
-
-.overlay.static:after, .overlay.grid-row:after {
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-.overlay.slides .slick-slide:after {
-  content: "";
-  height: 100%;
-  left: 0;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.overlay.o-01:after, .overlay.o-01 .slick-slide:after {
-  opacity: 0.1;
-}
-.overlay.o-02:after, .overlay.o-02 .slick-slide:after {
-  opacity: 0.2;
-}
-.overlay.o-03:after, .overlay.o-03 .slick-slide:after {
-  opacity: 0.3;
-}
-.overlay.o-04:after, .overlay.o-04 .slick-slide:after {
-  opacity: 0.4;
-}
-.overlay.o-05:after, .overlay.o-05 .slick-slide:after {
-  opacity: 0.5;
-}
-.overlay.o-06:after, .overlay.o-06 .slick-slide:after {
-  opacity: 0.6;
-}
-.overlay.o-07:after, .overlay.o-07 .slick-slide:after {
-  opacity: 0.7;
-}
-.overlay.o-08:after, .overlay.o-08 .slick-slide:after {
-  opacity: 0.8;
-}
-.overlay.o-09:after, .overlay.o-09 .slick-slide:after {
-  opacity: 0.9;
-}
-.overlay.multiply:after, .overlay.multiply .slick-slide:after {
-  mix-blend-mode: multiply;
-  z-index: 1;
-}
-
-@media only screen and (max-width: 767px) {
-  .imageBlock[class*=pad-top], .testimonialsBlock[class*=pad-top], .textBlock[class*=pad-top], .embed[class*=pad-top] {
-    padding-top: var(--s4);
-  }
-  .imageBlock[class*=pad-bottom], .testimonialsBlock[class*=pad-bottom], .textBlock[class*=pad-bottom], .embed[class*=pad-bottom] {
-    padding-bottom: var(--s4);
-  }
-  .imageBlock[class*=pad-left], .testimonialsBlock[class*=pad-left], .textBlock[class*=pad-left], .embed[class*=pad-left] {
-    padding-left: var(--s4);
-  }
-  .imageBlock[class*=pad-right], .testimonialsBlock[class*=pad-right], .textBlock[class*=pad-right], .embed[class*=pad-right] {
-    padding-right: var(--s4);
-  }
-}
-
-.grecaptcha-badge {
-  z-index: 50;
-  display: none;
-}
-
-/*----------------------------------------
-  #   FONT SIZES
-  This is a Major Third scale that powers all the utilities that it is
-  relevant for FONT SIZES All items are calculated off the base size,
-  so change that and cascade across your whole project.
-----------------------------------------*/
 :root {
   --font-ratio: 1.2;
   --f0: 1rem;
@@ -3569,14 +2779,12 @@ main article #hero + section[class*=bg] {
   --f6: calc(var(--f5) * var(--font-ratio));
   --f7: calc(var(--f6) * var(--font-ratio));
   --f8: calc(var(--f7) * var(--font-ratio));
-  --heading-style: Sans-Serif;
-  --body-style: Sans-Serif;
-  --heading-font: "Lato", var(--heading-style);
-  --body-font: "Lato", var(--body-style);
-  --heading-weight: 800;
+  --heading-font: "Lato", sans-serif;
+  --body-font: "Lato", sans-serif;
+  --heading-weight: 700;
   --body-weight: 300;
   --body-line-height: 2;
-  --heading-line-height: 1.2;
+  --heading-line-height: 1;
   --max-character-length: 15ch;
 }
 
@@ -3588,7 +2796,7 @@ body {
 }
 @media only screen and (max-width: 767px) {
   body {
-    --body-line-height: 1.2;
+    --body-line-height: 1.3;
   }
 }
 
@@ -3613,15 +2821,15 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 0.000001vw;
   color: var(--base-heading);
   margin-bottom: var(--f2);
-  font-family: var(--heading-font) !important;
+  font-family: var(--heading-font);
   line-height: var(--heading-line-height);
 }
 
 #george-block h1, #george-block .h1 {
-  font-size: clamp(var(--f5), 10vw, var(--f7)) !important;
+  font-size: clamp(var(--f4), 5vw, var(--f7)) !important;
 }
 #george-block h2, #george-block .h2 {
-  font-size: clamp(var(--f2), 8vw, var(--f4));
+  font-size: clamp(var(--f2), 5vw, var(--f4));
 }
 #george-block h3, #george-block .h3 {
   font-size: clamp(var(--f1), 5vw, var(--f3));
@@ -3666,8 +2874,17 @@ p {
   color: var(--base-body);
 }
 p.intro {
-  font-size: min(max(var(--f1), 2vw), var(--f1));
-  line-height: 1.2;
+  font-weight: 400;
+}
+@media only screen and (min-width: 1000px) {
+  p.intro {
+    font-size: clamp(var(--f1), 2vw, var(--f1));
+    line-height: 1.4;
+  }
+}
+p.sub-text {
+  letter-spacing: 3px;
+  font-size: 0.6rem;
 }
 
 p[style*="text-align: center"] {
@@ -3683,14 +2900,14 @@ ol li, ul li {
 }
 
 blockquote {
-  font-size: clamp(var(--f2), 5vw, var(--f4));
+  font-size: clamp(var(--f2), 5vw, var(--f3));
   color: var(--base-heading);
   font-family: var(--heading-font);
-  font-weight: 800;
-  line-height: 1.2em;
+  font-weight: 900;
+  line-height: var(--heading-line-height);
   font-style: italic;
   text-align: left;
-  padding: var(--s2) var(--s-1);
+  padding: var(--s3) var(--s-1);
 }
 @media only screen and (max-width: 767px) {
   blockquote {
@@ -3725,6 +2942,63 @@ a {
 
 address {
   font-style: normal;
+}
+
+.box {
+  /* ↓ Padding set to the first point on the modular scale */
+  /* ↓ Assumes you have a --border-thin var */
+  border: var(--box-border) solid;
+  /* ↓ Always apply the transparent outline, for high contrast mode */
+  outline: var(--box-border) transparent;
+  outline-offset: calc(var(--box-border) * -1);
+  border-radius: var(--box-border-radius);
+}
+
+.box > *:not(.button) {
+  /* ↓ Force colors to inherit from the parent
+  and honor inversion (below) */
+}
+.box > *:not(.button):nth-last-child(1):not(.button) {
+  margin-bottom: 0;
+}
+
+.stack {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+.stack > * {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+.stack > * + * {
+  margin-top: var(--s1);
+}
+.stack-tiny > * + * {
+  margin-top: 0.1em;
+}
+
+.stack-small > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-large > * + * {
+  margin-top: 1.2rem;
+}
+
+.stack-extra-large > * + * {
+  margin-top: 2rem;
 }
 
 p + p .button, p + p input[type=submit] {
@@ -3929,63 +3203,100 @@ a.abs {
   }
 }
 
-.box {
-  /* ↓ Padding set to the first point on the modular scale */
-  /* ↓ Assumes you have a --border-thin var */
-  border: var(--box-border) solid;
-  /* ↓ Always apply the transparent outline, for high contrast mode */
-  outline: var(--box-border) transparent;
-  outline-offset: calc(var(--box-border) * -1);
-  border-radius: var(--box-border-radius);
+a figure img:hover {
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  -webkit-transform: scale(var(--hover-scale));
+      -ms-transform: scale(var(--hover-scale));
+          transform: scale(var(--hover-scale));
 }
 
-.box > *:not(.button) {
-  /* ↓ Force colors to inherit from the parent
-  and honor inversion (below) */
-}
-.box > *:not(.button):nth-last-child(1):not(.button) {
-  margin-bottom: 0;
+figure {
+  border-radius: var(--image-border-radius);
+  overflow: hidden;
 }
 
-.stack {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  position: relative;
-}
-.stack > * {
-  margin-top: 0;
-  margin-bottom: 3px;
-}
-.stack > * + * {
-  margin-top: var(--s1);
-}
-.stack-tiny > * + * {
-  margin-top: 0.1em;
+img {
+  border-radius: var(--image-border-radius);
 }
 
-.stack-small > * + * {
-  margin-top: 0.5rem;
+.graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.stack-large > * + * {
-  margin-top: 1.2rem;
+/* styles for generic template test*/
+#george-block {
+  max-width: 1650px;
+  margin: 0 auto;
 }
-
-.stack-extra-large > * + * {
-  margin-top: 2rem;
+#george-block #hero #hero-image {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  background-image: url("https://images.unsplash.com/photo-1653496905315-fd11ea3ce50b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740");
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  min-height: 500px;
 }
-
+@media only screen and (max-width: 767px) {
+  #george-block #hero #hero-image {
+    grid-column-start: 1;
+    grid-column-end: 15;
+    grid-row: 1;
+  }
+  #george-block #hero #hero-image:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 75%;
+    bottom: 0;
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
+    mix-blend-mode: multiply;
+  }
+}
+#george-block #hero .hero-text {
+  grid-column-start: 8;
+  grid-column-end: 15;
+}
+#george-block #hero .hero-text h1 {
+  text-align: left;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 20ch;
+}
+#george-block #hero .hero-text p {
+  font-weight: 300;
+}
+@media only screen and (max-width: 767px) {
+  #george-block #hero .hero-text {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    grid-row: 1;
+  }
+  #george-block #hero .hero-text h1 {
+    text-stroke: 1px var(--base-black);
+    -webkit-text-stroke: 1px var(--base-black);
+  }
+}
+@media only screen and (max-width: 575px) {
+  #george-block #hero .hero-text {
+    grid-column-start: 2;
+    grid-column-end: 14;
+  }
+}
 .green-sock {
   max-height: 100vh;
   overflow-y: scroll;

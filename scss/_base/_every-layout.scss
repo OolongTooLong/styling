@@ -81,36 +81,6 @@ figcaption {
   }
 }
 
-//No top margin on any items or if they have children that might have margin
-main {
-  article {
-    & > {
-      section {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      *:nth-child(1) {
-        &[class*="bg"] {
-          margin-top: 0 !important;
-        }
-
-        & > .grid-row:nth-child(1) {
-          margin-top: 0 !important;
-        }
-      }
-    }
-
-    #hero {
-      + section {
-        &[class*="bg"] {
-          margin-top: 0 !important;
-        }
-      }
-    }
-  }
-}
-
 .object-cover {
   img {
     width: 100%;
@@ -233,7 +203,6 @@ main {
   justify-self: center;
   align-self: flex-end;
   flex-direction: column;
-
 }
 
 .bottomRight {
@@ -241,98 +210,4 @@ main {
   justify-self: flex-end;
   align-self: flex-end;
   flex-direction: column;
-
-}
-
-.gridRow {
-  .textBlock {
-    width: 100%;
-    .stack {
-      width: 100%;
-    }
-
-    @include mq(tablet) {
-      &.mobileOne{
-        grid-row-start: 1!important;
-      }
-      &.mobileTwo{
-        grid-row-start: 2!important;
-      }
-      &.mobileThree{
-        grid-row-start: 3!important;
-      }
-      &.mobileFour{
-        grid-row-start: 4!important;
-      }
-      &.mobileFive{
-        grid-row-start: 5!important;
-      }
-      &.mobileLast{
-        grid-row-start: end!important;
-      }
-    }
-  }
-}
-
-.overlay {
-  &.static, &.grid-row {
-    &:after {
-      content: '';
-      height: 100%;
-      left: 0;
-      opacity: 0.5;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: -1;
-    }
-  }
-
-  &.slides {
-    .slick-slide:after {
-      content: '';
-      height: 100%;
-      left: 0;
-      opacity: 0.5;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-  }
-
-  @for $i from 1 through 9 {
-    &.o-0#{$i} {
-      &:after, .slick-slide:after {
-        opacity: unquote("0.")+#{$i};
-      }
-    }
-  }
-
-  &.multiply {
-    &:after, .slick-slide:after {
-      mix-blend-mode: multiply;
-      z-index: 1;
-    }
-  }
-}
-
-.imageBlock, .testimonialsBlock, .textBlock, .embed{
-  @include mq(tablet) {
-    &[class*="pad-top"]{
-      padding-top: var(--s4);
-    }
-    &[class*="pad-bottom"]{
-      padding-bottom: var(--s4);
-    }
-    &[class*="pad-left"]{
-      padding-left: var(--s4);
-    }
-    &[class*="pad-right"]{
-      padding-right: var(--s4);
-    }
-  }
-}
-.grecaptcha-badge{
-  z-index: 50;
-  display: none;
 }

@@ -1,0 +1,28 @@
+@use '../_utilities/_mixins/media-query' as *;
+
+a figure img:hover {
+  transition: all 200ms ease-in-out;
+  transform: scale(var(--hover-scale));
+}
+
+figure {
+  border-radius: var(--image-border-radius);
+  overflow: hidden;
+}
+
+img {
+  border-radius: var(--image-border-radius);
+}
+
+.graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+
+}

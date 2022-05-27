@@ -1,100 +1,70 @@
-'use strict';
-
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-(function ($) {
-  $(document).ready(function () {
-    var e = document.getElementById("subjectId");
-    var strUser = e.options[0].innerHTML;
-    $('#subject').val(strUser);
-  });
-  $('#subjectId').change(function () {
-    var val = this.value;
-    var label = this.options[this.selectedIndex].innerHTML;
-    $('#toEmail').val(val);
-    $('#subject').val(label);
-  });
-
-  function datePicker() {
-    $('.datepicker').each(function (index, Element) {
-      var $this = $(this);
-      $this.datepicker();
+var genericTemplateApp = function () {
+  var init = function init() {
+    $(function () {
+      // lightOrDark();
+      setHotSpot();
     });
-  }
-
-  datePicker(); // DATE PICKER
-  // DATE RANGE
-
-  $(function () {
-    var dateFormat = "mm/dd/yy",
-        from = $("#from").datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 3
-    }).on("change", function () {
-      to.datepicker("option", "minDate", getDate(this));
-    }),
-        to = $("#to").datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 3
-    }).on("change", function () {
-      from.datepicker("option", "maxDate", getDate(this));
-    });
-
-    function getDate(element) {
-      var date;
-
-      try {
-        date = $.datepicker.parseDate(dateFormat, element.value);
-      } catch (error) {
-        date = null;
-      }
-
-      return date;
-    }
-  });
-  var openForm = $(".open-form-link");
-  openForm.magnificPopup({
-    type: 'inline',
-    gallery: {
-      enabled: true
-    },
-    midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-
-  });
-  openForm.on("click", function (e) {
-    datePicker();
-  });
-})(jQuery); // Fully reference jQuery after this point.
-
-
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.defaults({
-  toggleActions: "restart pause resume pause",
-  scroller: ".green-sock"
-});
-gsap.to(".spin h3", {
-  scrollTrigger: ".spin",
-  duration: 2,
-  rotation: 360
-});
-gsap.to(".background-color", {
-  scrollTrigger: {
-    trigger: ".background-color",
-    toggleActions: "restart pause reverse pause"
   },
-  duration: 1,
-  backgroundColor: "#FFA500",
-  ease: "none"
-});
-gsap.to(".scale h3", {
-  scrollTrigger: ".scale",
-  scale: 2,
-  repeat: -1,
-  yoyo: true,
-  ease: "power2"
-});
+      setHotSpot = function setHotSpot() {
+    var foo = document.getElementById('hero-image-asset');
+    var value = foo.dataset.guid;
+  },
+      lightOrDark = function lightOrDark() {
+    var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    if (prefersDarkScheme.matches) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
+  };
+
+  init();
+  return {};
+}();
+
+var greenSockApp = function () {
+  var init = function init() {
+    $(function () {
+      if ($('body.green-sock').length) {
+        greenSock();
+      }
+    });
+  },
+      greenSock = function greenSock() {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.defaults({
+      toggleActions: "restart pause resume pause",
+      scroller: ".green-sock"
+    });
+    gsap.to(".spin h3", {
+      scrollTrigger: ".spin",
+      duration: 2,
+      rotation: 360
+    });
+    gsap.to(".background-color", {
+      scrollTrigger: {
+        trigger: ".background-color",
+        toggleActions: "restart pause reverse pause"
+      },
+      duration: 1,
+      backgroundColor: "#FFA500",
+      ease: "none"
+    });
+    gsap.to(".scale h3", {
+      scrollTrigger: ".scale",
+      scale: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "power2"
+    });
+  };
+
+  init();
+  return {};
+}();
 
 (function ($) {
   // Select all links with hashes
@@ -215,98 +185,6 @@ gsap.to(".scale h3", {
 
   $('html').addClass(browserName + '-' + majorVersion);
 })(jQuery); // Fully reference jQuery after this point
-
-
-'use strict';
-
-(function ($) {
-  window.dataLayer = window.dataLayer || [];
-  var options = {
-    title: 'Cookies & Privacy Policy',
-    message: ['Our website uses cookies to improve user experience. By continuing to browse you are giving us your consent to our use of cookies.'],
-    delay: 600,
-    expires: [30],
-    link: '/privacy-policy',
-    onAccept: function onAccept() {
-      var myPreferences = $.fn.ihavecookies.cookie();
-
-      if ($.fn.ihavecookies.preference('analytics') === true) {
-        document.cookie = 'ga-opt-out=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; samesite=lax; path=/';
-      } else {
-        document.cookie = 'ga-opt-out=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; samesite=lax; path=/';
-      }
-
-      if ($.fn.ihavecookies.preference('marketing') === true) {
-        document.cookie = 'marketing-opt-out=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; samesite=lax; path=/';
-      } else {
-        document.cookie = 'marketing-opt-out=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; samesite=lax; path=/';
-      }
-
-      if ($.fn.ihavecookies.preference('preferences') === true) {}
-
-      $("#cookie-wrapper").remove(); //page reload to fire analytics
-
-      location.reload();
-    },
-    uncheckBoxes: true,
-    acceptBtnLabel: 'Accept Cookies',
-    moreInfoLabel: 'More information',
-    cookieTypesTitle: 'Select which cookies you want to accept',
-    fixedCookieTypeLabel: 'Essential',
-    fixedCookieTypeDesc: 'These are essential for the website to work correctly.'
-  };
-  $(document).ready(function () {
-    $('body').ihavecookies(options);
-    $('.button-cookie').on('click', function () {
-      $('body').ihavecookies(options, 'reinit');
-      $("#cookie-wrapper").show();
-    });
-  });
-})(jQuery); // Fully reference jQuery after this point.
-
-
-'use strict';
-
-(function ($) {
-  // This will create a single gallery from all elements that have class "gallery-item"
-  $('.gallery-item').magnificPopup({
-    type: 'image',
-    gallery: {
-      enabled: true
-    }
-  });
-  $('.popup-video').magnificPopup({
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false
-  });
-  $('.open-card-popup').magnificPopup({
-    type: 'inline',
-    midClick: false // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-
-  });
-  $('.open-contact-popup').magnificPopup({
-    type: 'inline',
-    midClick: false // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-
-  });
-  $('.popup-tweet').magnificPopup({
-    type: 'inline',
-    gallery: {
-      enabled: true
-    }
-  });
-  $('.open-popup-link').magnificPopup({
-    type: 'inline',
-    gallery: {
-      enabled: true
-    },
-    midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-
-  });
-})(jQuery); // Fully reference jQuery after this point.
 
 
 var iconBase = './uploads/map-icon.png';
@@ -455,62 +333,6 @@ if ($('#map').length) {
 })(jQuery); // Fully reference jQuery after this point.
 
 
-'use strict';
-
-(function ($) {
-  if ($('#hero-player').length) {
-    document.addEventListener('DOMContentLoaded', function () {
-      var players = Array.from(document.querySelectorAll('.js-player')).map(function (p) {
-        return new Plyr(p);
-      });
-      var player = new Plyr('#hero-player', {
-        muted: true,
-        autoplay: true,
-        hideControls: true,
-        disableContextMenu: true
-      });
-      window.addEventListener('load', function () {
-        player.play();
-      });
-      var heroVid = $("#hero-player .plyr__video-wrapper iframe");
-      heroVid.muted = true;
-    });
-  }
-})(jQuery); // Fully reference jQuery after this point.
-// // Expose
-// window.player = player;
-//
-// // Bind event listener
-// function on(selector, type, callback) {
-//     document.querySelector(selector).addEventListener(type, callback, false);
-// }
-//
-// // Play
-// on('.js-play', 'click', () => {
-//     player.play();
-// });
-//
-// // Pause
-// on('.js-pause', 'click', () => {
-//     player.pause();
-// });
-//
-// // Stop
-// on('.js-stop', 'click', () => {
-//     player.stop();
-// });
-//
-// // Rewind
-// on('.js-rewind', 'click', () => {
-//     player.rewind();
-// });
-//
-// // Forward
-// on('.js-forward', 'click', () => {
-//     player.forward();
-// });
-
-
 function O(i) {
   return _typeof(i) == 'object' ? i : document.getElementById(i);
 }
@@ -531,115 +353,3 @@ function C(i) {
   //     $(this).html(string);
   // });
 })(jQuery); // Fully reference jQuery after this point
-
-
-'use strict';
-
-(function ($) {
-  // CAROUSELS FUNCTION
-  function sliders() {
-    $(window).on('load resize orientationchange', function () {
-      // TARGET EACH SLIDER
-      $('.mobile-slider').each(function () {
-        var $carousel = $(this);
-
-        if ($(window).width() > 920) {
-          if ($carousel.hasClass('slick-initialized')) {
-            $carousel.slick('unslick');
-          }
-        } else {
-          if (!$carousel.hasClass('slick-initialized')) {
-            $carousel.slick({
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              arrows: true,
-              dots: true,
-              responsive: [{
-                breakpoint: 767,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-                }
-              }]
-            });
-          }
-        }
-      });
-    });
-    $('.testimonial-slider').each(function (index, sliderWrap) {
-      var $carousel = $(this); // TESTIMONIAL SLIDER
-
-      $carousel.slick({
-        // infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        dots: true,
-        adaptiveHeight: true
-      });
-    });
-    $('.slider').each(function (index, sliderWrap) {
-      var $carousel = $(this);
-      $carousel.slick({
-        adaptiveHeight: true
-      });
-    });
-    $('.social-slider').each(function (index, sliderWrap) {
-      var $carousel = $(this);
-      $carousel.slick({
-        slidesToShow: 3,
-        adaptiveHeight: true,
-        dots: true,
-        responsive: [{
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        }, {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }]
-      });
-    });
-    $('.slidesBlock').each(function (index, sliderWrap) {
-      var $carousel = $(this);
-      $carousel.slick({
-        customPaging: function customPaging($carousel, i) {
-          return '<button class="tab">' + $($carousel.$slides[i]).attr('title');
-        },
-        fade: true,
-        responsive: [{
-          breakpoint: 920,
-          settings: {
-            slidesToScroll: 2
-          }
-        }, {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }]
-      });
-    });
-    $('.hero-slider').each(function (index, sliderWrap) {
-      var $carousel = $(this);
-      $carousel.slick({
-        customPaging: function customPaging($carousel, i) {
-          return '<button class="tab">' + $($carousel.$slides[i]).attr('title');
-        },
-        fade: true,
-        autoplaySpeed: 5000
-      });
-    });
-  }
-
-  $(document).ready(function () {
-    // CALL SLIDERS ON PAGE LOAD
-    sliders();
-  });
-})(jQuery); // Fully reference jQuery after this point.

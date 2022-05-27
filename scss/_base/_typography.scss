@@ -7,7 +7,7 @@ body {
   font-size: var(--f0);
   line-height: var(--body-line-height);
   @include mq(tablet) {
-    --body-line-height: 1.2;
+    --body-line-height: 1.3;
   }
 }
 
@@ -34,18 +34,18 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 0.000001vw;
   color: var(--base-heading);
   margin-bottom: var(--f2);
-  font-family: var(--heading-font)!important;
+  font-family: var(--heading-font);
   line-height: var(--heading-line-height);
 }
 
 #george-block {
   //PLEASE NOTE ALL THESE ARE OVERIDDEN BY THEME SETTINGS -> located in templates
   h1, .h1 {
-    font-size: clamp(var(--f5), 10vw, var(--f7)) !important;
+    font-size: clamp(var(--f4), 5vw, var(--f7)) !important;
   }
 
   h2, .h2 {
-    font-size: clamp(var(--f2), 8vw, var(--f4));
+    font-size: clamp(var(--f2), 5vw, var(--f4));
 
   }
 
@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(var(--f0), 1vw, var(--f0));
     font-weight: 100;
   }
+
 }
 
 html.safari-12, html.safari-13 {
@@ -103,8 +104,16 @@ p {
   color: var(--base-body);
 
   &.intro {
-    font-size: min(max(var(--f1), 2vw), var(--f1));
-    line-height: 1.2;
+    font-weight: 400;
+    @include mq-min(medium) {
+      font-size: clamp(var(--f1), 2vw, var(--f1));
+      line-height: 1.4;
+    }
+  }
+
+  &.sub-text {
+    letter-spacing: 3px;
+    font-size: 0.6rem;
   }
 }
 
@@ -122,14 +131,14 @@ ol, ul {
 }
 
 blockquote {
-  font-size: clamp(var(--f2), 5vw, var(--f4));
+  font-size: clamp(var(--f2), 5vw, var(--f3));
   color: var(--base-heading);
   font-family: var(--heading-font);
-  font-weight: 800;
-  line-height: 1.2em;
+  font-weight: 900;
+  line-height: var(--heading-line-height);
   font-style: italic;
   text-align: left;
-  padding: var(--s2) var(--s-1);
+  padding: var(--s3) var(--s-1);
   @include mq(tablet) {
     padding: var(--s2) 0;
   }

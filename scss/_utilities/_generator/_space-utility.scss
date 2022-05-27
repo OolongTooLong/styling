@@ -137,7 +137,7 @@ $size-scale: (
     &:nth-child(1n) {
       padding-bottom: $value;
 
-      &:not(.hero-content) {
+
         @each $breakpointName, $breakpointValue in $breakpoints {
           @if $size == '700' {
             @if $breakpointName == 'large-tablet' {
@@ -229,7 +229,7 @@ $size-scale: (
             }
           }
         }
-      }
+
     }
   }
   .pad-left-#{$size} {
@@ -438,17 +438,6 @@ $size-scale: (
       }
     }
 
-    &[id*="slider"] {
-      .slick-list {
-        margin-left: calc(calc(-1 * #{$value}) / 2);
-        margin-right: calc(calc(-1 * #{$value}) / 2);
-
-        .slick-slide {
-          margin-left: calc(#{$value} / 2);
-          margin-right: calc(#{$value} / 2);
-        }
-      }
-    }
   }
   .flex-gap-#{$size} {
     gap: $value;
