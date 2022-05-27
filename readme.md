@@ -14,7 +14,7 @@ On mac silicon?
 
 ## HTML Structure
 I've leveraged some layouts from [**every layout**](https://every-layout.dev/) & combined with my own grid based styling. The idea is to create powerful CSS that is scalable and fast to write.
-A interesting part of this project is SCSS loic like `@each`, `@for`, `@if`, which is used to rapidly create utility classes based on CSS variables.
+A interesting part of this project is SCSS logic like `@each`, `@for`, `@if`, which is used to rapidly create utility classes based on CSS variables.
 
 **Pages are built upon the idea of grid rows, with the structure shown below.** The styling is based on a 14 column grid, row can be placed anywhere on the grid, the 12 inner columns have a fixed width, the two gutter columns on the edges of the page spread as far as needed.
 ````html
