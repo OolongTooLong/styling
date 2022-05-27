@@ -2,14 +2,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 var genericTemplateApp = function () {
   var init = function init() {
-    $(function () {
-      // lightOrDark();
-      setHotSpot();
-    });
-  },
-      setHotSpot = function setHotSpot() {
-    var foo = document.getElementById('hero-image-asset');
-    var value = foo.dataset.guid;
+    $(document).ready(function () {});
+    document.fonts.ready.then(function () {});
   },
       lightOrDark = function lightOrDark() {
     var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -186,6 +180,28 @@ var greenSockApp = function () {
   $('html').addClass(browserName + '-' + majorVersion);
 })(jQuery); // Fully reference jQuery after this point
 
+
+var isotopeApp = function () {
+  var init = function init() {
+    $(document).ready(function () {
+      IsoInit();
+    });
+  },
+      IsoInit = function IsoInit() {
+    $('.isotope-wrapper').isotope({
+      // set itemSelector so .grid-sizer is not used in layout
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      masonry: {
+        // use element for option
+        columnWidth: '.grid-sizer'
+      }
+    });
+  };
+
+  init();
+  return {};
+}();
 
 var iconBase = './uploads/map-icon.png';
 

@@ -47,6 +47,7 @@ const jsPath = {
 function jsDeps(done) {
     const files = [
         "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/isotope-layout/dist/isotope.pkgd.js",
         // "node_modules/slick-carousel/slick/slick.js",
         "node_modules/gsap/dist/gsap.min.js",
         "node_modules/gsap/dist/ScrollTrigger.js",

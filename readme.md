@@ -6,9 +6,15 @@
 * Uses SCSS [logic](https://sass-lang.com/documentation/at-rules/control/if) to generate CSS variable dependant utility class, such as background colour or padding classes `pad-200` or `bg-primary` etc.
 * Leverages a common HTML pattern to reliably achieve a range of design requirements.
 
+Creating a local version?
+* Install `NODE` & `Gulp` with HomeBrew, then use `npm install` in project directory to install from `package.json`
+
+On mac silicon?
+* Duplicate terminal app, rename and set to run with rosetta. [Guide](https://hackernoon.com/apple-m1-chip-how-to-install-homebrew-using-rosetta-su12331b)
+
 ## HTML Structure
 I've leveraged some layouts from [**every layout**](https://every-layout.dev/) & combined with my own grid based styling. The idea is to create powerful CSS that is scalable and fast to write.
-A interesting part of this project is gorko, which is used to rapidly create utility classes based on CSS variables.
+A interesting part of this project is SCSS loic like `@each`, `@for`, `@if`, which is used to rapidly create utility classes based on CSS variables.
 
 **Pages are built upon the idea of grid rows, with the structure shown below.** The styling is based on a 14 column grid, row can be placed anywhere on the grid, the 12 inner columns have a fixed width, the two gutter columns on the edges of the page spread as far as needed.
 ````html
@@ -270,7 +276,10 @@ Global CSS variables are used to set/store all the values for `margins`, `max-wi
 These values can be set globally & adjusted for local elements.
 ### Colours /_abstracts/_colours.scss
 Colours set in SCSS Variables and produce CSS variables
-[HSL](HSL colours (Hue Saturation Lightness) are easy to tweak) colours (Hue Saturation Lightness) are easy to tweak (one of the biggest advantages of using HSL is its readability. You don’t have to spend many hours to learn how to read HEX code. Also, it’s much easier than imagining RGB.)
+
+[HSL](HSL colours (Hue Saturation Lightness) are easy to tweak)
+
+One of the biggest advantages of using HSL is its readability. You don’t have to spend many hours to learn how to read HEX code. Also, it’s much easier than imagining RGB.)
 ```scss
 /*----------------------------------------
     # Theme Colours
@@ -340,6 +349,9 @@ Above complies to below:
 ````
 
 ````scss
+/*----------------------------------------
+    # Base Colours
+----------------------------------------*/
 $baseColors: (
         base:(
                 "green": #30b130,
@@ -455,7 +467,7 @@ This is a Major Third scale that powers all the utilities that it is relevant fo
 }
 
 ````
-### SCSS LOGIC /_utilities/_generator
+### SCSS LOGIC
 CSS variables are used to create utility classes, this allows the values to be updated easily without re-compiling.
 Utility classes dynamically generated using [logic](https://sass-lang.com/documentation/at-rules/control/if)
 
@@ -780,3 +792,83 @@ A wide row with padding all around
     </section>
 </article>
 ```
+
+## Scripts
+Scripts a processed by gulp to pull in dependencies before compiling implementation code.
+Gulp processes files in an intentional order, dependencies from node-modules or from _vendor folder, and config files from _components are processed into temporary files before concatenation
+#### Gulp Tasks
+The default ``gulp``  task is all you should need to use ins development, but ``scssProd`` should be used for production assets. Commands should be run in the root of the project. These tasks are also hooked up to NPM, using ``npm run`` instead of ``gulp``.
+
+- ``gulp`` - Runs ``js``/``scss`` & watches for changes
+- ``gulp js`` -  Bundles vendor & custom scripts
+- ``gulp scss`` - Process styles with auto-prefixer & sourcemaps
+- ``gulp scssProd`` - Minify styles
+- ``gulp watchStyles`` - Watch the styles for changes
+- ``gulp watchScripts`` - Watch the scripts for changes
+- ``gulp dumpDatabase`` - Pulls a copy of the database
+
+Some IDE's support UI's for these kinda of tasks, usually accessed by right clicking the ``gulpfile.js`` or ``package.json``
+## Basic Script Pattern
+````js
+let templateApp=(()=>{
+    let init=()=>{
+        $(document).ready(function() {
+           yourName();
+        });
+        document.fonts.ready.then(function () {
+            yourSecondName();
+        });
+    },
+    yourName=()=>{
+      // LOGIC
+    },
+    yourSecondName=()=>{
+      // LOGIC
+    },
+    ;
+    init();
+    return {};
+})();
+````
+## Notes on local dev environment (non-essential)
+### Development Environment
+I'm currently set up a nice local environment which requires minimal configuration for hosting local sites. I'm using [Laravel](https://laravel.com/) & [Valet](https://laravel.com/docs/8.x/valet).
+
+> Valet is a Laravel development environment for Mac minimalists. No Vagrant, no /etc/hosts file. You can even share your sites publicly using local tunnels. Yeah, we like it too.
+
+> Laravel Valet configures your Mac to always run Nginx in the background when your machine starts. Then, using DnsMasq, Valet proxies all requests on the *.test domain to point to sites installed on your local machine.
+
+> Rather than running a virtual machine Ã  la Docker, Valet runs Nginx in the background and uses your local PHP and MySQL. This keeps your development environment very lean, only using about 7MB of RAM.
+
+> Out of the box, Valet support includes, but is not limited to:
+> - [Laravel](https://laravel.com)
+> - [Lumen](https://lumen.laravel.com)
+> - [Symfony](https://symfony.com)
+> - [Zend](https://framework.zend.com)
+> - [CakePHP 3](https://cakephp.org)
+> - [WordPress](https://wordpress.org)
+> - [Bedrock](https://roots.io/bedrock/)
+> - [Craft](https://craftcms.com)
+> - [Statamic](https://statamic.com)
+> - [Jigsaw](http://jigsaw.tighten.co)
+> - Static HTML
+
+I found several useful guides online: [here](https://dev.to/pixleight/local-craft-cms-development-with-laravel-valet-27f8), [here](https://medium.com/@jalendport/running-craft-cms-3-on-laravel-valet-6df61e5193fd) & [here](https://bymayo.co.uk/writing/installing-laravel-valet-for-craft-cms)
+
+Once it's all set up next time I need to create a craft theme all I have to do is:
+````bash
+# Move to your parked projects directory
+cd ~/Sites
+
+# Create folder
+
+# Create a new database
+mysql -u root -e "CREATE DATABASE new_db_name"
+
+
+````
+``new-site-name`` will automatically be served at ``http://<new-site-name>.test``
+
+Or if preferred, you can install ``phpmyadmin`` and mange the database using the GUI, [here's](https://thepoweruser.wordpress.com/2018/11/22/how-to-set-up-and-use-phpmyadmin-with-laravel-valet/) a guide
+
+Valet will automatically start its daemon each time your machine boots. There is no need to run ``valet start`` or ``valet install`` ever again once the initial Valet installation is complete.

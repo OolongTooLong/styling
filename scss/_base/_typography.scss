@@ -105,10 +105,8 @@ p {
 
   &.intro {
     font-weight: 400;
-    @include mq-min(medium) {
-      font-size: clamp(var(--f1), 2vw, var(--f1));
-      line-height: 1.4;
-    }
+    font-size: clamp(var(--f0), 2vw, var(--f1));
+    line-height: 1.2;
   }
 
   &.sub-text {

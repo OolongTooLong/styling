@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "gsap": "^3.10.4",
+    "isotope-layout": "^3.0.6",
     "jquery-ui": "^1.12.1",
     "slick-slider": "^1.8.2"
   }
