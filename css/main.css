@@ -1690,6 +1690,11 @@ select {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .grid-flex.masonry {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
 
   .has-one-column {
     display: grid;
@@ -3231,14 +3236,23 @@ img {
      object-fit: cover;
 }
 
-/* fluid 5 columns */
-.grid-sizer,
-.grid-item {
-  width: 20%;
+.packery-wrapper {
+  counter-reset: items;
 }
-
-/* 2 columns */
-.grid-item--width2 {
-  width: 40%;
+.packery-wrapper .gutter-sizer {
+  width: 4%;
+}
+.packery-wrapper .grid-sizer, .packery-wrapper .grid-item {
+  width: 22%;
+}
+.packery-wrapper .grid-item {
+  position: relative;
+}
+.packery-wrapper .grid-item:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  counter-increment: items;
+  content: counter(items);
 }
 /*# sourceMappingURL=main.css.map */

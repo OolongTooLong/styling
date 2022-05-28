@@ -181,28 +181,6 @@ var greenSockApp = function () {
 })(jQuery); // Fully reference jQuery after this point
 
 
-var isotopeApp = function () {
-  var init = function init() {
-    $(document).ready(function () {
-      IsoInit();
-    });
-  },
-      IsoInit = function IsoInit() {
-    $('.isotope-wrapper').isotope({
-      // set itemSelector so .grid-sizer is not used in layout
-      itemSelector: '.grid-item',
-      percentPosition: true,
-      masonry: {
-        // use element for option
-        columnWidth: '.grid-sizer'
-      }
-    });
-  };
-
-  init();
-  return {};
-}();
-
 var iconBase = './uploads/map-icon.png';
 
 if ($('.map').length) {
@@ -348,6 +326,40 @@ if ($('#map').length) {
   });
 })(jQuery); // Fully reference jQuery after this point.
 
+
+var masonryApp = function () {
+  var init = function init() {
+    $(document).ready(function () {
+      isoInit();
+      initVideo();
+    });
+  },
+      // isoInit = () => {
+  //   $('.grid-item img').each(function(){
+  //     // Create dummy image to get real width and height
+  //     this.attr("src", $(img).attr("src")).load(function(){
+  //       var realWidth = this.width;
+  //       var realHeight = this.height;
+  //       alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
+  //     });
+  //   });
+  // }
+  isoInit = function isoInit() {
+    $('.packery-wrapper').packery({
+      // options
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      gutter: '.gutter-sizer',
+      percentPosition: true,
+      horizontalOrder: true
+    });
+  };
+
+  initVideo = function initVideo() {};
+
+  init();
+  return {};
+}();
 
 function O(i) {
   return _typeof(i) == 'object' ? i : document.getElementById(i);

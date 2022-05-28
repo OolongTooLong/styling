@@ -122,6 +122,9 @@
     grid-column-start: 3;
     gap: var(--s1);
     justify-content: space-between;
+    &.masonry{
+      flex-wrap: wrap;
+    }
   }
 
   .has-one-column {

@@ -1,0 +1,34 @@
+@use '../_utilities/_mixins/media-query' as *;
+
+.packery-wrapper {
+  counter-reset: items;
+
+  .gutter-sizer {
+    width: 4%;
+  }
+  .grid-sizer, .grid-item {
+    width: 22%;
+    @include mq(tablet) {
+      //width: 32.7%;
+    }
+  }
+  .grid-item {
+    position: relative;
+
+    img {
+      //width: calc(100% - 1em);
+    }
+
+    &:before {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      counter-increment: items;
+      content: counter(items);
+    }
+  }
+
+}
+
+
+

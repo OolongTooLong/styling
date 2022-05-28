@@ -1,11 +1,26 @@
-/* fluid 5 columns */
-.grid-sizer,
-.grid-item {
-  width: 20%;
+/*----------------------------------------
+    # BREAK POINTS -- /_abstracts/_breakpoints.scss
+----------------------------------------*/
+/*----------------------------------------
+    # MEDIA QUERIES - /_utilities/_mixins/_media_query.scss
+----------------------------------------*/
+.packery-wrapper {
+  counter-reset: items;
 }
-
-/* 2 columns */
-.grid-item--width2 {
-  width: 40%;
+.packery-wrapper .gutter-sizer {
+  width: 4%;
+}
+.packery-wrapper .grid-sizer, .packery-wrapper .grid-item {
+  width: 22%;
+}
+.packery-wrapper .grid-item {
+  position: relative;
+}
+.packery-wrapper .grid-item:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  counter-increment: items;
+  content: counter(items);
 }
 /*# sourceMappingURL=layouts.css.map */
