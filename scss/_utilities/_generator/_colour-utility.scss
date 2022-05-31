@@ -24,6 +24,31 @@
         a, p, h1, h2, h3, h4, h5, h6 {
           color: var(--#{$color}-invert);
         }
+        &.button:not(.master) {
+          &.primary {
+            background-color: var(--#{$color}-main) !important;
+            color: var(--#{$color}-invert) !important;
+            border-color: var(--#{$color}-main) !important;
+
+            &:hover {
+              background-color: var(--#{$color}-highlight) !important;
+              color: var(--#{$color}-main) !important;
+              border-color: var(--#{$color}-main) !important;
+            }
+          }
+
+          &.ghost {
+            &:nth-child(1n) {
+              color: var(--#{$color}-main);
+
+              &:hover {
+                background-color: var(--#{$color}-main);
+                color: var(--#{$color}-invert);
+                border-color: var(--#{$color}-main);
+              }
+            }
+          }
+        }
       }
     }
   }

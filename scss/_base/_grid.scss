@@ -1,6 +1,6 @@
 @use '../_utilities/_mixins/media-query' as *;
 @use '../_utilities/_mixins/family-mixin' as *;
-
+@use "../_abstracts/breakpoints" as *;
 @supports (display: grid) {
   .grid-row {
     align-items: stretch;
@@ -41,6 +41,14 @@
         grid-column-start: 2;
         grid-column-end: 14;
       }
+      @each $breakpointName, $breakpointValue in $breakpoints {
+        @include mq-min($breakpointName) {
+          &-#{$breakpointName} {
+            grid-column-start: 5;
+            grid-column-end: 11;
+          }
+        }
+      }
     }
 
     &.narrow {
@@ -53,6 +61,14 @@
       @include mq(tablet) {
         grid-column-start: 2;
         grid-column-end: 14;
+      }
+      @each $breakpointName, $breakpointValue in $breakpoints {
+        @include mq-min($breakpointName) {
+          &-#{$breakpointName} {
+            grid-column-start: 4;
+            grid-column-end: 12;
+          }
+        }
       }
     }
 
@@ -122,7 +138,8 @@
     grid-column-start: 3;
     gap: var(--s1);
     justify-content: space-between;
-    &.masonry{
+
+    &.masonry {
       flex-wrap: wrap;
     }
   }

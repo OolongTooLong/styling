@@ -5,41 +5,196 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>Masonry template</title>
   <link href="css/main.css" rel="stylesheet">
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/aeab489b0c.js"></script>
+
 </head>
 <body>
-<article>
-  <section class="grid-row">
-    <div class="no-grid packery-wrapper">
+<article id="george-block">
+  <section class="grid-row" id="hero">
+    <div class="grid align-full text-centre">
+      <div class="titleimage" data-custom-field-name="Title Image" data-custom-field-type="asset">
+        <div class="arrow-down">
+          <img onclick="a.top();" src="https://x2x.media/?action=asset&id=1032E9E6-4561-4E26-9371-B8FCB600D089">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="grid-row gap-top-500" id="first-content">
+    <div class="grid narrow text-centre">
+      <div>
+        <h2>Who are X2X?</h2>
+        <p class="big">X2X is an entertainment technology company that partners with clients to enable creative flow
+          across the production life-cycle with a suite of secure communication and content management
+          solutions.<br><br>We design, develop, and manufacture software and hardware products for studios,
+          broadcasters, and film and video production companies. Our solutions are represented by brands,&nbsp;<span
+            data-mce-style="font-weight: bold;" style="font-weight: bold;">PIX</span>&nbsp;and&nbsp;<span
+            data-mce-style="font-weight: bold;" style="font-weight: bold;">CODEX.</span></p>
+      </div>
+    </div>
+  </section>
+  <section class="grid-row gap-top-500">
+    <div class="grid text-centre">
+      <div class="pad-left-500-medium pad-right-500-medium">
+        <h2>For the Makers.</h2>
+        <p>Our award-winning products for the media and entertainment industries include production solutions and
+          high-performance recording and workflow tools in support of the leading camera vendors for feature,
+          television, and commercial production.</p>
+      </div>
+    </div>
+  </section>
+  <section class="grid-row pad-top-300">
+    <div class="no-grid align-wide" id="powered-list">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=db570620-37e6-4ba9-a536-03cd7c924b28">
-      </div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=7289ae72-79eb-444e-8815-681e3c91e3c7">
-      </div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=0231d9ac-fbe5-4b8d-ad88-76a78e7ed466">
-      </div>
-      <div class="grid-item">
-        <img src="https://x2x.media/?action=asset&x=650&q=50&id=6bf12a7a-7798-494e-bc9b-eed54c7fe5f9">
-      </div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=db570620-37e6-4ba9-a536-03cd7c924b28">
-      </div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=7289ae72-79eb-444e-8815-681e3c91e3c7">
-      </div>
-      <div class="grid-item">
-        <img src="https://pix.online/?action=asset&x=650&q=50&id=0231d9ac-fbe5-4b8d-ad88-76a78e7ed466">
-      </div>
-      <div class="grid-item">
-        <img src="https://x2x.media/?action=asset&x=650&q=50&id=6bf12a7a-7798-494e-bc9b-eed54c7fe5f9">
-      </div>
-
     </div>
-    <!--    </div>-->
   </section>
+
+  <section class="grid-row">
+    <div class="no-grid">
+      <div class="text-centre">
+        <button id="loadMore" class="button ghost small">SHOW MORE</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid-row gap-top-500">
+    <div class="grid text-centre">
+      <div class="stack stack-extra-large">
+        <p>At X2X we are passionate about inclusion, we want all employees to feel encouraged to be themselves and
+          believe that this inspires creativity and innovation. X2X is an equal opportunities employer with a focus on
+          inclusivity and equality for all.<br><br>X2X is a company that focuses on our people, harboring creativity and
+          being a
+          leading innovator in our Industry.</p>
+        <h2>Check if there’s a position right for you</h2>
+        <a class="button primary" onclick="window.location='https://jobs.lever.co/x2x'">X2X CAREERS</a>
+      </div>
+    </div>
+  </section>
+  <section class="grid-row gap-top-500 bg-secondary-main gap-top-500" id="values">
+    <div class="grid has-one-column pad-top-600 pad-bottom-600">
+      <div>
+        <h2 class="text-centre gap-bottom-600">X2X Values</h2>
+      </div>
+      <div>
+        <p><strong>Ethics</strong><br>We are uncompromising in our integrity, honesty, fairness, and transparency.<br>
+        </p>
+        <p><strong>Security &amp; Privacy</strong><br>We are relentless in protecting our client’s information,
+          privacy,
+          and content.<br></p>
+        <p><strong>Quality</strong><br>We are passionate about excellence and doing our work the right way. Our
+          reputation depends on our delivered value in the eyes of all clients, and our clients count on us to do our
+          best work.</p>
+        <p><strong>People</strong><br>We inspire each other with important work, full of purpose, challenging
+          development opportunities, and rewarding careers. We aspire to be the employer of choice in our industry.
+        </p>
+        <p><strong>Culture</strong><br>We actively build a diverse, inclusive, and collaborative work environment
+          where
+          all views are welcomed, openness is encouraged, and teamwork and merit are cornerstones.</p>
+        <p><strong>Relationships</strong><br>We build positive, long term relationships with our clients,
+          partners,vendors, and colleagues that are based on trust, respect, and collaboration.<br></p>
+        <p><strong>Innovation</strong><br>We develop, apply, and integrate with world-class technology by listening,
+          learning, and seeking out the best ideas. We embrace responsible risk-taking and we learn from our
+          mistakes.<br></p>
+        <p><strong>Empowerment</strong><br>We improve the quality of life of the clients we support. We empower our
+          people and our clients to do their best work.<br></p>
+        <p><strong>Autonomy</strong><br>We are employee owned, self funded, self directed, and aspire to create an
+          open
+          and supportive environment that promotes creative problem solving and rewards challenging the status quo. We
+          control our destiny.<br></p>
+      </div>
+    </div>
+  </section>
+  <section class="grid-row gap-top-500" id="team">
+    <div class="grid has-one-column">
+      <h2 data-custom-field-group="Team" data-custom-field-name="Team Title"></h2>
+      <div class="accordion">
+        <div class="accordion-block">
+          <div class="trigger">
+            <img src="https://x2x.media/?action=asset&id=a22fa8ab-6677-4746-86cf-3a3ae399f7cd">
+            <h3>Sebastian Alba-Julián</h3>
+            <i class="fas fa-plus icon-default"></i>
+            <i class="fa fa-minus icon-active"></i>
+          </div>
+          <div class="draw">
+            <p> Dolorum autem libero amet officiis. Sit reprehenderit possimus deleniti quos dolorum doloribus
+              expedita.
+              Sed ipsam veritatis ea.</p>
+          </div>
+        </div>
+        <div class="accordion-block">
+          <div class="trigger">
+            <img src="https://x2x.media/?action=asset&id=a22fa8ab-6677-4746-86cf-3a3ae399f7cd">
+            <h3>Sebastian Alba-Julián</h3>
+            <i class="fas fa-plus icon-default"></i>
+            <i class="fa fa-minus icon-active"></i>
+          </div>
+          <div class="draw">
+            <p> Dolorum autem libero amet officiis. Sit reprehenderit possimus deleniti quos dolorum doloribus
+              expedita.
+              Sed ipsam veritatis ea.</p>
+          </div>
+        </div>
+        <div class="accordion-block">
+          <div class="trigger">
+            <img src="https://x2x.media/?action=asset&id=a22fa8ab-6677-4746-86cf-3a3ae399f7cd">
+            <h3>Sebastian Alba-Julián</h3>
+            <i class="fas fa-plus icon-default"></i>
+            <i class="fa fa-minus icon-active"></i>
+          </div>
+          <div class="draw">
+            <p> Dolorum autem libero amet officiis. Sit reprehenderit possimus deleniti quos dolorum doloribus
+              expedita.
+              Sed ipsam veritatis ea.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="breaker grid-row gap-top-500">
+    <div class="grid align-full has-one-column">
+    </div>
+  </section>
+
+  <section class="grid-row gap-top-500">
+    <div class="grid has-one-column stack stack-extra-large">
+      <h2 class="text-centre">The X2X Promise</h2>
+      <div><p>At X2X we look to provide a package that helps you and your family, and to ensure you and your loved
+        ones
+        have everything you need to be happy and healthy, on your own terms. Every office has its own set of benefits
+        built around the needs of our employees. Here’s an overview of some of the things that we offer:</p>
+        <p><strong>Family</strong><br>X2X supports employees with their family by offering an excellent work life
+          balance. We are a flexible company and give you the right balance to look after yourself in order for you to
+          look after your family.<br></p>
+        <p><strong>Wellbeing and Health</strong><br>As X2X sees the importance and wellbeing of our employees as our
+          priority, we offer support and guidance on specific diagnoses as part of our employee assistance programme.
+          This includes advice for anxiety and depression, guidance and advice on coping skills, mindfulness and
+          relaxation, equality and diversity and emotional health articles.</p>
+        <p>Fresh fruit and snacks are provided in all of our offices.</p>
+        <p>Our managers have an ‘open door’ policy; a problem shared is a problem halved!</p>
+        <p><strong>Culture and Fun</strong><br>We are very proud of the culture we’ve built at X2X. We’re a friendly
+          and
+          supportive bunch who love to welcome new faces to the business and will always be up for a little after-work
+          mixer. As we pride ourselves on being a communicative and dynamic company, you never feel like you're too
+          far
+          away from the right answer and someone is always there to lend you a hand. As part of our culture, we love
+          to
+          celebrate our successes from Christmas parties to mid-week lunches to after work drinks; there is usually
+          something going on and everyone is welcome!</p>
+        <p><strong>Diversity</strong><br>We are passionate about inclusion. We want all employees to feel encouraged
+          to
+          be themselves and believe that this inspires creativity and innovation. We are building an inclusive culture
+          and have created an Equity, Diversity and Inclusion team to allow any member of the company to participate
+          and
+          have their voice heard. Moving forward, we are looking to partner with organizations with a focus on
+          diversity
+          and will be continuing to bring in keynote speakers for workshops with the whole company on diversity and
+          inclusion. X2X is an equal opportunities employer with a focus on inclusivity and equality for all.</p>
+      </div>
+      <h2 class="text-centre">Check if there’s a position right for you</h2>
+      <a class="button primary" onclick="window.location='https://jobs.lever.co/x2x'">X2X CAREERS</a>
+    </div>
+  </section>
+
 </article>
 <script src="js/scripts.min.js"></script>
 

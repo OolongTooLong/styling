@@ -6,7 +6,7 @@
 }
 
 * {
-  max-width: var(--measure);
+  //max-width: var(--measure);
 }
 body{
 
@@ -115,7 +115,26 @@ figcaption {
     height: 100%;
   }
 }
-
+.text-{
+  &centre{
+    text-align: center;
+    *{
+      text-align: center;
+    }
+  }
+  &left{
+    text-align: left;
+    *{
+      text-align: left;
+    }
+  }
+  &right{
+    text-align: right;
+    *{
+      text-align: right;
+    }
+  }
+}
 
 //padding-top: 56.25%; /* 16:9 aspect ratio */
 //padding-top: 75%; /* 4:3 aspect ratio */

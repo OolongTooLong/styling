@@ -3,14 +3,14 @@
 ----------------------------------------*/
 $colors: (
         primary:(
-                "main": hsl(190, 72%, 66%),
-                "highlight": hsl(190, 60%, 40%),
-                "invert": hsl(190, 100%, 100%),
+                "main": hsl(0, 0%, 0%),
+                "highlight": hsl(0, 0%, 50%),
+                "invert": hsl(100, 100%, 100%),
         ),
         secondary:(
-                "main": hsl(177, 42%, 76%),
-                "highlight": hsl(177, 55%, 30%),
-                "invert": hsl(177, 42%, 100%),
+                "main": hsl(0, 0%, 20%),
+                "highlight": hsl(0, 0%, 40%),
+                "invert": hsl(0, 0%, 100%),
         ),
         tertiary:(
                 "main":hsl(26, 89%, 57%),
@@ -59,12 +59,12 @@ $baseColors: (
                 "background": #f3f3f3,
 
                 // Button Default Colour
-                "button-background": #223c6d,
-                "button-hover": #2e5ab0,
-                "button-text": #ffffff,
-                "button-hover-text": #a0bde0,
-                "button-border-color": #1a1a1a,
-                "button-hover-border-color": #1a1a1a,
+                "button-background": #ffffff,
+                "button-hover": #000000,
+                "button-text": #000000,
+                "button-hover-text": #ffffff,
+                "button-border-color": #ffffff,
+                "button-hover-border-color": #ffffff,
 
                 "link-colour": #1a1a1a,
         ),

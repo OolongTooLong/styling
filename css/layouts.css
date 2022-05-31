@@ -1,26 +1,254 @@
-/*----------------------------------------
-    # BREAK POINTS -- /_abstracts/_breakpoints.scss
-----------------------------------------*/
-/*----------------------------------------
-    # MEDIA QUERIES - /_utilities/_mixins/_media_query.scss
-----------------------------------------*/
-.packery-wrapper {
-  counter-reset: items;
+/* CSS Overlay using pseudo elements. */
+/* Start Recruitment Masonry Template */
+#george-block {
+  --heading-weight: 300;
 }
-.packery-wrapper .gutter-sizer {
-  width: 4%;
+#george-block .grid-row .grid .button {
+  width: auto;
+  justify-self: center;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
 }
-.packery-wrapper .grid-sizer, .packery-wrapper .grid-item {
-  width: 22%;
+#george-block #hero .grid .titleimage {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1653496905315-fd11ea3ce50b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740");
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: var(--s2);
 }
-.packery-wrapper .grid-item {
+#george-block #hero .grid .titleimage .arrow-down {
+  width: 55px;
+}
+#george-block #first-content .grid > div h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+#george-block #powered-list {
+  overflow-anchor: none;
+}
+#george-block #powered-list .grid-sizer, #george-block #powered-list .grid-item {
+  width: 24.2%;
+}
+@media only screen and (max-width: 767px) {
+  #george-block #powered-list .grid-sizer, #george-block #powered-list .grid-item {
+    width: 32.7%;
+  }
+}
+#george-block #powered-list .gutter-sizer {
+  width: 1%;
+}
+#george-block #powered-list .grid-item {
   position: relative;
 }
-.packery-wrapper .grid-item:before {
+#george-block #powered-list .grid-item .inner {
+  position: relative;
+  overflow: hidden;
+}
+#george-block #powered-list .grid-item .inner .overlay {
+  z-index: 2;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  counter-increment: items;
-  content: counter(items);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all ease-in 400ms;
+  transition: all ease-in 400ms;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#george-block #powered-list .grid-item .inner .overlay h4 {
+  color: transparent;
+  -webkit-transition: color ease-in 400ms;
+  transition: color ease-in 400ms;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+#george-block #powered-list .grid-item .inner .overlay ~ img {
+  -webkit-transition: all ease-in 400ms;
+  transition: all ease-in 400ms;
+}
+#george-block #powered-list .grid-item .inner .overlay .button {
+  opacity: 0;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  margin: 0;
+  -webkit-transition: opacity ease-in 400ms;
+  transition: opacity ease-in 400ms;
+}
+#george-block #powered-list .grid-item .inner .overlay:hover {
+  -webkit-transition: background ease-in 400ms;
+  transition: background ease-in 400ms;
+  background: rgba(0, 0, 0, 0.6);
+}
+#george-block #powered-list .grid-item .inner .overlay:hover h4 {
+  color: var(--light-main);
+  z-index: 4;
+}
+#george-block #powered-list .grid-item .inner .overlay:hover ~ img {
+  -webkit-transition: all ease-in 400ms;
+  transition: all ease-in 400ms;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+#george-block #powered-list .grid-item .inner .overlay:hover .button {
+  opacity: 1;
+  -webkit-transition: opacity ease-in 400ms;
+  transition: opacity ease-in 400ms;
+}
+#george-block #powered-list .grid-item .inner img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#george-block #powered-list .grid-item:before {
+  position: absolute;
+  z-index: 2;
+  color: red;
+  padding: var(--s1);
+  background: white;
+  bottom: 0;
+  right: 0;
+}
+#george-block #team .accordion .accordion-block {
+  padding: var(--s2) 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+#george-block #team .accordion .accordion-block:nth-last-child(1) {
+  border: none;
+}
+#george-block #team .accordion .accordion-block h5 {
+  margin: 0;
+}
+#george-block #team .accordion .accordion-block.active .trigger i.icon-default {
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+  opacity: 0;
+}
+#george-block #team .accordion .accordion-block.active .trigger i.icon-active {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
+#george-block #team .accordion .trigger {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  grid-template-rows: 1fr;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: var(--s1);
+  margin-bottom: 0;
+  cursor: pointer;
+  text-align: left;
+}
+#george-block #team .accordion .trigger i {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: var(--s1);
+  padding: var(--s-1);
+  margin-top: 0;
+}
+#george-block #team .accordion .draw {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  grid-gap: var(--s1);
+}
+@media only screen and (max-width: 575px) {
+  #george-block #team .accordion .draw {
+    grid-template-columns: auto;
+    padding-top: var(--s1);
+  }
+}
+@media only screen and (max-width: 480px) {
+  #george-block #team .accordion .draw {
+    margin-top: var(--s1);
+  }
+}
+#george-block #team .accordion .draw * {
+  grid-column: 2;
+}
+#george-block .breaker {
+  background: url("../img/download.jpeg");
+  background-size: cover;
+  background-position: center center;
+}
+#george-block .breaker .grid {
+  height: 600px;
+}
+
+#script-player .player {
+  color: var(--light-main);
+}
+
+/* Start - Footer Styles */
+#footer ul.icons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#footer ul li .untitled-logo img {
+  max-width: unset;
+}
+#footer ul li:nth-child(2) {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 /*# sourceMappingURL=layouts.css.map */

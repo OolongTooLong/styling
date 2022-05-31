@@ -1,9 +1,8 @@
-/*----------------------------------------
-  #   FONT SIZES
-  This is a Major Third scale that powers all the utilities that it is
-  relevant for FONT SIZES All items are calculated off the base size,
-  so change that and cascade across your whole project.
-----------------------------------------*/
+// FONT SIZES
+// This is a Major Third scale that powers all the utilities that it is
+// relevant for FONT SIZES All items are calculated off the base size,
+// so change that and cascade across your whole project.
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 :root{
   --font-ratio: 1.2; // Adjust all other values
@@ -21,6 +20,7 @@
   --body-font: 'Lato', sans-serif;
   --heading-weight: 700;
   --body-weight: 300;
+  --link-weight: 500;
   --body-line-height: 2;
   --heading-line-height: 1;
   --max-character-length: 15ch;

@@ -1,6 +1,5 @@
-/*----------------------------------------
-    # MEDIA QUERIES - /_utilities/_mixins/_media_query.scss
-----------------------------------------*/
+// MEDIA QUERIES - /_utilities/_mixins/_media_query.scss
+
 @use "../../_abstracts/breakpoints" as *;
 
 @mixin mq($key) {

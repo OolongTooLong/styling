@@ -5,7 +5,7 @@
     $(".trigger").click(function () {
         let $this = $(this);
         $this.parent('.accordion-block').toggleClass('active');
-        $this.next().slideToggle( "fast","linear", function() {
+        $this.next().slideToggle( "slow","linear", function() {
             // Animation complete.
         });
     });

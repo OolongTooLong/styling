@@ -10,7 +10,7 @@ p {
 .button-wrap {
 }
 
-.button, input[type="submit"], button {
+.button, input[type="submit"], button, button.button, a.button {
   align-self: start;
   cursor: pointer;
   display: inline-block;
@@ -27,6 +27,7 @@ p {
   border-color: transparent;
   background-size: 100% 100%;
   border-radius: var(--link-radius);
+  background-color: var(--base-button-background);
   /* Button styles */
   /*
   - These classes control the look of buttons
@@ -39,6 +40,11 @@ p {
     background-color: var(--base-button-background);
     border: var(--base-button-border-weight) solid var(--base-button-border-color);
     color: var(--base-button-text);
+    letter-spacing: 3px;
+    @include mq-min(tablet) {
+      min-width: 20.5em;
+    }
+
 
     &:hover {
       background-color: var(--base-button-hover);
@@ -73,13 +79,17 @@ p {
     &:hover {
       border-color: var(--base-button-hover-border-color);
       background-color: var(--base-button-background);
-      color: var(--base-button-hover-text);
+      color: var(--base-button-button-text);
       transition: background-color ease-in 200ms;
     }
 
     &.white {
       border-color: var(--light-main);
       color: var(--light-main);
+    }
+    &.small{
+      font-size: var(--s-2);
+      padding: var(--s-4) var(--s1);
     }
   }
 

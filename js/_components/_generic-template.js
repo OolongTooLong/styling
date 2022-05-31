@@ -3,7 +3,14 @@ let genericTemplateApp = (() => {
         $(document).ready(function() { });
         document.fonts.ready.then(function () { });
     },
-
+    hideUnusedBreakerImages = () => {
+      $(".breaker .grid img").each((i, elem) => {
+        const src = elem.getAttribute('src')
+        if (!src) {
+          elem.parentNode.parentNode.style.display = 'none';
+        }
+      });
+    },
     lightOrDark = () => {
         const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
         if (prefersDarkScheme.matches) {

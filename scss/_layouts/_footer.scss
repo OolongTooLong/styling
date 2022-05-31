@@ -1,0 +1,20 @@
+/* Start - Footer Styles */
+#footer{
+  ul{
+   &.icons{
+     display: inline-flex;
+     flex-direction: column;
+   }
+    li{
+      .untitled-logo{
+        img{
+          max-width: unset;
+        }
+      }
+      &:nth-child(2){
+        display: inline-flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
