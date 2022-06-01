@@ -10,29 +10,23 @@
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: [full-start] minmax(calc(calc(100% - 1650px) / 2), 1fr) [main-start] repeat(24, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1650px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    max-width: calc(var(--measure) * 5);
+    //max-width: calc(var(--measure) * 5);
     position: relative;
     overflow: hidden;
     grid-gap: 0;
   }
   .grid, .no-grid {
     z-index: 2;
-    grid-column-start: 5;
-    grid-column-end: 23;
     align-items: stretch;
     display: grid;
     grid-auto-flow: dense;
-    @include mq(tablet) {
-      grid-column-start: 5;
-      grid-column-end: 23;
-    }
 
-    &.narrowest {
-      grid-column-start: 10;
-      grid-column-end: 18;
+    &.xxx-narrow {
+      grid-column-start: 9;
+      grid-column-end: 19;
       @include mq(medium) {
-        grid-column-start: 9;
-        grid-column-end: 19;
+        grid-column-start: 8;
+        grid-column-end: 20;
       }
       @include mq(tablet) {
         grid-column-start: 7;
@@ -52,9 +46,26 @@
       }
     }
 
-    &.narrow {
+    &.xx-narrow {
       grid-column-start: 8;
       grid-column-end: 20;
+      @include mq(tablet) {
+        grid-column-start: 5;
+        grid-column-end: 23;
+      }
+      @each $breakpointName, $breakpointValue in $breakpoints {
+        @include mq-min($breakpointName) {
+          &-#{$breakpointName} {
+            grid-column-start: 6;
+            grid-column-end: 22;
+          }
+        }
+      }
+    }
+
+    &.x-narrow {
+      grid-column-start: 7;
+      grid-column-end: 21;
       @include mq(medium) {
         grid-column-start: 6;
         grid-column-end: 22;
@@ -73,12 +84,43 @@
       }
     }
 
-    &.align-wide {
+    &.narrow {
+      grid-column-start: 6;
+      grid-column-end: 22;
+      @include mq(tablet) {
+        grid-column-start: 5;
+        grid-column-end: 23;
+      }
+      @include mq(phablet) {
+        grid-column-start: 4;
+        grid-column-end: 24;
+      }
+    }
+
+
+    grid-column-start: 5;
+    grid-column-end: 23;
+    @include mq(phablet) {
+      grid-column-start: 4;
+      grid-column-end: 24;
+    }
+
+    &.wide {
+      grid-column-start: 4;
+      grid-column-end: 24;
+    }
+
+    &.x-wide {
       grid-column-start: 3;
       grid-column-end: 25;
     }
 
-    &.align-full {
+    &.xx-wide {
+      grid-column-start: 2;
+      grid-column-end: 26;
+    }
+
+    &.xxx-wide {
       grid-column-start: 1;
       grid-column-end: 27;
     }
