@@ -51,6 +51,7 @@ function jsDeps(done) {
         // "node_modules/slick-carousel/slick/slick.js",
         "node_modules/gsap/dist/gsap.min.js",
         "node_modules/gsap/dist/ScrollTrigger.js",
+        "node_modules/gsap/dist/CSSRulePlugin.js",
         // "node_modules/barba.js/dist/barba.min.js",
         // "js/_vendor/jquery.ihavecookies.min.js",
         // "js/_vendor/jquery.magnific-popup.js",
@@ -145,7 +146,7 @@ exports.watchStyles = watchStylesTask
 
 function watchScriptsTask() {
     watch('js/_components/*.js',
-        series(jsDeps, jsBuild, jsConcat),
+        series([series(jsDeps, jsBuild, jsConcat)]),
     )
 }
 
