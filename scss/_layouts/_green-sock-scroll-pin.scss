@@ -1,0 +1,38 @@
+.green-sock-scroll-pin {
+  margin: 0;
+  height: 100%;
+  overflow-scrolling: touch;
+  article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    #left-wrapper{
+
+    }
+    #left-wrapper,#right-wrapper {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      &-left{
+        position: absolute;
+        background-size: cover;
+      }
+      &-right{
+        display: flex;
+        padding: var(--s5);
+        justify-content: flex-start;
+        align-items: flex-end;
+        background-size: cover;
+        & ~ .right-one{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,367 @@
+/* Start Generic Template */
+#george-block #hero #hero-image {
+  grid-column-start: 1;
+  grid-column-end: 14;
+  background-image: url("https://images.unsplash.com/photo-1653496905315-fd11ea3ce50b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740");
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  min-height: 675px;
+}
+@media only screen and (max-width: 767px) {
+  #george-block #hero #hero-image {
+    grid-column-start: 1;
+    grid-column-end: 27;
+    grid-row: 1;
+  }
+  #george-block #hero #hero-image:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 75%;
+    bottom: 0;
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
+    mix-blend-mode: multiply;
+  }
+}
+#george-block #hero .hero-text {
+  grid-column-start: 14;
+  grid-column-end: 27;
+}
+#george-block #hero .hero-text h1 {
+  text-align: left;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 20ch;
+}
+#george-block #hero .hero-text p {
+  font-weight: 300;
+}
+@media only screen and (max-width: 767px) {
+  #george-block #hero .hero-text {
+    grid-column-start: 5;
+    grid-column-end: 23;
+    grid-row: 1;
+  }
+  #george-block #hero .hero-text h1 {
+    text-stroke: 1px var(--base-black);
+    -webkit-text-stroke: 1px var(--base-black);
+  }
+}
+/* End Generic Template */
+/* Start - Green Sock */
+.green-sock {
+  max-height: 100vh;
+  overflow-y: scroll;
+  -webkit-scroll-snap-type: y mandatory;
+      -ms-scroll-snap-type: y mandatory;
+          scroll-snap-type: y mandatory;
+}
+.green-sock .grid-row {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+.green-sock .grid-row .grid div {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+/* End - Green Sock */
+.green-sock-scroll-pin {
+  margin: 0;
+  height: 100%;
+  overflow-scrolling: touch;
+}
+.green-sock-scroll-pin article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.green-sock-scroll-pin article #left-wrapper, .green-sock-scroll-pin article #right-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.green-sock-scroll-pin article .panel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.green-sock-scroll-pin article .panel-left {
+  position: absolute;
+  background-size: cover;
+}
+.green-sock-scroll-pin article .panel-right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--s5);
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-size: cover;
+}
+.green-sock-scroll-pin article .panel-right ~ .right-one {
+  opacity: 1;
+}
+
+.green-sock-elaborate-animation-sequences {
+  background: #1A1D20;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+.green-sock-elaborate-animation-sequences .wrapper {
+  margin: 1em 1em 5em;
+}
+.green-sock-elaborate-animation-sequences .logo {
+  width: 8em;
+}
+.green-sock-elaborate-animation-sequences h1 {
+  font-size: 2rem;
+  margin-bottom: 2em;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+          transform: translateY(100px);
+  text-align: center;
+}
+.green-sock-elaborate-animation-sequences main {
+  margin-top: 4em;
+}
+.green-sock-elaborate-animation-sequences h1 {
+  font-family: "Merriweather", serif;
+}
+.green-sock-elaborate-animation-sequences label {
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+  display: block;
+  font-weight: bold;
+}
+.green-sock-elaborate-animation-sequences .col2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.green-sock-elaborate-animation-sequences .hero {
+  display: block;
+}
+.green-sock-elaborate-animation-sequences .form {
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  margin: 0 auto;
+  -webkit-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+          transform: translateY(100px);
+}
+.green-sock-elaborate-animation-sequences input[type=text], .green-sock-elaborate-animation-sequences input[type=submit] {
+  padding: 1.2em;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.2em;
+  border: none;
+}
+.green-sock-elaborate-animation-sequences input[type=submit] {
+  width: 10em;
+  background: #923ADB;
+  color: white;
+  border: none;
+  margin-left: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+.green-sock-elaborate-animation-sequences input[type=submit]:hover {
+  background: #7f2fc0;
+}
+.green-sock-elaborate-animation-sequences .card {
+  -webkit-transform: translateY(100px) scaleY(1);
+      -ms-transform: translateY(100px) scaleY(1);
+          transform: translateY(100px) scaleY(1);
+  -webkit-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  padding-left: 1em;
+  border-left: 1px solid #4E5862;
+  position: relative;
+  height: 8em;
+}
+.green-sock-elaborate-animation-sequences .card:before {
+  position: absolute;
+  content: "";
+  border-radius: 100%;
+  border: 0.5em solid #1A1D20;
+  background: #BA62AD;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: -12.5px;
+  opacity: 1;
+}
+.green-sock-elaborate-animation-sequences .card:hover:before {
+  width: 0.8em;
+  height: 0.8em;
+  left: -0.95em;
+  top: -0.15em;
+}
+.green-sock-elaborate-animation-sequences .card .title {
+  font-weight: bold;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+          transform: translateY(100px);
+}
+.green-sock-elaborate-animation-sequences .card .desc {
+  color: #697887;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+          transform: translateY(100px);
+}
+.green-sock-elaborate-animation-sequences footer {
+  opacity: 0;
+  background: -webkit-linear-gradient(359.27deg, #C9729A 4%, #923ADB 97.46%);
+  background: linear-gradient(90.73deg, #C9729A 4%, #923ADB 97.46%);
+  padding: 2em 1em;
+  color: #1A1A1A;
+  font-weight: bold;
+  margin-top: 11em !important;
+}
+.green-sock-elaborate-animation-sequences footer .all {
+  margin: 0.3em 0 0 0.5em;
+  font-size: 2rem;
+}
+.green-sock-elaborate-animation-sequences footer .parent {
+  display: block;
+}
+.green-sock-elaborate-animation-sequences footer .twitter {
+  width: 2em;
+  margin-left: 0.5em;
+}
+.green-sock-elaborate-animation-sequences footer .social {
+  margin-top: 2em;
+}
+.green-sock-elaborate-animation-sequences footer a {
+  color: black;
+  text-decoration: none;
+}
+.green-sock-elaborate-animation-sequences footer .angle-line {
+  margin-top: 1.2em;
+}
+@media only screen and (min-width: 600px) {
+  .green-sock-elaborate-animation-sequences .wrapper {
+    margin: 3em;
+  }
+  .green-sock-elaborate-animation-sequences h1 {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 750px) {
+  .green-sock-elaborate-animation-sequences .features {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 2em;
+  }
+  .green-sock-elaborate-animation-sequences .features .card {
+    margin-bottom: 2em;
+    height: auto;
+  }
+  .green-sock-elaborate-animation-sequences .features .card .title {
+    margin-top: 0;
+  }
+  .green-sock-elaborate-animation-sequences footer {
+    padding: 3em;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .green-sock-elaborate-animation-sequences .form {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .green-sock-elaborate-animation-sequences .hero {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 8em 0 6em;
+  }
+  .green-sock-elaborate-animation-sequences .hero h1 {
+    width: 40%;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .green-sock-elaborate-animation-sequences .hero .form {
+    width: 50%;
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end;
+    padding-bottom: 1em;
+    margin: unset;
+  }
+  .green-sock-elaborate-animation-sequences .features {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
+  }
+  .green-sock-elaborate-animation-sequences .wrapper, .green-sock-elaborate-animation-sequences .features {
+    margin-bottom: 0;
+  }
+  .green-sock-elaborate-animation-sequences footer {
+    margin: 0;
+    padding: 6em;
+  }
+  .green-sock-elaborate-animation-sequences footer .parent {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .green-sock-elaborate-animation-sequences footer .social {
+    margin: 0;
+  }
+  .green-sock-elaborate-animation-sequences footer .learn, .green-sock-elaborate-animation-sequences footer .skillform {
+    margin: 1em;
+  }
+  .green-sock-elaborate-animation-sequences .features .card {
+    margin-bottom: 0;
+    height: 15rem;
+  }
+  .green-sock-elaborate-animation-sequences .wrapper {
+    width: 1150px;
+    margin: 3em auto 0;
+  }
+}
+
 /* CSS Overlay using pseudo elements. */
 /* Start Recruitment Masonry Template */
 #george-block {
   --heading-weight: 300;
-}
-#george-block .grid-row .grid .button {
-  width: auto;
-  justify-self: center;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
 }
 #george-block #hero .grid .titleimage {
   height: 100vh;
@@ -154,7 +507,7 @@
 #george-block #team .accordion .accordion-block:nth-last-child(1) {
   border: none;
 }
-#george-block #team .accordion .accordion-block h5 {
+#george-block #team .accordion .accordion-block h1, #george-block #team .accordion .accordion-block h2, #george-block #team .accordion .accordion-block h3, #george-block #team .accordion .accordion-block h4, #george-block #team .accordion .accordion-block h5 {
   margin: 0;
 }
 #george-block #team .accordion .accordion-block.active .trigger i.icon-default {
@@ -219,6 +572,9 @@
 }
 #george-block .breaker .grid {
   height: 600px;
+}
+#george-block .breaker .grid img {
+  margin: 0 auto;
 }
 
 #script-player .player {

@@ -1,85 +1,128 @@
 @use '../_utilities/_mixins/media-query' as *;
 @use '../_utilities/_mixins/family-mixin' as *;
 @use "../_abstracts/breakpoints" as *;
+
 @supports (display: grid) {
   .grid-row {
     align-items: stretch;
     display: grid;
     grid-auto-flow: dense;
     grid-auto-rows: minmax(min-content, max-content);
-    grid-template-columns: [full-start] minmax(calc(calc(100% - 1650px) / 2), 1fr) [main-start] repeat(12, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1650px) / 2), 1fr) [full-end];
+    grid-template-columns: [full-start] minmax(calc(calc(100% - 1650px) / 2), 1fr) [main-start] repeat(24, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1650px) / 2), 1fr) [full-end];
     grid-template-rows: auto;
-    max-width: calc(var(--measure) * 5);
+    //max-width: calc(var(--measure) * 5);
     position: relative;
     overflow: hidden;
     grid-gap: 0;
   }
   .grid, .no-grid {
     z-index: 2;
-    grid-column-start: 3;
-    grid-column-end: 13;
     align-items: stretch;
     display: grid;
     grid-auto-flow: dense;
-    @include mq(tablet) {
-      grid-column-start: 2;
-      grid-column-end: 14;
-    }
 
-    &.narrowest {
-      grid-column-start: 5;
-      grid-column-end: 11;
+    &.xxx-narrow {
+      grid-column-start: 9;
+      grid-column-end: 19;
       @include mq(medium) {
-        grid-column-start: 4;
-        grid-column-end: 12;
+        grid-column-start: 8;
+        grid-column-end: 20;
       }
       @include mq(tablet) {
-        grid-column-start: 3;
-        grid-column-end: 13;
+        grid-column-start: 7;
+        grid-column-end: 21;
       }
       @include mq(phablet) {
-        grid-column-start: 2;
-        grid-column-end: 14;
+        grid-column-start: 5;
+        grid-column-end: 23;
       }
       @each $breakpointName, $breakpointValue in $breakpoints {
         @include mq-min($breakpointName) {
           &-#{$breakpointName} {
-            grid-column-start: 5;
-            grid-column-end: 11;
+            grid-column-start: 10;
+            grid-column-end: 18;
+          }
+        }
+      }
+    }
+
+    &.xx-narrow {
+      grid-column-start: 8;
+      grid-column-end: 20;
+      @include mq(tablet) {
+        grid-column-start: 5;
+        grid-column-end: 23;
+      }
+      @each $breakpointName, $breakpointValue in $breakpoints {
+        @include mq-min($breakpointName) {
+          &-#{$breakpointName} {
+            grid-column-start: 6;
+            grid-column-end: 22;
+          }
+        }
+      }
+    }
+
+    &.x-narrow {
+      grid-column-start: 7;
+      grid-column-end: 21;
+      @include mq(medium) {
+        grid-column-start: 6;
+        grid-column-end: 22;
+      }
+      @include mq(tablet) {
+        grid-column-start: 5;
+        grid-column-end: 23;
+      }
+      @each $breakpointName, $breakpointValue in $breakpoints {
+        @include mq-min($breakpointName) {
+          &-#{$breakpointName} {
+            grid-column-start: 8;
+            grid-column-end: 20;
           }
         }
       }
     }
 
     &.narrow {
-      grid-column-start: 4;
-      grid-column-end: 12;
-      @include mq(medium) {
-        grid-column-start: 3;
-        grid-column-end: 13;
-      }
+      grid-column-start: 6;
+      grid-column-end: 22;
       @include mq(tablet) {
-        grid-column-start: 2;
-        grid-column-end: 14;
+        grid-column-start: 5;
+        grid-column-end: 23;
       }
-      @each $breakpointName, $breakpointValue in $breakpoints {
-        @include mq-min($breakpointName) {
-          &-#{$breakpointName} {
-            grid-column-start: 4;
-            grid-column-end: 12;
-          }
-        }
+      @include mq(phablet) {
+        grid-column-start: 4;
+        grid-column-end: 24;
       }
     }
 
-    &.align-wide {
+
+    grid-column-start: 5;
+    grid-column-end: 23;
+    @include mq(phablet) {
+      grid-column-start: 4;
+      grid-column-end: 24;
+    }
+
+    &.wide {
+      grid-column-start: 4;
+      grid-column-end: 24;
+    }
+
+    &.x-wide {
+      grid-column-start: 3;
+      grid-column-end: 25;
+    }
+
+    &.xx-wide {
       grid-column-start: 2;
-      grid-column-end: 14;
+      grid-column-end: 26;
     }
 
-    &.align-full {
+    &.xxx-wide {
       grid-column-start: 1;
-      grid-column-end: 15;
+      grid-column-end: 27;
     }
 
     &.right-full {
@@ -134,8 +177,8 @@
   }
   .grid-flex {
     display: flex;
-    grid-column-end: 13;
-    grid-column-start: 3;
+    grid-column-start: 5;
+    grid-column-end: 23;
     gap: var(--s1);
     justify-content: space-between;
 
