@@ -1,0 +1,84 @@
+.left-right-panel {
+    padding: 0;
+    margin: 0;
+    --body-line-height: 1;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    main {
+      //scroll-snap-type: y mandatory;
+      //overflow-y: scroll;
+      //max-height: 100vh;
+      .grid-row {
+        //scroll-snap-align: start;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+
+        .grid {
+          padding: 0;
+          .image-block {
+            background-position: center center;
+            background-size: cover;
+            display: inline-flex;
+            align-items: center;
+          }
+
+          .text-block {
+            height: 100%;
+            display: inherit;
+            //opacity: 0;
+            padding: 0;
+          }
+        }
+
+        .hero-section {
+
+          .image-block {
+            background-image: url(https://pix.online/?action=asset&id=70e627ee-9ca3-4cd3-928d-58bd3ae8679e&q=75);
+          }
+
+          .text-block {
+            //opacity: 1!important;
+          }
+        }
+
+        .see-section {
+          .image-block {
+            background-image: url(https://pix.online/?action=asset&id=8812a0b7-cd84-4544-aa4c-b01f41cc7d8f&q=75);
+          }
+        }
+
+        .share-section {
+          .image-block {
+            background-image: url(https://pix.online/?action=asset&id=4ef697cb-2722-4463-8a0f-1f7680d2bda8&q=75);
+          }
+        }
+
+        .collaborate-section {
+          .image-block {
+            background-image: url(https://pix.online/?action=asset&id=83dbed32-1b5d-4983-92fe-0de64f680433&q=75);
+          }
+        }
+
+        .iterate-section {
+          .image-block {
+            background-image: url(https://pix.online/?action=asset&id=db44fc7b-05e7-4fb1-af4f-4d80ca7f06b1&q=75);
+          }
+        }
+      }
+    }
+  }
+html.no-js {
+  .left-right-panel{
+    main{
+      .grid{
+        .text-block{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

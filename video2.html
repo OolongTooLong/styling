@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Video 2 template</title>
+  <link href="css/main.css" rel="stylesheet">
+  <link href="https://cdn.plyr.io/3.7.2/plyr.css" rel="stylesheet"/>
+
+</head>
+<body>
+<article id="video-block" class="videoTwo">
+  <section class="grid-row">
+    <div class="grid cms-video">
+
+      <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player2">
+        <!-- Video files -->
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440">
+
+        <!-- Caption files -->
+        <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+               default>
+        <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+
+        <!-- Fallback for browsers that don't support the <video> element -->
+        <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+      </video>
+
+    </div>
+    <div class="grid">
+      <ul>
+        <li class="player-src"
+            data-poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+            data-type="vimeo"
+            data-src="https://vimeo.com/76979871">Blue Moon mp4</li>
+
+        <li class="player-src"
+            data-type="webm"
+            data-src="https://vjs.zencdn.net/v/oceans.webm">Ocean wem</li>
+
+        <li class="player-src"
+            data-type="mp4"
+            data-src="//vjs.zencdn.net/v/oceans.mp4">Ocean mp4</li>
+      </ul>
+    </div>
+  </section>
+</article>
+<script src="js/scripts.min.js"></script>
+<script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+:root {
+  --font-ratio: 1.2;
+  --f0: 1rem;
+  --f1: calc(var(--f0) * var(--font-ratio));
+  --f2: calc(var(--f1) * var(--font-ratio));
+  --f3: calc(var(--f2) * var(--font-ratio));
+  --f4: calc(var(--f3) * var(--font-ratio));
+  --f5: calc(var(--f4) * var(--font-ratio));
+  --f6: calc(var(--f5) * var(--font-ratio));
+  --f7: calc(var(--f6) * var(--font-ratio));
+  --f8: calc(var(--f7) * var(--font-ratio));
+  --f9: calc(var(--f8) * var(--font-ratio));
+  --f10: calc(var(--f9) * var(--font-ratio));
+  --f11: calc(var(--f10) * var(--font-ratio));
+  --f12: calc(var(--f11) * var(--font-ratio));
+  --f13: calc(var(--f12) * var(--font-ratio));
+  --f14: calc(var(--f13) * var(--font-ratio));
+  --heading-font: "Lato", sans-serif;
+  --body-font: "Lato", sans-serif;
+  --heading-weight: 700;
+  --body-weight: 300;
+  --link-weight: 500;
+  --body-line-height: 2;
+  --heading-line-height: 1;
+  --max-character-length: 75ch;
+}
+
+body {
+  font-family: var(--body-font);
+  font-weight: var(--body-weight);
+  font-size: var(--f0);
+  line-height: var(--body-line-height);
+}
+@media only screen and (max-width: 767px) {
+  body {
+    --body-line-height: 1.3;
+  }
+}
+
+.heading-font {
+  font-family: var(--heading-font);
+}
+
+.body-font {
+  font-family: var(--body-font);
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--heading-weight);
+  max-width: var(--max-character-length);
+}
+
+h5, h6 {
+  font-weight: var(--body-weight);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  min-height: 0.000001vw;
+  margin-bottom: var(--f2);
+  font-family: var(--heading-font);
+  line-height: var(--heading-line-height);
+}
+
+h1, .h1 {
+  font-size: clamp(var(--f3), 5vw, var(--f7)) !important;
+}
+
+h2, .h2 {
+  font-size: clamp(var(--f2), 7vw, var(--f4));
+}
+
+h3, .h3 {
+  font-size: clamp(var(--f1), 5vw, var(--f3));
+}
+
+h4, .h4 {
+  font-size: clamp(var(--f0), 3vw, var(--f2));
+}
+
+h5, .h5 {
+  font-size: clamp(var(--f0), 2vw, var(--f1));
+}
+
+h6, .h6 {
+  font-size: clamp(var(--f0), 1vw, var(--f0));
+  font-weight: 100;
+}
+
+html.safari-12 h1, html.safari-12 .h1, html.safari-13 h1, html.safari-13 .h1 {
+  font-size: min(max(var(--f3), 10vw), var(--f5));
+}
+html.safari-12 h2, html.safari-12 .h2, html.safari-13 h2, html.safari-13 .h2 {
+  font-size: min(max(var(--f2), 8vw), var(--f4));
+}
+html.safari-12 h3, html.safari-12 .h3, html.safari-13 h3, html.safari-13 .h3 {
+  font-size: min(max(var(--f1), 5vw), var(--f3));
+}
+html.safari-12 h4, html.safari-12 .h4, html.safari-13 h4, html.safari-13 .h4 {
+  font-size: clamp(var(--f0), 3vw, var(--f2));
+}
+html.safari-12 h5, html.safari-12 .h5, html.safari-13 h5, html.safari-13 .h5 {
+  font-size: clamp(var(--f0), 2vw, var(--f1));
+}
+html.safari-12 h6, html.safari-12 .h6, html.safari-13 h6, html.safari-13 .h6 {
+  font-size: clamp(var(--f0), 1vw, var(--f0));
+}
+
+a {
+  color: var(--base-link-colour);
+}
+
+p {
+  font-size: clamp(var(--f0), 2vw, var(--f0));
+  margin-bottom: var(--f1);
+  color: var(--base-body);
+}
+p.intro {
+  font-size: clamp(var(--f0), 2vw, var(--f1));
+  line-height: 1.2;
+}
+p.big {
+  font-size: clamp(var(--f1), 5vw, var(--f2));
+  line-height: 1.2;
+  max-width: var(--max-character-length);
+}
+p.sub-text {
+  letter-spacing: 3px;
+  font-size: 0.6rem;
+}
+
+.outline {
+  -webkit-text-stroke-color: var(--dark-main);
+  color: transparent !important;
+  -webkit-text-stroke-width: 1px;
+}
+
+p[style*="text-align: center"] {
+  max-width: unset;
+}
+
+ol, ul {
+  color: var(--base-body);
+  padding-left: 13px;
+}
+ol li, ul li {
+  color: var(--base-body);
+}
+
+blockquote {
+  font-size: clamp(var(--f2), 5vw, var(--f3));
+  color: var(--base-heading);
+  font-family: var(--heading-font);
+  font-weight: 900;
+  line-height: var(--heading-line-height);
+  font-style: italic;
+  text-align: left;
+  margin: 0;
+  padding: var(--s1) var(--s-1);
+}
+@media only screen and (max-width: 767px) {
+  blockquote {
+    padding: var(--s0) 0;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+cite {
+  color: var(--tertiary-main) !important;
+  font-family: var(--body-font);
+  font-style: normal;
+  font-size: var(--f1);
+  margin-bottom: 0;
+}
+cite + p {
+  margin-top: 0 !important;
+  max-width: unset;
+}
+
+hr {
+  border-top: var(--s1) solid var(--base-grey);
+  width: 100%;
+}
+
+a {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+}

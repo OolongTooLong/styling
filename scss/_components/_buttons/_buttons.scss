@@ -1,0 +1,220 @@
+@use '../../_utilities/_mixins/media-query' as *;
+
+p {
+  & + p .button {
+    margin-top: var(--s-4);
+  }
+}
+
+
+.button-wrap {
+}
+
+.button, input[type="submit"], button, button.button, a.button {
+  align-self: start;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--body-font);
+  font-size: var(--s1);
+  font-weight: var(--link-weight);
+  padding: var(--s-1) var(--s2);
+  text-align: center;
+  text-decoration: none;
+  transition: all ease-in 200ms;
+  line-height: 1.5;
+  margin-right: var(--s-2);
+  margin-bottom: var(--s-2);
+  border-color: transparent;
+  background-size: 100% 100%;
+  border-radius: var(--link-radius);
+  background-color: var(--base-button-background);
+  /* Button styles */
+  /*
+  - These classes control the look of buttons
+    and also set the base colours from variables.
+
+  - These colours are affected by background colours if set,
+    these styles are located in _utilities/_generator/_colour-utility.scss
+  */
+  &.primary {
+    background-color: var(--base-button-background);
+    border: var(--base-button-border-weight) solid var(--base-button-border-color);
+    color: var(--base-button-text);
+    letter-spacing: 3px;
+    //@include mq-min(tablet) {
+    //  min-width: 20.5em;
+    //}
+    @include mq(tablet) {
+      width: 100%;
+    }
+
+
+    &:hover {
+      background-color: var(--base-button-hover);
+      border-color: var(--base-button-hover-border-color);
+      color: var(--base-button-hover-text);
+      transition: all ease-in 200ms;
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline-offset: 0.4rem;
+      outline: 1px dotted;
+    }
+
+    &:after {
+      content: "";
+    }
+    &.small{
+      font-size: var(--s-2);
+      letter-spacing: .2em;
+      padding: var(--s-4) var(--s1);
+    }
+  }
+
+  &.ghost {
+    align-self: start;
+    background-color: transparent;
+    background-size: 100% 100%;
+    border: var(--base-button-border-weight) solid var(--base-button-background);
+    border-radius: var(--link-radius);
+    color: var(--base-button-background);
+    cursor: pointer;
+    border-color: inherit;
+    display: inline-block;
+    box-sizing: content-box;
+
+    &:hover {
+      border-color: var(--base-button-hover-border-color);
+      background-color: var(--base-button-background);
+      color: var(--base-button-button-text);
+      transition: background-color ease-in 200ms;
+    }
+
+    &.white {
+      border-color: var(--light-main);
+      color: var(--light-main);
+    }
+    &.small{
+      font-size: var(--s-2);
+      letter-spacing: .2em;
+      padding: var(--s-4) var(--s1);
+    }
+  }
+
+  &.secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--base-body);
+    border: none;
+    width: auto;
+    min-height: unset;
+    text-align: left;
+    border-bottom: 1px solid transparent;
+    padding: 0;
+    border-radius: 0;
+    font-weight: var(--link-weight);
+
+    &:after {
+      display: inline;
+      font-family: 'Font Awesome 5 Free';
+      content: '  \f054';
+      font-weight: 900;
+      padding: 0 5px 5px 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px solid var(--primary-main);
+      transition: border ease-in 200ms;
+
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.load-more {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+input[type="submit"] {
+  @extend .button;
+  //@extend .primary;
+  border-style: none;
+}
+
+a.abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.button-wrap {
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.space-around {
+    justify-content: space-around;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.evenStretch {
+    justify-content: space-evenly;
+    gap: var(--s1);
+
+    > * {
+      flex: 1 1 auto;
+    }
+  }
+  &.vertStack{
+    flex-direction: column;
+    a button{
+      margin-right:0;
+    }
+  }
+}
+.fullWidthMobile {
+  @include mq(tablet) {
+    flex-direction: column;
+    align-content: stretch;
+    a:not(.secondary) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
+//*[id*="eventbrite"]{
+//  @extend .button;
+//  @extend .primary;
+//}

@@ -22,7 +22,10 @@
   --s4: calc(var(--s3) * var(--spacing-ratio));
   --s5: calc(var(--s4) * var(--spacing-ratio));
   --s6: calc(var(--s5) * var(--spacing-ratio));
-  --s7: calc(var(--s6) * var(--spacing-ratio)); // Largest Value
+  --s7: calc(var(--s6) * var(--spacing-ratio));
+  --s8: calc(var(--s7) * var(--spacing-ratio));
+  --s9: calc(var(--s8) * var(--spacing-ratio)); // Largest Value
+  --s10: calc(var(--s9) * var(--spacing-ratio)); // Largest Value
 
   --s-neg5: calc(-1 * var(--s5)); // Negative values
   --s-neg4: calc(-1 * var(--s4));

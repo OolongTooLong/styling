@@ -1,0 +1,183 @@
+@use "../../_abstracts/font-scale";
+@use '../../_utilities/_mixins/media-query' as *;
+
+body {
+  font-family: var(--body-font);
+  font-weight: var(--body-weight);
+  font-size: var(--f0);
+  line-height: var(--body-line-height);
+  @include mq(tablet) {
+    --body-line-height: 1.3;
+  }
+}
+
+
+.heading-font {
+  font-family: var(--heading-font);
+}
+
+.body-font {
+  font-family: var(--body-font);
+}
+
+h1, h2, h3, h4, {
+  font-weight: var(--heading-weight);
+  max-width: var(--max-character-length);
+
+}
+
+ h5, h6 {
+  font-weight: var(--body-weight);
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  min-height: 0.000001vw;
+  //color: var(--base-heading);
+  margin-bottom: var(--f2);
+  font-family: var(--heading-font);
+  line-height: var(--heading-line-height);
+}
+
+
+//PLEASE NOTE ALL THESE ARE OVERIDDEN BY THEME SETTINGS -> located in templates
+h1, .h1 {
+  font-size: clamp(var(--f3), 5vw, var(--f7)) !important;
+}
+
+h2, .h2 {
+  font-size: clamp(var(--f2), 7vw, var(--f4));
+
+}
+
+h3, .h3 {
+  font-size: clamp(var(--f1), 5vw, var(--f3));
+}
+
+h4, .h4 {
+  font-size: clamp(var(--f0), 3vw, var(--f2))
+}
+
+h5, .h5 {
+  font-size: clamp(var(--f0), 2vw, var(--f1));
+}
+
+h6, .h6 {
+  font-size: clamp(var(--f0), 1vw, var(--f0));
+  font-weight: 100;
+}
+
+
+html.safari-12, html.safari-13 {
+  h1, .h1 {
+    font-size: min(max(var(--f3), 10vw), var(--f5));
+  }
+
+  h2, .h2 {
+    font-size: min(max(var(--f2), 8vw), var(--f4));
+  }
+
+  h3, .h3 {
+    font-size: min(max(var(--f1), 5vw), var(--f3));
+  }
+
+  h4, .h4 {
+    font-size: clamp(var(--f0), 3vw, var(--f2))
+  }
+
+  h5, .h5 {
+    font-size: clamp(var(--f0), 2vw, var(--f1));
+  }
+
+  h6, .h6 {
+    font-size: clamp(var(--f0), 1vw, var(--f0));
+  }
+}
+
+a {
+  color: var(--base-link-colour);
+}
+
+p {
+  font-size: clamp(var(--f0), 2vw, var(--f0));
+  margin-bottom: var(--f1);
+  color: var(--base-body);
+
+  &.intro {
+    font-size: clamp(var(--f0), 2vw, var(--f1));
+    line-height: 1.2;
+  }
+
+  &.big {
+    font-size: clamp(var(--f1), 5vw, var(--f2));
+    line-height: 1.2;
+    max-width: var(--max-character-length);
+  }
+
+  &.sub-text {
+    letter-spacing: 3px;
+    font-size: 0.6rem;
+  }
+}
+.outline{
+  -webkit-text-stroke-color: var(--dark-main);
+  color: transparent!important;
+  -webkit-text-stroke-width: 1px;
+}
+p[style*="text-align: center"] {
+  max-width: unset;
+}
+
+ol, ul {
+  color: var(--base-body);
+  padding-left: 13px;
+
+  li {
+    color: var(--base-body);
+  }
+}
+
+blockquote {
+  font-size: clamp(var(--f2), 5vw, var(--f3));
+  color: var(--base-heading);
+  font-family: var(--heading-font);
+  font-weight: 900;
+  line-height: var(--heading-line-height);
+  font-style: italic;
+  text-align: left;
+  margin: 0;
+  padding: var(--s1) var(--s-1);
+  @include mq(tablet) {
+    padding: var(--s0) 0;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+cite {
+  color: var(--tertiary-main) !important;
+  font-family: var(--body-font);
+  font-style: normal;
+  font-size: var(--f1);
+  margin-bottom: 0;
+
+  & + p {
+    margin-top: 0 !important;
+    max-width: unset;
+  }
+}
+
+hr {
+  border-top: var(--s1) solid var(--base-grey);
+  width: 100%;
+}
+
+a {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+}

@@ -38,6 +38,7 @@ const sassPathLayouts = {
     src: `scss/_layouts/*.scss`,
     dest: `css`
 }
+
 const jsPath = {
     src: `js/_components/*.js`,
     dest: `js`
@@ -52,10 +53,13 @@ function jsDeps(done) {
         "node_modules/gsap/dist/gsap.min.js",
         "node_modules/gsap/dist/ScrollTrigger.js",
         "node_modules/gsap/dist/CSSRulePlugin.js",
+        "node_modules/gsap/dist/Draggable.js",
+        "node_modules/gsap/dist/InertiaPlugin.js",
+        "node_modules/gsap/dist/ScrollToPlugin.js",
         // "node_modules/barba.js/dist/barba.min.js",
         // "js/_vendor/jquery.ihavecookies.min.js",
-        // "js/_vendor/jquery.magnific-popup.js",
-        // "js/_vendor/plyr.js",
+        "js/_vendor/jquery.magnific-popup.js",
+        "js/_vendor/plyr.js",
         "js/_vendor/jquery-ui.js",
     ]
     return (
@@ -86,9 +90,10 @@ function jsConcat(done) {
             .pipe(dest(jsPath.dest))
     )
 }
+let jsTasks = series(jsDeps, jsBuild, jsConcat)
+exports.js = jsTasks
 
-exports.js = series(jsDeps, jsBuild, jsConcat)
-exports.jsbuild = jsBuild
+
 
 /******** SCSS Tasks *********/
 
@@ -106,18 +111,82 @@ function scssTask() {
 }
 exports.scss = scssTask
 
-function layoutscssTask() {
+function scssLayoutTask() {
     return src(sassPathLayouts.src)
         .pipe(plumber({errorHandler: onError}))
-        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         // .pipe(postcss([ autoprefixer(), cssnano() ]))
         .pipe(rename('layouts.css'))
-        .pipe(sourcemaps.write('.'))
         .pipe(dest(sassPath.dest))
 }
-exports.layoutscss = layoutscssTask
+exports.scssLayout = scssLayoutTask
+
+function sassColourTask() {
+    return src('scss/_utilities/_generator/_colour/index.scss')
+        .pipe(plumber({errorHandler: onError}))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([autoprefixer()]))
+        // .pipe(postcss([ autoprefixer(), cssnano() ]))
+        .pipe(rename('colour.css'))
+        .pipe(dest(sassPath.dest))
+}
+exports.sassColour = sassColourTask
+
+function sassSpacingTask() {
+  return src('scss/_utilities/_generator/_spacing/index.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    // .pipe(postcss([ autoprefixer(), cssnano() ]))
+    .pipe(rename('spacing.css'))
+    .pipe(dest(sassPath.dest))
+}
+exports.sassSpacing = sassSpacingTask
+
+function sassFontTask() {
+  return src('scss/_base/_fonts/index.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    // .pipe(postcss([ autoprefixer(), cssnano() ]))
+    .pipe(rename('fonts.css'))
+    .pipe(dest(sassPath.dest))
+}
+exports.sassFont = sassFontTask
+
+function sassGridTask() {
+  return src('scss/_base/_grid/index.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    // .pipe(postcss([ autoprefixer(), cssnano() ]))
+    .pipe(rename('grid.css'))
+    .pipe(dest(sassPath.dest))
+}
+exports.sassGrid = sassGridTask
+
+function sassButtonTask() {
+  return src('scss/_components/_buttons/index.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    // .pipe(postcss([ autoprefixer(), cssnano() ]))
+    .pipe(rename('buttons.css'))
+    .pipe(dest(sassPath.dest))
+}
+exports.sassButton = sassButtonTask
+
+function sassAlignTask() {
+  return src('scss/_components/_alignment/index.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    // .pipe(postcss([ autoprefixer(), cssnano() ]))
+    .pipe(rename('align.css'))
+    .pipe(dest(sassPath.dest))
+}
+exports.sassAlign = sassAlignTask
 
 function scssProd() {
     return src(sassPath.src)
@@ -135,21 +204,20 @@ function watchlayoutScssTask() {
     watch('scss/**/*.scss',
         series([layoutscssTask]));
 }
+
+
 exports.watchlayoutScss = watchlayoutScssTask
 
 /******** Watch Tasks *********/
 function watchStylesTask() {
-    watch('scss/**/*.scss',
-        series([scssTask]));
+  watch('scss/**/*.scss', scssTask);
 }
+
 exports.watchStyles = watchStylesTask
 
 function watchScriptsTask() {
-    watch('js/_components/*.js',
-        series([series(jsDeps, jsBuild, jsConcat)]),
-    )
+  watch('js/_components/*.js', jsTasks)
 }
-
 exports.watchScripts = watchScriptsTask
 
 /******** Database Dump Task *********/
@@ -172,6 +240,6 @@ exports.dumpDatabase = dumpDatabaseTask
 
 /******** Default Task *********/
 exports.default = series(
-    parallel(scssTask, series(jsDeps, jsBuild, jsConcat)),
-    parallel(watchStylesTask, watchScriptsTask)
+  parallel(scssTask, series(jsDeps, jsBuild, jsConcat)),
+  parallel(watchStylesTask, watchScriptsTask)
 );

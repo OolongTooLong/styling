@@ -1,0 +1,258 @@
+//@use '../_utilities/_mixins/media-query' as *;
+///* Start Video Styles */
+//#generic-block {
+//  .cms-section {
+//    div.cms-video {
+//      grid-column-start: 5;
+//      grid-column-end: 23;
+//      --plyr-video-controls-background: transparent;
+//      --plyr-video-control-background-hover: var(--light-main);
+//      --plyr-video-control-color: var(--light-main);
+//      --plyr-video-control-color-hover: var(--dark-main);
+//      --plyr-range-thumb-height: 0px;
+//      --plyr-range-fill-background: var(--light-main);
+//
+//      .pure-g, .plyr {
+//        width: 100%;
+//      }
+//
+//    }
+//  }
+//
+//  .plyr__controls {
+//    display: grid;
+//    grid-template-columns: auto auto 1fr auto auto;
+//    grid-gap: var(--s1);
+//
+//    button {
+//      margin-bottom: 0;
+//      margin-right: 0;
+//    }
+//
+//    .plyr__time {
+//      letter-spacing: 0;
+//    }
+//  }
+//  .popup-video-link {
+//    //display: none;
+//    //@include mq(tablet){
+//    display: block;
+//    position: absolute;
+//    width: 100%;
+//    height: 100%;
+//  }
+//
+//  .vid-popup {
+//    border: none;
+//    padding: 0;
+//    background: transparent;
+//    cursor: zoom-in;
+//    position: relative;
+//
+//    img {
+//      width: 100%;
+//    }
+//
+//    i.fas {
+//      position: absolute;
+//      top: 0;
+//      left: 0;
+//      width: 100%;
+//      height: 100%;
+//      display: flex;
+//      justify-content: center;
+//      align-items: center;
+//      border: none;
+//      background: transparent;
+//      font-size: var(--s5);
+//      cursor: pointer;
+//      text-align: center;
+//
+//      &:before {
+//        color: var(--light-main);
+//        z-index: 99;
+//        position: relative;
+//        text-shadow: 0 0 7px var(--dark-main);
+//      }
+//
+//      &:hover, &:active {
+//        transform: scale(0.95);
+//      }
+//    }
+//  }
+//
+//  .mfp-bg {
+//    background: #222;
+//    opacity: 1;
+//
+//    &.video-plyr + .mfp-wrap {
+//      grid-column-start: 5;
+//      grid-column-end: 23;
+//      --plyr-video-controls-background: transparent;
+//      --plyr-video-control-background-hover: var(--light-main);
+//      --plyr-video-control-color: var(--light-main);
+//      --plyr-video-control-color-hover: var(--dark-main);
+//      --plyr-range-thumb-height: 0px;
+//      --plyr-range-fill-background: var(--light-main);
+//
+//      .mfp-container {
+//        display: flex;
+//        flex-direction: row;
+//        align-items: center;
+//        justify-content: center;
+//        height: 100%;
+//        width: 100%;
+//        .mfp-content {
+//          max-width: 80vw;
+//          order: 2;
+//
+//          .vid-popup {
+//            display: flex;
+//            flex-direction: column;
+//
+//            .plyr {
+//              order: 2;
+//              width: 100%;
+//              align-self: center;
+//              display: grid;
+//              grid-template-rows: 1fr auto;
+//              background: transparent;
+//
+//              .plyr__controls {
+//                position: relative;
+//                grid-row: 2;
+//                display: grid;
+//                grid-template-columns: auto auto 1fr auto auto;
+//                grid-gap: var(--s1);
+//
+//                button {
+//                  margin-bottom: 0;
+//                  margin-right: 0;
+//                }
+//
+//                .plyr__time {
+//                  letter-spacing: 0;
+//                }
+//              }
+//
+//            }
+//
+//            .mfp-close {
+//              order: 1;
+//              position: relative;
+//              align-self: end;
+//              color: white;
+//              font-size: 6rem;
+//              width: auto;
+//              height: auto;
+//              margin-bottom: 1rem;
+//              margin-right: 0;
+//            }
+//
+//            figcaption {
+//              order: 3;
+//              position: relative;
+//              background: transparent;
+//              text-align: center;
+//              margin: 3rem auto 0 auto;
+//
+//              * {
+//                color: var(--light-main);
+//              }
+//            }
+//          }
+//        }
+//
+//        .mfp-arrow {
+//          font-family: 'Font Awesome 5 Free';
+//          font-weight: 900;
+//          position: relative;
+//          display: flex;
+//          justify-content: center;
+//          align-items: center;
+//
+//          &:after, &:before {
+//            color: var(--light-main);
+//            width: auto;
+//            top: unset;
+//            left: unset;
+//            right: unset;
+//            bottom: unset;
+//            position: relative;
+//            margin: 0;
+//            margin-top: -100%;
+//            font-size: var(--f8);
+//          }
+//
+//          &.mfp-arrow-left {
+//            left: unset;
+//            right: unset;
+//            order: 1;
+//            &:before {
+//              content: '';
+//              display: none;
+//            }
+//
+//            &:after {
+//              content: "\f104";
+//              border: none;
+//
+//            }
+//          }
+//
+//          &.mfp-arrow-right {
+//            left: unset;
+//            right: unset;
+//            order: 3;
+//            &:before {
+//              content: '';
+//              display: none;
+//            }
+//
+//            &:after {
+//              content: "\f105";
+//              border: none;
+//
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+//
+///* End Video Styles */
+#playerTemplate{
+  display: none;
+}
+.cms-asset {
+  .player {
+    position: relative;
+    width: 100%;
+    top: 0;
+    padding-bottom: 3em;
+    display: block;
+    background: transparent;
+    .frame {
+      position: relative;
+      top: 45%;
+      width: 100%;
+      padding-bottom: 61%;
+      .loading{
+
+      }
+      .video{
+
+      }
+      .nav{
+        .control{
+          &.play{}
+          &.mute{}
+          &.fullscreen{}
+        }
+        .seek{}
+        .time{}
+      }
+    }
+  }
+}

@@ -13,9 +13,9 @@ $colors: (
                 "invert": hsl(0, 0%, 100%),
         ),
         tertiary:(
-                "main":hsl(26, 89%, 57%),
-                "highlight": hsl(26, 80%, 30%),
-                "invert": hsl(26, 89%, 100%),
+                "main":		hsl(0, 0%, 10%),
+                "highlight": 	hsl(0, 0%, 40%),
+                "invert": 	hsl(0, 0%, 100%),
         ),
         quaternary:(
                 "main": hsl(70, 31%, 85%),
@@ -49,7 +49,7 @@ $baseColors: (
                 "orange": #f3af3a,
                 "red": #de2e2e,
                 "white": #ffffff,
-                "grey": #b0b0b0,
+                "grey": #D7D7D7,
                 "black": #000000,
                 "purple": #3B3646,
 

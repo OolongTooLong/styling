@@ -1,0 +1,232 @@
+.parallax-hero{
+  margin: 0;
+  .hero{
+    box-sizing:border-box;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32vw;
+    overflow: hidden;
+    padding-top: 4.5rem;
+    max-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    /*max-width: 2550px;*/
+  }
+  .hero .hero-text{
+    //opacity:0;
+  }
+  @media only screen and (max-width: 767px) {
+    .hero {
+      padding-top: 2.5rem;
+    }
+  }
+  @media only screen
+
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1),
+
+  (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 2),
+
+  (max-width: 575px)
+  {
+
+    .hero {
+      height:100vh;
+      max-height: unset;
+      align-items: flex-end;
+      padding-bottom: var(--s2);
+    }
+    .hero:before{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      -webkit-transition: all 1ms ease;
+      transition: all 1ms ease;
+      mix-blend-mode: multiply;
+      z-index: 1;
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,0.5) 2%, rgba(0,0,0,0) 100%);
+      mix-blend-mode: multiply;
+    }
+    .hero .hero-text{
+      margin-bottom: 10%;
+    }
+    .hero .hero-text div.svg-wrap {
+      display:flex;
+    }
+    .hero .hero-text div h1{
+      font-size: clamp(var(--f7), 10vw, var(--f14))!important;
+    }
+    html.safari-12 .hero .hero-text div h1, html.safari-13 .hero .hero-text div h1 {
+      font-size: min(max(var(--f7), 10vw), var(--f14))!important;
+    }
+    .hero div.hero-text h2{
+      font-size: clamp(1.2rem, 3vw, var(--f7))!important;
+    }
+    html.safari-12 .hero div.hero-text h2, html.safari-13 .hero div.hero-text h2 {
+      font-size: min(max(1.2rem, 3vw), var(--f7))!important;
+    }
+  }
+  @media only screen and (max-width: 575px){
+    .hero .hero-text{
+      margin-bottom: 20%;
+    }
+  }
+  .hero .guid{
+    display:none;
+  }
+  .hero #backGround {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    //opacity:0;
+    //transition:opacity 0.5s ease;
+  }
+
+  .hero  #backGround .image-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //visibility: hidden;
+  }
+  .hero  #backGround .image-wrap .img {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* HERO TEXT*/
+  .hero .hero-text{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position: relative;
+    z-index:1;
+  }
+  /* CHEVRON  START */
+  .hero .hero-text .svg-wrap {
+    display:none;
+    display: none;
+    justify-content: center;
+    align-items: end;
+  }
+  .hero .hero-text .svg-wrap svg{
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    padding-top:var(--s2);
+    fill:var(--light-main)
+  }
+
+  /* CHEVRON  END */
+  /*** HEADING ONE START ***/
+  .hero .hero-text h1{
+    color:var(--light-main);
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: clamp(var(--f7), 6vw, var(--f14))!important;
+    margin-top: -0.3em;
+    letter-spacing: 0.13em;
+    /*opacity:0;*/
+  }
+  html.safari-12 .hero .hero-text h1, html.safari-13 .hero .hero-text h1 {
+    font-size: min(max(var(--f7), 6vw), var(--f14))!important;
+  }
+  @media only screen and (max-width: 767px) {
+    .hero .hero-text h1{
+      /*letter-spacing:0.5em;*/
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .hero .hero-text h1{
+      letter-spacing:0.1em;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .hero .hero-text h1{
+      letter-spacing:0;
+    }
+  }
+  .hero .hero-text h1 .outline{
+    -webkit-text-stroke-color: var(--light-main);
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+  }
+  /*** HEADING ONE END ***/
+
+  /*** HEADING TWO START ***/
+  .hero .hero-text h2{
+    color:var(--light-main);
+    text-transform: uppercase;
+    margin-top:1.2em;
+    font-weight: 400;
+    letter-spacing: 0.17em;
+    font-size: clamp(1.2rem, 1.6vw, var(--f7))!important;
+  }
+  html.safari-12 .hero .hero-text h2, html.safari-13 .hero .hero-text h2 {
+    font-size: min(max(1.2rem, 1.6vw), var(--f7))!important;
+  }
+  @media only screen and (max-width: 767px) {
+    .hero .hero-text h2{
+      margin-top:var(--s3);
+    }
+  }
+  @media only screen and (max-width: 575px) {
+    .hero .hero-text h2{
+      letter-spacing: 0.2em;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .hero .hero-text h2{
+      letter-spacing:0;
+    }
+  }
+  /*** HEADING TWO END ***/
+
+  /* HERO IMAGE*/
+  .hero .hero-image{
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  @keyframes placeHolderShimmerHero{
+    0%{
+      background-position: -468px 0
+    }
+    100%{
+      background-position: 468px 0
+    }
+  }
+  .hero.loadingAnimation {
+    /*animation-duration: 1s;*/
+    /*animation-fill-mode: forwards;*/
+    /*animation-iteration-count: infinite;*/
+    /*animation-name: placeHolderShimmer;*/
+    /*animation-timing-function: linear;*/
+    /*background: rgba(0, 0, 0, 0.2);*/
+    /*background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);*/
+    /*background-size: 1000px 104px;*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+  }
+
+}

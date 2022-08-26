@@ -1,0 +1,278 @@
+/*----------------------------------------
+    # Theme Colours -- /_abstracts/_colours.scss
+----------------------------------------*/
+:root {
+  --primary-main: hsl(0deg, 0%, 0%) ;
+  --primary-highlight: hsl(0deg, 0%, 50%) ;
+  --primary-invert: hsl(100deg, 100%, 100%) ;
+  --secondary-main: hsl(0deg, 0%, 20%) ;
+  --secondary-highlight: hsl(0deg, 0%, 40%) ;
+  --secondary-invert: hsl(0deg, 0%, 100%) ;
+  --tertiary-main: hsl(0deg, 0%, 10%) ;
+  --tertiary-highlight: hsl(0deg, 0%, 40%) ;
+  --tertiary-invert: hsl(0deg, 0%, 100%) ;
+  --quaternary-main: hsl(70deg, 31%, 85%) ;
+  --quaternary-highlight: hsl(70deg, 20%, 60%) ;
+  --quaternary-invert: hsl(70deg, 31%, 10%) ;
+  --light-main: hsl(5deg, 2%, 100%) ;
+  --light-highlight: hsl(5deg, 2%, 50%) ;
+  --light-invert: hsl(5deg, 2%, 0%) ;
+  --dark-main: hsl(5deg, 2%, 0%) ;
+  --dark-highlight: hsl(5deg, 2%, 50%) ;
+  --dark-invert: hsl(5deg, 2%, 100%) ;
+}
+
+/*----------------------------------------
+    # Base Colours -- /_abstracts/_colours.scss
+----------------------------------------*/
+:root {
+  --base-green: #30b130 ;
+  --base-orange: #f3af3a ;
+  --base-red: #de2e2e ;
+  --base-white: #ffffff ;
+  --base-grey: #D7D7D7 ;
+  --base-black: #000000 ;
+  --base-purple: #3B3646 ;
+  --base-body: #2b2b2b ;
+  --base-heading: #2b2b2b ;
+  --base-background: #f3f3f3 ;
+  --base-button-background: #ffffff ;
+  --base-button-hover: #000000 ;
+  --base-button-text: #000000 ;
+  --base-button-hover-text: #ffffff ;
+  --base-button-border-color: #ffffff ;
+  --base-button-hover-border-color: #ffffff ;
+  --base-link-colour: #1a1a1a ;
+}
+
+/*----------------------------------------
+    # Colour Utility /_utilities/_generator/_colour-utility.scss
+----------------------------------------*/
+/*----------------------------------------
+  primary utility classes
+----------------------------------------*/
+.bg-primary-main {
+  background-color: var(--primary-main);
+  color: var(--primary-invert);
+}
+.bg-primary-main > *,
+.bg-primary-main .stack > *,
+.bg-primary-main blockquote {
+  color: var(--primary-invert);
+}
+.bg-primary-main a, .bg-primary-main p, .bg-primary-main h1, .bg-primary-main h2, .bg-primary-main h3, .bg-primary-main h4, .bg-primary-main h5, .bg-primary-main h6 {
+  color: var(--primary-invert);
+}
+.bg-primary-main .outline {
+  -webkit-text-stroke-color: var(--primary-invert);
+}
+.bg-primary-main.button:not(.master).primary {
+  background-color: var(--primary-main) !important;
+  color: var(--primary-invert) !important;
+  border-color: var(--primary-main) !important;
+}
+.bg-primary-main.button:not(.master).primary:hover {
+  background-color: var(--primary-highlight) !important;
+  color: var(--primary-invert) !important;
+  border-color: var(--primary-main) !important;
+}
+.bg-primary-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--primary-main);
+}
+.bg-primary-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--primary-main);
+  color: var(--primary-invert);
+  border-color: var(--primary-main);
+}
+
+/*----------------------------------------
+  secondary utility classes
+----------------------------------------*/
+.bg-secondary-main {
+  background-color: var(--secondary-main);
+  color: var(--secondary-invert);
+}
+.bg-secondary-main > *,
+.bg-secondary-main .stack > *,
+.bg-secondary-main blockquote {
+  color: var(--secondary-invert);
+}
+.bg-secondary-main a, .bg-secondary-main p, .bg-secondary-main h1, .bg-secondary-main h2, .bg-secondary-main h3, .bg-secondary-main h4, .bg-secondary-main h5, .bg-secondary-main h6 {
+  color: var(--secondary-invert);
+}
+.bg-secondary-main .outline {
+  -webkit-text-stroke-color: var(--secondary-invert);
+}
+.bg-secondary-main.button:not(.master).primary {
+  background-color: var(--secondary-main) !important;
+  color: var(--secondary-invert) !important;
+  border-color: var(--secondary-main) !important;
+}
+.bg-secondary-main.button:not(.master).primary:hover {
+  background-color: var(--secondary-highlight) !important;
+  color: var(--secondary-invert) !important;
+  border-color: var(--secondary-main) !important;
+}
+.bg-secondary-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--secondary-main);
+}
+.bg-secondary-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--secondary-main);
+  color: var(--secondary-invert);
+  border-color: var(--secondary-main);
+}
+
+/*----------------------------------------
+  tertiary utility classes
+----------------------------------------*/
+.bg-tertiary-main {
+  background-color: var(--tertiary-main);
+  color: var(--tertiary-invert);
+}
+.bg-tertiary-main > *,
+.bg-tertiary-main .stack > *,
+.bg-tertiary-main blockquote {
+  color: var(--tertiary-invert);
+}
+.bg-tertiary-main a, .bg-tertiary-main p, .bg-tertiary-main h1, .bg-tertiary-main h2, .bg-tertiary-main h3, .bg-tertiary-main h4, .bg-tertiary-main h5, .bg-tertiary-main h6 {
+  color: var(--tertiary-invert);
+}
+.bg-tertiary-main .outline {
+  -webkit-text-stroke-color: var(--tertiary-invert);
+}
+.bg-tertiary-main.button:not(.master).primary {
+  background-color: var(--tertiary-main) !important;
+  color: var(--tertiary-invert) !important;
+  border-color: var(--tertiary-main) !important;
+}
+.bg-tertiary-main.button:not(.master).primary:hover {
+  background-color: var(--tertiary-highlight) !important;
+  color: var(--tertiary-invert) !important;
+  border-color: var(--tertiary-main) !important;
+}
+.bg-tertiary-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--tertiary-main);
+}
+.bg-tertiary-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--tertiary-main);
+  color: var(--tertiary-invert);
+  border-color: var(--tertiary-main);
+}
+
+/*----------------------------------------
+  quaternary utility classes
+----------------------------------------*/
+.bg-quaternary-main {
+  background-color: var(--quaternary-main);
+  color: var(--quaternary-invert);
+}
+.bg-quaternary-main > *,
+.bg-quaternary-main .stack > *,
+.bg-quaternary-main blockquote {
+  color: var(--quaternary-invert);
+}
+.bg-quaternary-main a, .bg-quaternary-main p, .bg-quaternary-main h1, .bg-quaternary-main h2, .bg-quaternary-main h3, .bg-quaternary-main h4, .bg-quaternary-main h5, .bg-quaternary-main h6 {
+  color: var(--quaternary-invert);
+}
+.bg-quaternary-main .outline {
+  -webkit-text-stroke-color: var(--quaternary-invert);
+}
+.bg-quaternary-main.button:not(.master).primary {
+  background-color: var(--quaternary-main) !important;
+  color: var(--quaternary-invert) !important;
+  border-color: var(--quaternary-main) !important;
+}
+.bg-quaternary-main.button:not(.master).primary:hover {
+  background-color: var(--quaternary-highlight) !important;
+  color: var(--quaternary-invert) !important;
+  border-color: var(--quaternary-main) !important;
+}
+.bg-quaternary-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--quaternary-main);
+}
+.bg-quaternary-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--quaternary-main);
+  color: var(--quaternary-invert);
+  border-color: var(--quaternary-main);
+}
+
+/*----------------------------------------
+  light utility classes
+----------------------------------------*/
+.bg-light-main {
+  background-color: var(--light-main);
+  color: var(--light-invert);
+}
+.bg-light-main > *,
+.bg-light-main .stack > *,
+.bg-light-main blockquote {
+  color: var(--light-invert);
+}
+.bg-light-main a, .bg-light-main p, .bg-light-main h1, .bg-light-main h2, .bg-light-main h3, .bg-light-main h4, .bg-light-main h5, .bg-light-main h6 {
+  color: var(--light-invert);
+}
+.bg-light-main .outline {
+  -webkit-text-stroke-color: var(--light-invert);
+}
+.bg-light-main.button:not(.master).primary {
+  background-color: var(--light-main) !important;
+  color: var(--light-invert) !important;
+  border-color: var(--light-main) !important;
+}
+.bg-light-main.button:not(.master).primary:hover {
+  background-color: var(--light-highlight) !important;
+  color: var(--light-invert) !important;
+  border-color: var(--light-main) !important;
+}
+.bg-light-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--light-main);
+}
+.bg-light-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--light-main);
+  color: var(--light-invert);
+  border-color: var(--light-main);
+}
+
+/*----------------------------------------
+  dark utility classes
+----------------------------------------*/
+.bg-dark-main {
+  background-color: var(--dark-main);
+  color: var(--dark-invert);
+}
+.bg-dark-main > *,
+.bg-dark-main .stack > *,
+.bg-dark-main blockquote {
+  color: var(--dark-invert);
+}
+.bg-dark-main a, .bg-dark-main p, .bg-dark-main h1, .bg-dark-main h2, .bg-dark-main h3, .bg-dark-main h4, .bg-dark-main h5, .bg-dark-main h6 {
+  color: var(--dark-invert);
+}
+.bg-dark-main .outline {
+  -webkit-text-stroke-color: var(--dark-invert);
+}
+.bg-dark-main.button:not(.master).primary {
+  background-color: var(--dark-main) !important;
+  color: var(--dark-invert) !important;
+  border-color: var(--dark-main) !important;
+}
+.bg-dark-main.button:not(.master).primary:hover {
+  background-color: var(--dark-highlight) !important;
+  color: var(--dark-invert) !important;
+  border-color: var(--dark-main) !important;
+}
+.bg-dark-main.button:not(.master).ghost:nth-child(1n) {
+  color: var(--dark-main);
+}
+.bg-dark-main.button:not(.master).ghost:nth-child(1n):hover {
+  background-color: var(--dark-main);
+  color: var(--dark-invert);
+  border-color: var(--dark-main);
+}
+
+body.dark-theme {
+  --base-heading: var(--base-white);
+  --base-body: var(--base-white);
+  --base-background: var(--base-black);
+  --body-weight:300;
+}

@@ -1,0 +1,24 @@
+#generic-block{
+  #backGround {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+  }
+
+  #backGround .image-wrap{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+  }
+
+  .image-wrap div{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

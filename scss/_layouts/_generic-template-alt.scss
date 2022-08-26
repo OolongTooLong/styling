@@ -1,0 +1,166 @@
+@use '../_utilities/_mixins/media-query' as *;
+@use '../_base/_typography' as *;
+@use '../_components/_buttons' as *;
+@use '../_abstracts/_colours' as *;
+@use '../_abstracts/_space-scale' as *;
+
+
+/* Start Generic Template */
+#generic-body {
+  #hero {
+    align-items: stretch;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-template-columns: [full-start] minmax(calc(calc(100% - 1650px) / 2), 1fr) [main-start] repeat(24, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1650px) / 2), 1fr) [full-end];
+    grid-template-rows: auto;
+    position: relative;
+    overflow: hidden;
+    grid-gap: 0;
+    @include mq-min(tablet) {
+      background: var(--dark-main);
+    }
+
+    #hero-image {
+      grid-column-start: 1;
+      grid-column-end: 14;
+      background-image: url('https://images.unsplash.com/photo-1653496905315-fd11ea3ce50b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740');
+      background-position: center;
+      background-size: cover;
+      height: 85vh;
+      min-height: 675px;
+
+      @include mq(tablet) {
+        grid-column-start: 1;
+        grid-column-end: 27;
+        grid-row: 1;
+        &:after {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 75%;
+          bottom: 0;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
+          mix-blend-mode: multiply;
+        }
+      }
+    }
+
+    .hero-text {
+      grid-column-start: 14;
+      grid-column-end: 27;
+      padding-top: var(--s4);
+      padding-bottom: var(--s6);
+      display: flex;
+      justify-self: flex-start;
+      align-self: flex-end;
+      flex-direction: column;
+      .at-share-btn-elements{
+        a{
+          text-decoration: none;
+        }
+      }
+      > * {
+        color: var(--light-main);
+      }
+      h1 {
+        text-align: left;
+        font-family: var(--heading-font);
+        font-weight: 700;
+        text-transform: uppercase;
+        max-width: 20ch;
+      }
+      p {
+        font-weight: 300;
+      }
+      @include mq-min(tablet) {
+        padding: var(--s5);
+      }
+      @include mq(tablet) {
+        z-index: 2;
+        grid-column-start: 5;
+        grid-column-end: 23;
+        grid-row: 1;
+        h1 {
+          text-stroke: 1px var(--base-black);
+          -webkit-text-stroke: 1px var(--base-black);
+        }
+      }
+    }
+  }
+  .cms-section {
+    padding-top: var(--s5);
+    h2 {
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .content {
+      align-items: stretch;
+      display: grid;
+      grid-auto-flow: dense;
+      grid-auto-rows: minmax(min-content, max-content);
+      grid-template-columns: [full-start] minmax(calc(calc(100% - 1650px) / 2), 1fr) [main-start] repeat(24, [col-start] 1fr) [main-end] minmax(calc(calc(100% - 1650px) / 2), 1fr) [full-end];
+      grid-template-rows: auto;
+      position: relative;
+      overflow: hidden;
+      grid-gap: 0;
+
+      & > * {
+        margin-top: 0;
+        margin-bottom: 3px;
+      }
+
+      & > * + * {
+        margin-top: var(--s2);
+      }
+
+      > * {
+        z-index: 2;
+        align-items: stretch;
+        display: grid;
+        grid-auto-flow: dense;
+        grid-column-start: 8;
+        grid-column-end: 20;
+        @include mq(tablet) {
+          grid-column-start: 5;
+          grid-column-end: 23;
+        }
+      }
+
+      .cms-asset {
+        margin-bottom: 0;
+        img{
+          max-width: 100%;
+        }
+        &.wide {
+          grid-column-start: 5;
+          grid-column-end: 23;
+          @include mq(phablet) {
+            grid-column-start: 4;
+            grid-column-end: 24;
+          }
+        }
+      }
+    }
+  }
+  .mce-visual-caret-hidden, .mce-visual-caret {
+    display: none;
+  }
+  [data-mce-caret] {
+    display: none;
+  }
+  //p + br {
+  //  display: none;
+  //}
+  //.cms-section {
+  //  *:nth-last-child(1) {
+  //    * + br {
+  //      display: none;
+  //    }
+  //  }
+  //}
+}
+
+/* End Generic Template */

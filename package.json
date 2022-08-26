@@ -61,7 +61,7 @@
     "slick-carousel": "^1.8.1"
   },
   "dependencies": {
-    "gsap": "^3.10.4",
+    "gsap": "npm:@gsap/business@^3.10.4",
     "jquery-ui": "^1.12.1",
     "packery": "^2.1.2",
     "slick-slider": "^1.8.2"
