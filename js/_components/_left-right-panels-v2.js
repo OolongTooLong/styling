@@ -1,17 +1,23 @@
 let pixHomeSettings = (() => {
   let init = () => {
-      $(document).ready(function() {
-        if ($('.pix-home').length) {
-          panelAnimation();
-          caseStudySlider();
-          testimonialSlider()
-          menuHandler();
-        }
-      });
-    },
+    $(document).ready(function() {
+      if ($('.pix-home').length) {
+        javascriptChecker();
+        panelAnimation();
+        caseStudySlider();
+        testimonialSlider()
+        menuHandler();
+
+      }
+    });
+  },
+  javascriptChecker = () => {
+    const html = document.querySelector("html");
+    html.classList.remove('no-js');
+    html.classList.add('js');
+  }
 
   menuHandler=()=>{
-
       gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
       let scrollDeadzone = 80;
       let lastScrollTop = 0;
@@ -53,7 +59,9 @@ let pixHomeSettings = (() => {
     }
 
   panelAnimation=()=>{
+
     ScrollTrigger.matchMedia({
+
       "(min-width: 1000px)": function () { // desktop
 
         let pinRightPanels = gsap.utils.toArray(".pinRight");
@@ -94,76 +102,30 @@ let pixHomeSettings = (() => {
             pinSpacing:false,
             id: "#"+panel.getAttribute("id"), // used for desktop navigation
           });
+        });
 
-          // panel.quote = panel.querySelectorAll(".quote-block");
-          // panel.quoteInner = panel.querySelectorAll(".quote-inner");
-          // gsap.to(".quote-inner", {
-          //   scrollTrigger: {
-          //   trigger: ".quote-inner",
-          //     start: "top top",
-          //     end: "+=400",
-          //     pin:  ".quote-inner",
-          //     markers: true,
-          //     scrub:2
-          //   },
-          //   opacity: 1,
-          //   y: 200,
-          // });
-          // ScrollTrigger.create({
-          //   trigger: panel.quote,
-          //   start: "top top",
-          //   endTrigger: panel,
-          //   end: "top bottom",
-          //   pin: true,
-          //   pinSpacing: false,
-          //   scrub: 1,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     fontWeight: "bold", indent: 50
-          //   }
-          // });
-
-          // panel.quoteInner = panel.querySelectorAll(".quote-inner");
-          // const quotesTl = gsap.timeline({defaults: { ease: "none"}})
-          // quotesTl
-          //     .fromTo(panel.quoteInner,{ autoAlpha:0 },{ duration: 1, autoAlpha: 1}) // fade in panel
-          //
-          //   ScrollTrigger.create({
-          //   animation: quotesTl,
-          //   trigger:  () => imgTrig[i],
-          //   start: "top bottom",
-          //   end: "bottom bottom",
-          //   toggleActions: "play none none reverse",
-          //   // pin:true,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     fontWeight: "bold", indent: 50
-          //   }
-          // });
-
-
-   // v1       // ScrollTrigger.create({
-          //   trigger: panel.quote,
-          //   start: "top bottom-=100",
-          //   endTrigger: panel,
-          //   // end: "bottom bottom-=75",
-          //   pin: true,
-          //   pinSpacing: false,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     indent: 50
-          //   }
-          // });
-
-
+        let quotes = gsap.utils.toArray(".quoteBlock");
+        quotes.forEach((quote, i) => {
+          const quotesTl = gsap.timeline({defaults: { ease: "none"}})
+          quotesTl
+              .fromTo(quote,{ autoAlpha:0 },{ delay: 1, duration: 1, autoAlpha: 1})
+          ScrollTrigger.create({
+            animation:quotesTl,
+            trigger: quote,
+            start: "bottom bottom",
+            end: "top top-=200px",
+            scrub:true,
+            pin: quote,
+            markers: {
+              startColor: "green",
+              endColor: "green",
+              fontSize: "18px",
+              fontWeight: "bold", indent: 50
+            }
+          });
         });
       },
+
       "(max-width: 999px)": function () { // mobile
         let pinAllMobilePanels = gsap.utils.toArray(".pinAllMobile");
         pinAllMobilePanels.forEach((panel, i) => {
@@ -178,7 +140,6 @@ let pixHomeSettings = (() => {
         });
       },
       "all": function () { // all
-
 
       }
     });

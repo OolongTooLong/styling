@@ -339,6 +339,7 @@ var pixHomeSettings = function () {
   var init = function init() {
     $(document).ready(function () {
       if ($('.pix-home').length) {
+        javascriptChecker();
         panelAnimation();
         caseStudySlider();
         testimonialSlider();
@@ -346,7 +347,13 @@ var pixHomeSettings = function () {
       }
     });
   },
-      menuHandler = function menuHandler() {
+      javascriptChecker = function javascriptChecker() {
+    var html = document.querySelector("html");
+    html.classList.remove('no-js');
+    html.classList.add('js');
+  };
+
+  menuHandler = function menuHandler() {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     var scrollDeadzone = 80;
     var lastScrollTop = 0;
@@ -459,68 +466,37 @@ var pixHomeSettings = function () {
             pinSpacing: false,
             id: "#" + panel.getAttribute("id") // used for desktop navigation
 
-          }); // panel.quote = panel.querySelectorAll(".quote-block");
-          // panel.quoteInner = panel.querySelectorAll(".quote-inner");
-          // gsap.to(".quote-inner", {
-          //   scrollTrigger: {
-          //   trigger: ".quote-inner",
-          //     start: "top top",
-          //     end: "+=400",
-          //     pin:  ".quote-inner",
-          //     markers: true,
-          //     scrub:2
-          //   },
-          //   opacity: 1,
-          //   y: 200,
-          // });
-          // ScrollTrigger.create({
-          //   trigger: panel.quote,
-          //   start: "top top",
-          //   endTrigger: panel,
-          //   end: "top bottom",
-          //   pin: true,
-          //   pinSpacing: false,
-          //   scrub: 1,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     fontWeight: "bold", indent: 50
-          //   }
-          // });
-          // panel.quoteInner = panel.querySelectorAll(".quote-inner");
-          // const quotesTl = gsap.timeline({defaults: { ease: "none"}})
-          // quotesTl
-          //     .fromTo(panel.quoteInner,{ autoAlpha:0 },{ duration: 1, autoAlpha: 1}) // fade in panel
-          //
-          //   ScrollTrigger.create({
-          //   animation: quotesTl,
-          //   trigger:  () => imgTrig[i],
-          //   start: "top bottom",
-          //   end: "bottom bottom",
-          //   toggleActions: "play none none reverse",
-          //   // pin:true,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     fontWeight: "bold", indent: 50
-          //   }
-          // });
-          // v1       // ScrollTrigger.create({
-          //   trigger: panel.quote,
-          //   start: "top bottom-=100",
-          //   endTrigger: panel,
-          //   // end: "bottom bottom-=75",
-          //   pin: true,
-          //   pinSpacing: false,
-          //   markers: {
-          //     startColor: "green",
-          //     endColor: "green",
-          //     fontSize: "18px",
-          //     indent: 50
-          //   }
-          // });
+          });
+        });
+        var quotes = gsap.utils.toArray(".quoteBlock");
+        quotes.forEach(function (quote, i) {
+          var quotesTl = gsap.timeline({
+            defaults: {
+              ease: "none"
+            }
+          });
+          quotesTl.fromTo(quote, {
+            autoAlpha: 0
+          }, {
+            delay: 1,
+            duration: 1,
+            autoAlpha: 1
+          });
+          ScrollTrigger.create({
+            animation: quotesTl,
+            trigger: quote,
+            start: "bottom bottom",
+            end: "top top-=200px",
+            scrub: true,
+            pin: quote,
+            markers: {
+              startColor: "green",
+              endColor: "green",
+              fontSize: "18px",
+              fontWeight: "bold",
+              indent: 50
+            }
+          });
         });
       },
       "(max-width: 999px)": function maxWidth999px() {
@@ -1157,6 +1133,52 @@ var templateAppThree = function () {
   //   });
   // }
   ;
+
+  init();
+  return {};
+}();
+
+var simplePinSettings = function () {
+  var init = function init() {
+    $(document).ready(function () {
+      simplePin();
+    });
+  },
+      simplePin = function simplePin() {
+    gsap.registerPlugin(ScrollTrigger);
+    var pinLeftPanels = gsap.utils.toArray(".pinLeft");
+    pinLeftPanels.forEach(function (panel, i) {
+      // left panel - image
+      panel.quote = panel.querySelectorAll(".quote-block");
+      var quotesTl = gsap.timeline({
+        defaults: {
+          ease: "none"
+        }
+      });
+      quotesTl.fromTo(panel.quote, {
+        autoAlpha: 0
+      }, {
+        duration: 1,
+        autoAlpha: 1
+      }); // fade in panel
+
+      ScrollTrigger.create({
+        animation: quotesTl,
+        trigger: panel.quote,
+        pin: panel.quote,
+        start: "bottom center",
+        end: "top top",
+        scrub: true,
+        markers: {
+          startColor: "green",
+          endColor: "green",
+          fontSize: "18px",
+          fontWeight: "bold",
+          indent: 50
+        }
+      });
+    });
+  };
 
   init();
   return {};

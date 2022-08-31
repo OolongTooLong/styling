@@ -48,6 +48,7 @@ const jsPath = {
 function jsDeps(done) {
     const files = [
         "node_modules/jquery/dist/jquery.min.js",
+        "js/_vendor/modernizr-3.11.2.min.js",
         "node_modules/packery/dist/packery.pkgd.js",
         // "node_modules/slick-carousel/slick/slick.js",
         "node_modules/gsap/dist/gsap.min.js",
