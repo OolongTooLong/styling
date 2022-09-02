@@ -17,9 +17,18 @@ html.js .pix-home{
       width: 50%;
       height: var(--leftPanelHeight);
       min-height:500px;
+      position: relative;
       .image-block{
         height: var(--leftPanelHeight);
-        padding:var(--s4) 0 var(--deadzone) 0;
+      }
+      .text-block{
+        height:100vh;
+        padding: 0;
+      }
+      .layer-1{
+        .quote-block {
+          display:none;
+        }
       }
     }
     .right{
@@ -113,20 +122,28 @@ html.no-js .pix-home{
       }
     }
   }
-
-
+  .left{
+    position: relative;
+    height: 100vh;
+  }
+  @for $i from 1 through 20 {
+    .layer-#{$i} {
+      z-index: #{$i};
+    }
+  }
   .image-block{
     height: 100vh;
     background-size: cover;
     background-position: center;
-    padding:var(--s4) 0 var(--s4) 0;
-    &.random{ }
+    padding:var(--s4) 0 var(--deadzone) 0;
   }
   .quote-block{
-    z-index:5;
+    z-index: 2;
     box-sizing: border-box;
-    padding:1rem 0;
-
+    padding: var(--s1);
+    width:100%;
+    position: absolute;
+    top: 26vh;
     .inner{
       color: var(--light-main);
       padding: var(--s2);
@@ -140,21 +157,20 @@ html.no-js .pix-home{
         font-size: clamp(var(--f1), 1.2vw, var(--f2));
         font-style: normal;
         line-height: 1.2;
-
       }
       label{}
     }
-    &:after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 150%;
-      bottom: 0;
-      background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 100%);
-      mix-blend-mode: multiply;
-      left: 0;
-      z-index: -1;
+    .overlay{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 30vh;
+        bottom: 0;
+        background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        mix-blend-mode: multiply;
+        left: 0;
+        z-index: -1;
     }
   }
   .outline{
@@ -238,7 +254,7 @@ html.no-js .pix-home{
     //}
   }
   .breaker{
-    z-index: 3;
+    z-index: 50;
     .title-block{
       position: sticky;
       top:0;

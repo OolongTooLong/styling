@@ -1,7 +1,7 @@
 let simplePinSettings = (() => {
     let init = () => {
         $(document).ready(function() {
-            simplePin();
+            // simplePin();
         });
 
     },

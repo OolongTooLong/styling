@@ -60,89 +60,86 @@ let pixHomeSettings = (() => {
 
   panelAnimation=()=>{
 
-    ScrollTrigger.matchMedia({
+    let mm = gsap.matchMedia();
 
-      "(min-width: 1000px)": function () { // desktop
+    mm.add("(min-width: 1000px)", () => {
 
-        let pinRightPanels = gsap.utils.toArray(".pinRight");
-        pinRightPanels.forEach((pinRight, i) => { // right panel - text - get all items to fade in
-          ScrollTrigger.create({
-            trigger: pinRight,
-            start: "top top",
-            pin: true,
-            end: "max",
-            pinSpacing:false,
-            id: "pinRight"+i,
-          });
+      let pinRightPanels = gsap.utils.toArray(".pinRight");
+      pinRightPanels.forEach((pinRight, i) =>     { // right panel - text - get all items to fade in
+        ScrollTrigger.create({
+          trigger: pinRight,
+          start: "top top",
+          pin: true,
+          end: "max",
+          pinSpacing:false,
+          id: "pinRight"+i,
         });
+      });
 
-        let imgTrig = gsap.utils.toArray(".rightTrigger");
-        let panelAnimation = gsap.utils.toArray(".panelAnimation");
-        panelAnimation.forEach((rightBlock, i) => { // right panel - text - get all items to fade in
-          rightBlock.text = rightBlock.querySelectorAll(".staggerAnimateUp"); // get all child items to stagger in
-          const panelTimeline = gsap.timeline({defaults: { ease: "none"}})
-          panelTimeline
+      let imgTrig = gsap.utils.toArray(".rightTrigger");
+      let panelAnimation = gsap.utils.toArray(".panelAnimation");
+      panelAnimation.forEach((rightBlock, i) => { // right panel - text - get all items to fade in
+        rightBlock.text = rightBlock.querySelectorAll(".staggerAnimateUp"); // get all child items to stagger in
+        const panelTimeline = gsap.timeline({defaults: { ease: "none"}})
+        panelTimeline
             .fromTo(rightBlock,{ autoAlpha:0 },{ duration: 1, autoAlpha: 1}) // fade in panel
             .fromTo(rightBlock.text,{ y: '60vh', autoAlpha:0 },{ duration: 0.5, autoAlpha:1, y: 0, stagger: 0.2}, ">-0.2"); // move from y 60vh to 0vh staggered
-          ScrollTrigger.create({
-            trigger: () => imgTrig[i], // trigger from marker of same index
-            animation: panelTimeline,
-            start: "top top",
-            toggleActions: "play none none reverse",
-          });
+        ScrollTrigger.create({
+          trigger: () => imgTrig[i], // trigger from marker of same index
+          animation: panelTimeline,
+          start: "top top",
+          toggleActions: "play none none reverse",
         });
+      });
 
-        let pinLeftPanels = gsap.utils.toArray(".pinLeft");
-        pinLeftPanels.forEach((panel, i) => { // left panel - image
-          ScrollTrigger.create({
-            trigger: panel,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            pinSpacing:false,
-            id: "#"+panel.getAttribute("id"), // used for desktop navigation
-          });
+      let pinLeftPanels = gsap.utils.toArray(".pinLeft");
+      pinLeftPanels.forEach((panel, i) => { // left panel - image
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          end: "+=200%",
+          pin: true,
+          pinSpacing:false,
+          id: "#"+panel.getAttribute("id"), // used for desktop navigation
         });
+      });
 
-        let quotes = gsap.utils.toArray(".quoteBlock");
-        quotes.forEach((quote, i) => {
-          const quotesTl = gsap.timeline({defaults: { ease: "none"}})
-          quotesTl
-              .fromTo(quote,{ autoAlpha:0 },{ delay: 1, duration: 1, autoAlpha: 1})
-          ScrollTrigger.create({
-            animation:quotesTl,
-            trigger: quote,
-            start: "bottom bottom",
-            end: "top top-=200px",
-            scrub:true,
-            pin: quote,
-            markers: {
-              startColor: "green",
-              endColor: "green",
-              fontSize: "18px",
-              fontWeight: "bold", indent: 50
-            }
-          });
-        });
-      },
-
-      "(max-width: 999px)": function () { // mobile
-        let pinAllMobilePanels = gsap.utils.toArray(".pinAllMobile");
-        pinAllMobilePanels.forEach((panel, i) => {
-          ScrollTrigger.create({
-            trigger: panel,
-            end: "max",
-            start: "top top",
-            pin: true,
-            pinSpacing: false,
-            id: "#"+panel.getAttribute("id"), // used for mobile navigation
-          });
-        });
-      },
-      "all": function () { // all
-
-      }
     });
+    mm.add("(max-width: 999px)", () => {
+      let pinAllMobilePanels = gsap.utils.toArray(".pinAllMobile");
+      pinAllMobilePanels.forEach((panel, i) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          end: "max",
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+          id: "#"+panel.getAttribute("id"), // used for mobile navigation
+        });
+      });
+    });
+    let quotes = gsap.utils.toArray(".quoteBlock");
+    quotes.forEach((quote, i) => {
+      quotes.text = quote.querySelectorAll(".inner");
+      quotes.overlay = quote.querySelectorAll(".overlay");
+
+      const quotesTl = gsap.timeline({defaults: { ease: "none"}, onComplete: function(){ console.log('quotes - finish') }})
+      quotesTl
+          .add('start')
+          .fromTo(quotes.text ,{ y: '60vh', autoAlpha:0 },{  duration: 0.8, autoAlpha:1, y: 0}, 'start')
+          .fromTo(quote.overlay, { autoAlpha:0 },{ duration: 1, autoAlpha: 1}, ">-0.2")
+
+      ScrollTrigger.create({
+        animation:quotesTl,
+        trigger: quote,
+        start: "bottom bottom",
+        end: "top top-=50%",
+        pin: true,
+        pinSpacing:false,
+        toggleActions: "play none none reverse",
+      });
+    });
+
   }
 
   caseStudySlider=()=>{
