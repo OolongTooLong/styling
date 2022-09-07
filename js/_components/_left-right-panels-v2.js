@@ -7,7 +7,6 @@ let pixHomeSettings = (() => {
         caseStudySlider();
         testimonialSlider()
         menuHandler();
-
       }
     });
   },
@@ -184,6 +183,7 @@ let pixHomeSettings = (() => {
       onPress: updateDraggable,
       onDrag: updateProgress,
       onThrowUpdate: updateProgress,
+      type:"x",
       snap: {
         x: snapX
       }
@@ -294,6 +294,7 @@ let pixHomeSettings = (() => {
       onPress: updateDraggable,
       onDrag: updateProgress,
       onThrowUpdate: updateProgress,
+      type:"x",
       snap: {
         x: snapX
       }

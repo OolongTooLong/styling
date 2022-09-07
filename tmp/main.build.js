@@ -555,6 +555,7 @@ var pixHomeSettings = function () {
       onPress: updateDraggable,
       onDrag: updateProgress,
       onThrowUpdate: updateProgress,
+      type: "x",
       snap: {
         x: snapX
       }
@@ -650,6 +651,7 @@ var pixHomeSettings = function () {
       onPress: updateDraggable,
       onDrag: updateProgress,
       onThrowUpdate: updateProgress,
+      type: "x",
       snap: {
         x: snapX
       }

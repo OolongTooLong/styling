@@ -10,6 +10,7 @@
     --leftPanelHeight:calc(100vh + var(--deadzone));
     --paddingBottom : 50px;
 }
+
 // STYLES WITH JAVASCRIPT
 html.js .pix-home{
   @include mq-min(medium){
@@ -263,6 +264,7 @@ html.no-js .pix-home{
       width: 100%;
       max-width: unset;
       z-index: 3;
+
     }
     .masonry{
       .col{
@@ -348,54 +350,62 @@ html.no-js .pix-home{
       right: 2rem;
     }
   }
-  .testimonials-container{
-    position: relative;
-    overflow: hidden;
-
-    .slides-inner{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-items: center;
-      .slide{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
+  #testimonials{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .testimonials-container{
+      position: relative;
+      overflow: hidden;
+      height: 50vh;
+      margin: auto;
+      width: 100%;
+      .slides-inner{
         display: flex;
-        justify-content: stretch;
-        .inner{
-          display:grid;
-          grid-template-columns: repeat(5, 1fr);
-          grid-template-rows: 1fr;
-          align-items: center;
-          margin: 0 auto;
-          width: 65vw;
-          grid-gap: 1rem;
-          .profile-thumbnail{
-            width: 200px;
-            height: 200px;
-            justify-self: end;
-            border-radius: 50%;
-          }
-          blockquote{
-            grid-column: span 4;
-            p:not(.quote){
-              margin-top: 0;
-              font-size: min(max(1rem, 2vw), 3rem);
-              max-width: 41ch;
-              font-weight: 500;
-            }
-            p.quote{
-              margin-bottom: 0;
-              font-weight: 300;
-            }
-          }
-        }
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        .slide{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: inherit;
 
+          .inner{
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 1fr;
+            align-items: center;
+            margin: 0 auto;
+            width: 65vw;
+            grid-gap: 1rem;
+            .profile-thumbnail{
+              width: 200px;
+              height: 200px;
+              justify-self: end;
+              border-radius: 50%;
+            }
+            blockquote{
+              grid-column: span 4;
+              p:not(.quote){
+                margin-top: 0;
+                font-size: min(max(1rem, 2vw), 3rem);
+                max-width: 41ch;
+                font-weight: 500;
+              }
+              p.quote{
+                margin-bottom: 0;
+                font-weight: 300;
+              }
+            }
+          }
+
+        }
       }
     }
   }
+
 }
