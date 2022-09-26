@@ -105,7 +105,6 @@ let jsTasks = series(jsDeps, jsBuild, jsConcat)
 exports.js = jsTasks
 
 
-
 /******** SCSS Tasks *********/
 
 sass.compiler = require('sass');

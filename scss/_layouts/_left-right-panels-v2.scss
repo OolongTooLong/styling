@@ -5,7 +5,13 @@
 //   2. Styles without javascript
 //   3. General Styles
 // ************** //
+html,body{
+  //height: 100%;
+  //width: 100%;
+  //overflow: auto;
+}
 .pix-home .wrapper{
+  overflow-y: hidden;
     --deadzone : 200px;
     --leftPanelHeight:calc(100vh + var(--deadzone));
     --paddingBottom : 50px;
@@ -41,6 +47,26 @@ html.js .pix-home{
     .rightTrigger{
       position: absolute;
       top: 50%;
+      left: 0;
+      //background:red;
+      height: 100%;
+      width: 30px;
+      &.bottom{
+        height: unset;
+        top:unset;
+        bottom:0;
+      }
+      //&.below-bottom{
+      //  top:unset;
+      //  bottom:-50vh;
+      //}
+      //&.top{
+      //  top:0;
+      //}
+      //&.before-top{
+      //  top:-20vh;
+      //}
+
     }
   }
 }
@@ -257,14 +283,18 @@ html.no-js .pix-home{
   .breaker{
     z-index: 50;
     .title-block{
-      position: sticky;
+      position:absolute;
       top:0;
+      left:0;
       padding: 3rem;
       margin: 0;
       width: 100%;
       max-width: unset;
       z-index: 3;
-
+      box-sizing: border-box;
+    }
+    .inner-breaker{
+      //height: 100vh;
     }
     .masonry{
       .col{
@@ -284,12 +314,137 @@ html.no-js .pix-home{
       }
     }
   }
+  #case-studies{
+    #slider-nav{
+      width: 100%;
+      height: var(--leftPanelHeight)!important;;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+      z-index: 55;
+      pointer-events:none;
+    }
+    #progressBlock {
+      position:absolute;
+      bottom: var(--deadzone);
+      left: 250px;
+      list-style: none;
+      margin: 0;
+      display: flex;
+      padding: 0 0 var(--s5) 0;
+      height: 100px;
+      align-items: center;
+      width:30vw;
+      max-width: 400px;
+      @media only screen and (min-width: 1000px) {
+        padding: 0 0 var(--s6) 0;
+      }
+      li{
+        color:var(--light-main);
+        margin: 0.2rem 0.5rem;
+        pointer-events: all;
+        z-index: 60;
+        cursor: pointer;
+        width: 100px;
+        height: 40px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        align-items: center;
+        span{
+          grid-row: 1;
+          grid-column: 1;
+          display: block;
+          height: 5px;
+          &.bg{
+            background: #bbb;
+          }
+          &.bg-progress{
+            width:0;
+            //background: rgb(115, 115, 115);
+            &.complete{
+              width:100% !important;
+            }
+          }
+        }
+        &.active{
+          span{
+            &.bg{
+              //background: rgb(255, 255, 255);
+            }
+            &.bg-progress{
+              background: #333;
+            }
+          }
+        }
+      }
+      li.icons{
+      width: 40px;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      align-items: center;
+      > div{
+        grid-row: 1;
+        grid-column: 1;
+        justify-content: center;
+        display: inherit;
+        align-content: center;
+        &:before{
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          color: white;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+        }
+        &.hidden{
+          display:none
+        }
+        &.play{
+          &:before{
+            content: '\f04b';
+          }
+        }
 
+        &.pause{
+          &:before{
+            content: '\f04c';
+          }
+        }
+      }
+    }
+
+    }
+    button.slide-button {
+      /*position: absolute;*/
+      /*top: 50%;*/
+      /*right: 2rem;*/
+      border:none;
+      background:transparent;
+      display:inherit;
+      align-self: center;
+      pointer-events:all;
+    }
+    button.slide-button .right-chevron {
+      fill:#fcfcfc;
+      z-index: 4;
+    }
+    button.slide-button #rightchevronSVG {
+      width:40px;
+    }
+  }
   .case-study-container{
     overflow: hidden;
     .slides-inner {
-      min-height:100vh;
+      min-height: 100vh;
+      box-sizing: border-box;
       .slide{
+
         display:grid;
         grid-template-columns:1fr;
         grid-template-rows:1fr;
@@ -310,6 +465,15 @@ html.no-js .pix-home{
           }
         }
         .inner-slide{
+          opacity:0;
+          margin-top: auto;
+          margin-right: auto;
+          width: auto;
+          margin-right: auto;
+          margin-top: auto;
+          position: absolute;
+          left: 0;
+          bottom: 0;
           grid-column:1;
           grid-row:1;
           padding: 4rem;
@@ -344,23 +508,20 @@ html.no-js .pix-home{
         }
       }
     }
-    button.slide-button{
-      position: absolute;
-      top: 50%;
-      right: 2rem;
-    }
+
   }
   #testimonials{
-    min-height: 100vh;
+    //min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     .testimonials-container{
       position: relative;
       overflow: hidden;
-      height: 50vh;
+      min-height:100vh;
       margin: auto;
       width: 100%;
+      //padding-top: 200px;
       .slides-inner{
         display: flex;
         height: 100%;

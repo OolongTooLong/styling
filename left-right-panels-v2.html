@@ -11,11 +11,13 @@
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
+  <script src="https://kit.fontawesome.com/aeab489b0c.js" crossorigin="anonymous"></script>
 
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
   <link rel="stylesheet" href="css/main.css">
   <meta name="theme-color" content="#fafafa">
+
 <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>-->
 <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>-->
 <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>-->
@@ -58,6 +60,7 @@
       </nav>
     </div>
   </header>
+
   <div class="wrapper">
 
     <!-- HERO - ONE -->
@@ -123,7 +126,7 @@
     </div>
     <div class="left layer-6">
       <div id="share" class="pinAllMobile pinLeft random image-block" style="background: url(https://picsum.photos/600/800?random=3) center / cover;"></div>
-      <div class="rightTrigger"></div>
+      <div id="share-mobile-trigger"  class="rightTrigger"></div>
       <div class="quote-block quoteBlock">
         <div class="inner stack">
           <blockquote>SHARE YOU JUST GET TO YOUR NEXT CONVERSATION MORE QUICKLY. IT'S ABOUT GETTING MORE BITES AT THE APPLE</blockquote>
@@ -171,7 +174,7 @@
     </div>
     <div class="left layer-10">
       <div id="iterate" class="pinAllMobile pinLeft random image-block" style="background: url(https://picsum.photos/600/800?random=5) center / cover;"></div>
-      <div class="rightTrigger"></div>
+      <div class="rightTrigger bottom"></div>
       <div class="quote-block quoteBlock">
           <div class="inner stack">
             <blockquote>YOU JUST GET TO YOUR NEXT CONVERSATION MORE QUICKLY. IT'S ABOUT GETTING MORE BITES AT THE APPLE</blockquote>
@@ -184,7 +187,7 @@
     <!--  CASE STUDIES - SIX -->
     <div id="case-studies" class="breaker layer-11 bg-dark-main">
       <h2 class="h1 title-block outline bg-dark-main">CASE STUDIES</h2>
-      <div class="case-study-container">
+      <div class="inner-breaker case-study-container">
         <div id="slides-marker" class="slides-inner">
           <div id="slide-1" class="slide case-study">
             <a href="https://pix.online/case-studies/Baz-Luhrmann-Taking-Care-of-Business"></a>
@@ -192,7 +195,7 @@
               <div class="image" style="background: url(https://picsum.photos/600/800?random=6) center / cover;"></div>
             </div>
             <div class="inner-slide stack">
-              <h3>Baz Luhrmann, Taking Care of Business</h3>
+              <h3>ONE Baz Luhrmann, Taking Care of Business</h3>
               <p>Team collaboration with PIX creates a strong vision for new biopic, Elvis.</p>
               <button class="load-case-study">READ STORY</button>
             </div>
@@ -203,7 +206,7 @@
               <div class="image" style="background: url(https://picsum.photos/600/800?random=7) center / cover;"></div>
             </div>
             <div class="inner-slide stack">
-              <h3>The Harder They Fall Requires Careful Tonal Balance</h3>
+              <h3>TWO The Harder They Fall Requires Careful Tonal Balance</h3>
               <p>Stylized Western delivers kinetic power.</p>
               <button class="load-case-study">READ STORY</button>
             </div>
@@ -214,7 +217,7 @@
               <div class="image" style="background: url(https://picsum.photos/600/800?random=8) center / cover;"></div>
             </div>
             <div class="inner-slide stack">
-              <h3>The Gilded Age Recreates 1880s New York</h3>
+              <h3>THREE The Gilded Age Recreates 1880s New York</h3>
               <p>Period drama requires latest technologies to flourish.</p>
               <button class="load-case-study">READ STORY</button>
             </div>
@@ -225,20 +228,59 @@
               <div class="image" style="background: url(https://picsum.photos/600/800?random=9) center / cover;"></div>
             </div>
             <div class="inner-slide stack">
-              <h3>PIX helps take The Underground Railroad on an emotional journey</h3>
+              <h3>FOUR PIX helps take The Underground Railroad on an emotional journey</h3>
               <p>DP James Laxton and Producer/Director Barry Jenkins rely on their close bond.</p>
               <button class="load-case-study">READ STORY</button>
             </div>
           </div>
         </div>
-        <button class="slide-button" id="caseStudyNextButton">Next</button>
       </div>
+      <div id="slider-nav" style="">
+        <button class="slide-button" id="caseStudyNextButton">
+          <!--?xml version="1.0" encoding="UTF-8"?--><svg id="rightchevronSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325.72 463.51"><defs><style></style></defs><g id="Layer_1-2"><g><path class="right-chevron" d="M183.6,230.44L12.33,460.43,.38,444.69,159.91,230.44,0,15.74,11.99,0,183.6,230.44Z"></path><path class="right-chevron" d="M325.72,233.52l-171.28,229.99-11.95-15.74,159.54-214.25L142.12,18.82l11.99-15.74,171.61,230.44Z"></path></g></g></svg>
+        </button>
+        <ul id="progressBlock">
+          <li class="icons">
+            <div class="pause"></div>
+            <div class="play"></div>
+          </li>
+
+          <li id="navBlock-0" style="width:25%" class="nav-block active">
+            <span class="bg"></span>
+            <span class="bg-progress"></span>
+          </li>
+
+          <li id="navBlock-1" style="width:25%" class="nav-block active">
+            <span class="bg"></span>
+            <span class="bg-progress"></span>
+          </li>
+
+          <li id="navBlock-2" style="width:25%" class="nav-block active">
+            <span class="bg"></span>
+            <span class="bg-progress"></span>
+          </li>
+
+          <li id="navBlock-3" style="width:25%" class="nav-block active">
+            <span class="bg"></span>
+            <span class="bg-progress"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!--  ACADEMY - NINE -->
+    <div id="academy-mobile" class="pinAllMobile layer-14 panelAnimation singlePanelAnimation pinRight right icon-block bg-light-main">
+      <img src="https://pix.online/?action=asset&id=806f2471-4b76-485c-a9e5-d8195e959bd6">
+    </div>
+    <div class="left layer-15">
+      <div id="academy" class="pinAllMobile pinLeft image-block" style="background: url(https://picsum.photos/600/800?random=1) center / cover;"></div>
+      <div class="rightTrigger bottom"></div>
     </div>
 
     <!--  TESTIMONIALS - SEVEN -->
     <div id="testimonials" class="breaker layer-12 bg-dark-main">
       <h2 class="h1 title-block outline bg-dark-main">TESTIMONIALS</h2>
-      <div class="testimonials-container">
+      <div class="inner-breaker testimonials-container">
         <div class="slides-inner">
           <div class="slide testimonial bg-primary-main">
             <div class="inner">
@@ -269,6 +311,265 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!--  TRUSTED BY - TEN -->
+    <div id="trusted-mobile"  class="pinAllMobile panelAnimation singlePanelAnimation pinRight right text-block layer-16 bg-dark-main">
+      <div class="stack stack-extra-large stretch centreCentre">
+        <h2 class="h1 outline center">TRUSTED BY.</h2>
+      </div>
+    </div>
+    <div class="left layer-17">
+      <div id="trusted" class="pinAllMobile pinLeft icon-block bg-tertiary-main" style="">
+        <div class="tiles">
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ;">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4);">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=6); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=7); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=8); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=9); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=10); ;">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=11); ;">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=12); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=13); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=14); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=15); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=1); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=6); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=7); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=8); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=9); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=10); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=11); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=12); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=13); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=14); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=15); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=16); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=1); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4); ">
+
+              </div>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="image">
+              <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rightTrigger"></div>
       </div>
     </div>
 
@@ -395,275 +696,8 @@
       </div>
     </div>
 
-    <!--  ACADEMY - NINE -->
-    <div id="academy-mobile" class="pinAllMobile layer-14 panelAnimation pinRight right icon-block bg-light-main">
-      <img src="https://pix.online/?action=asset&id=806f2471-4b76-485c-a9e5-d8195e959bd6">
-    </div>
-    <div class="left layer-15">
-      <div id="academy" class="pinAllMobile pinLeft image-block" style="background: url(https://picsum.photos/600/800?random=1) center / cover;"></div>
-      <div class="rightTrigger"></div>
-    </div>
-
-    <!--  TRUSTED BY - TEN -->
-    <div class="pinAllMobile panelAnimation pinRight right text-block layer-16 bg-dark-main">
-      <div class="stack stack-extra-large stretch centreCentre">
-        <h2 class="h1 outline center">TRUSTED BY.</h2>
-      </div>
-    </div>
-    <div class="left layer-17">
-      <div id="trusted" class="pinAllMobile pinLeft icon-block bg-tertiary-main" style="">
-      <div class="tiles">
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ;">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4);">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=6); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=7); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=8); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=9); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=10); ;">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=11); ;">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=12); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=13); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=14); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=15); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=1); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=6); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=7); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=8); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=9); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=10); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=11); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=12); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=13); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=14); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=15); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=16); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=1); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=2); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=3); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=4); ">
-
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="image">
-            <div class="inner" style="background-image:url(https://picsum.photos/600/800?random=5); ">
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="rightTrigger"></div>
-    </div>
-    </div>
     <!--  CONTACT - ELEVEN -->
-    <div id="contact-mobile" class="pinAllMobile panelAnimation pinRight right text-block layer-17 bg-dark-main">
+    <div id="contact-mobile" class="pinAllMobile panelAnimation singlePanelAnimation pinRight right text-block layer-17 bg-dark-main">
       <div class="stack stack-extra-large stretch bottomLeft">
         <h2 class="h1 outline">LET'S TALK</h2>
         <p>PIX is here to help with any questions you might have. Or why not schedule a meeting with our Sales team to find out more how PIX can help you work and collaborate better. Let's make good work, great.</p>
@@ -677,6 +711,7 @@
   </div>
 
 </main>
+
 <footer class="grid-row bg-secondary-main pad-300">
   <div class="grid xx-wide">
     <div>
