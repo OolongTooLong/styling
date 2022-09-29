@@ -24,8 +24,10 @@
         a, p, h1, h2, h3, h4, h5, h6 {
           color: var(--#{$color}-invert);
         }
-        .outline{
+        .outline, &.outline, .outline > div > div{
           -webkit-text-stroke-color: var(--#{$color}-invert)!important;
+          color: transparent!important;
+          -webkit-text-stroke-width: 1px;
         }
         &.button:not(.master) {
           &.primary {

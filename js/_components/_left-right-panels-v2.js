@@ -7,6 +7,7 @@ let pixHomeSettings = (() => {
         caseStudySlider();
         testimonialSlider()
         menuHandler();
+        textTreatment();
       }
     });
   },
@@ -194,7 +195,6 @@ let pixHomeSettings = (() => {
 
     let wrap = gsap.utils.wrap(-100, (numSlides - 1) * 100);
     let timer = gsap.delayedCall(slideDelay, autoPlay);
-
     let animation = gsap.timeline({repeat:-1});
 
     animation.to(slides, {
@@ -252,6 +252,9 @@ let pixHomeSettings = (() => {
     });
     function onPressAnimation () {
       let currentIndex = animation.progress() * numSlides;
+      console.log('onPressAnimation' + navBlocks + ' ' + navBlocks[currentIndex]);
+      // allProgress[currentIndex].style.width = 0;
+      navBlocks[currentIndex].classList.remove('active');
       for (let i = 0; i < numSlides; i++) {
         if(i !== currentIndex){
           let slideContent = slides[i].querySelectorAll('.inner-slide');
@@ -262,9 +265,11 @@ let pixHomeSettings = (() => {
 
     function onThrowCompleteAnimation (){
       let currentIndex = animation.progress() * numSlides;
+      console.log(currentIndex);
       let slideContent = slides[currentIndex].querySelectorAll('.inner-slide');
       gsap.to(slideContent, { y: 0, opacity: 1, stagger: 0.2 })
       timer.restart(true);
+      updateNav(currentIndex);
     }
 
     window.addEventListener("resize", resize);
@@ -321,6 +326,8 @@ let pixHomeSettings = (() => {
           x: x,
           duration: slideDuration,
           onStart: () => {
+            updateNav(index);
+
             for (let i = 0; i < numSlides; i++) {
               if(i !== currentIndex){
                 let slideContent = slides[i].querySelectorAll('.inner-slide');
@@ -349,7 +356,8 @@ let pixHomeSettings = (() => {
         x: x,
         duration: slideDuration,
         onStart: () => {
-          gsap.set(slideContent, { y: 30, opacity: 0 })
+          gsap.set(slideContent, { y: 30, opacity: 0 });
+          updateNav(index);
         },
         onUpdate: () => {
           updateProgress()
@@ -362,15 +370,13 @@ let pixHomeSettings = (() => {
     function updateProgress() {
       // console.log(gsap.getProperty(proxy, "x") / -wrapWidth, "wrapped", progressWrap(gsap.getProperty(proxy, "x") / -wrapWidth))
       animation.progress(progressWrap(gsap.getProperty(proxy, "x") / -wrapWidth));
-
-      updateNav(),
-      // allProgress.removeClass('complete');
-      playButton.classList.add('hidden');
-      pauseButton.classList.remove('hidden');
     }
 
-    function updateNav(){
-      currentIndex = animation.progress() * numSlides;
+    function updateNav(currentIndex){
+      // currentIndex = animation.progress() * numSlides;
+      allProgress.removeClass('complete');
+      playButton.classList.add('hidden');
+      pauseButton.classList.remove('hidden');
       console.log('updateNav' + currentIndex);
       navBlocks.forEach((link, i) => {
         let progress = link.childNodes[3];
@@ -383,17 +389,17 @@ let pixHomeSettings = (() => {
           },{
             width: '100%',
             ease: "none",
-            duration: function (){
-              if(currentIndex === 0 && first ===1){
-                first = 0;
-                return slideDelay
-              }else{
-                return slideDelay-slideDuration
-              }
-            },
             // duration: function (){
+            //   if(currentIndex === 0 && first ===1){
+            //     first = 0;
             //     return slideDelay
+            //   }else{
+            //     return slideDelay-slideDuration
+            //   }
             // },
+            duration: function (){
+                return slideDelay
+            },
           },0);
         }else{
           link.classList.remove('active');
@@ -657,6 +663,48 @@ let pixHomeSettings = (() => {
       slideAnimation.progress(1);
     }
   }
+
+  textTreatment=()=>{
+    function kernText(){ // split text to target with styles
+      $(".kernText").each((i,e)=>{
+        // if(wordCount($(e).text()) < 5){
+        split = new SplitText(e, {
+          type: "chars, words",
+          reduceWhiteSpace:false,
+        });
+        split.chars.forEach(e=>{
+          $(e).attr("data-char",e.innerText);
+        });
+        // }
+      });
+    }
+
+    function orphanPreventor(){ // add non breaking space between the last words in text blocks
+      $('.orphanPrevent, .parentOrphanPrevent *').each(function(i,d) {
+        // larger sized fonts should skip treatment on shorter sentances and last words longer than 10 chars
+        if(d.tagName === 'H1' || d.tagName === 'H2' || d.tagName === 'H3'){
+          if(wordCount($(d).text()) > 3){ // if sentance length is longer than 3 words
+            let lastWord = $(d).text().split(" ").slice(-1);
+            if(lastWord[0].length < 10){ // if last word is shorter than 10 characters
+              $(d).html( $(d).text().replace(/\s(?=[^\s]*$)/g, "&nbsp;") );
+            }
+          }
+          // typically smaller sized fonts should all be treated
+        }else if(d.tagName === 'P' || d.tagName === 'H4' || d.tagName === 'H5' || d.tagName === 'H6' || d.tagName === 'H6' || d.tagName === 'BLOCKQUOTE'){
+          $(d).html( $(d).text().replace(/\s(?=[^\s]*$)/g, "&nbsp;") );
+        }
+
+      });
+    }
+
+    function wordCount(str) {
+      return str.split(" ").length;
+    }
+    kernText();
+    orphanPreventor();
+
+  }
+
   ;
   init();
   return {};

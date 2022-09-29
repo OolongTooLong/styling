@@ -200,11 +200,11 @@ html.no-js .pix-home{
         z-index: -1;
     }
   }
-  .outline{
-    -webkit-text-stroke-color: var(--dark-main);
-    color: transparent!important;
-    -webkit-text-stroke-width: 1px;
-  }
+  //.outline:not(.kernText), .outline > div > div{
+  //  -webkit-text-stroke-color: var(--dark-main);
+  //  color: transparent!important;
+  //  -webkit-text-stroke-width: 1px;
+  //}
   .text-block{
     height: 100vh;
     display: flex;

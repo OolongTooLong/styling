@@ -607,6 +607,7 @@ var pixHomeSettings = function () {
         caseStudySlider();
         testimonialSlider();
         menuHandler();
+        textTreatment();
       }
     });
   },
@@ -893,6 +894,9 @@ var pixHomeSettings = function () {
 
     function onPressAnimation() {
       var currentIndex = animation.progress() * numSlides;
+      console.log('onPressAnimation' + navBlocks + ' ' + navBlocks[currentIndex]); // allProgress[currentIndex].style.width = 0;
+
+      navBlocks[currentIndex].classList.remove('active');
 
       for (var i = 0; i < numSlides; i++) {
         if (i !== currentIndex) {
@@ -907,6 +911,7 @@ var pixHomeSettings = function () {
 
     function onThrowCompleteAnimation() {
       var currentIndex = animation.progress() * numSlides;
+      console.log(currentIndex);
       var slideContent = slides[currentIndex].querySelectorAll('.inner-slide');
       gsap.to(slideContent, {
         y: 0,
@@ -914,6 +919,7 @@ var pixHomeSettings = function () {
         stagger: 0.2
       });
       timer.restart(true);
+      updateNav(currentIndex);
     }
 
     window.addEventListener("resize", resize);
@@ -966,6 +972,8 @@ var pixHomeSettings = function () {
           x: x,
           duration: slideDuration,
           onStart: function onStart() {
+            updateNav(index);
+
             for (var i = 0; i < numSlides; i++) {
               if (i !== currentIndex) {
                 var _slideContent = slides[i].querySelectorAll('.inner-slide');
@@ -1004,6 +1012,7 @@ var pixHomeSettings = function () {
             y: 30,
             opacity: 0
           });
+          updateNav(index);
         },
         onUpdate: function onUpdate() {
           updateProgress();
@@ -1021,13 +1030,13 @@ var pixHomeSettings = function () {
     function updateProgress() {
       // console.log(gsap.getProperty(proxy, "x") / -wrapWidth, "wrapped", progressWrap(gsap.getProperty(proxy, "x") / -wrapWidth))
       animation.progress(progressWrap(gsap.getProperty(proxy, "x") / -wrapWidth));
-      updateNav(), // allProgress.removeClass('complete');
-      playButton.classList.add('hidden');
-      pauseButton.classList.remove('hidden');
     }
 
-    function updateNav() {
-      currentIndex = animation.progress() * numSlides;
+    function updateNav(currentIndex) {
+      // currentIndex = animation.progress() * numSlides;
+      allProgress.removeClass('complete');
+      playButton.classList.add('hidden');
+      pauseButton.classList.remove('hidden');
       console.log('updateNav' + currentIndex);
       navBlocks.forEach(function (link, i) {
         var progress = link.childNodes[3];
@@ -1041,17 +1050,17 @@ var pixHomeSettings = function () {
           }, {
             width: '100%',
             ease: "none",
-            duration: function duration() {
-              if (currentIndex === 0 && first === 1) {
-                first = 0;
-                return slideDelay;
-              } else {
-                return slideDelay - slideDuration;
-              }
-            } // duration: function (){
+            // duration: function (){
+            //   if(currentIndex === 0 && first ===1){
+            //     first = 0;
             //     return slideDelay
+            //   }else{
+            //     return slideDelay-slideDuration
+            //   }
             // },
-
+            duration: function duration() {
+              return slideDelay;
+            }
           }, 0);
         } else {
           link.classList.remove('active');
@@ -1300,6 +1309,50 @@ var pixHomeSettings = function () {
       animateSlides(0);
       slideAnimation.progress(1);
     }
+  };
+
+  textTreatment = function textTreatment() {
+    function kernText() {
+      // split text to target with styles
+      $(".kernText").each(function (i, e) {
+        // if(wordCount($(e).text()) < 5){
+        split = new SplitText(e, {
+          type: "chars, words",
+          reduceWhiteSpace: false
+        });
+        split.chars.forEach(function (e) {
+          $(e).attr("data-char", e.innerText);
+        }); // }
+      });
+    }
+
+    function orphanPreventor() {
+      // add non breaking space between the last words in text blocks
+      $('.orphanPrevent, .parentOrphanPrevent *').each(function (i, d) {
+        // larger sized fonts should skip treatment on shorter sentances and last words longer than 10 chars
+        if (d.tagName === 'H1' || d.tagName === 'H2' || d.tagName === 'H3') {
+          if (wordCount($(d).text()) > 3) {
+            // if sentance length is longer than 3 words
+            var lastWord = $(d).text().split(" ").slice(-1);
+
+            if (lastWord[0].length < 10) {
+              // if last word is shorter than 10 characters
+              $(d).html($(d).text().replace(/\s(?=[^\s]*$)/g, "&nbsp;"));
+            }
+          } // typically smaller sized fonts should all be treated
+
+        } else if (d.tagName === 'P' || d.tagName === 'H4' || d.tagName === 'H5' || d.tagName === 'H6' || d.tagName === 'H6' || d.tagName === 'BLOCKQUOTE') {
+          $(d).html($(d).text().replace(/\s(?=[^\s]*$)/g, "&nbsp;"));
+        }
+      });
+    }
+
+    function wordCount(str) {
+      return str.split(" ").length;
+    }
+
+    kernText();
+    orphanPreventor();
   };
 
   init();
